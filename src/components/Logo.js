@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   image: {
     width: 80,
     height: 80,
-    backgroundColor: 'transparent'
+    backgroundColor: 'rgba(52, 52, 52, 0.8)'
   },
   text: {
     color: 'white',
