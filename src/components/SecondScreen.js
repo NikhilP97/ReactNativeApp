@@ -53,8 +53,9 @@ export default class SecondScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Text> {this.nameVal} </Text>
-        <Text> {this.password} </Text>
+        <Text style={styles.textStyle}>Welcome {this.nameVal} !</Text>
+        <Text style={styles.textStyle}>Your password is '{this.password}' . Hmm...this shouldn't be here xD </Text>
+        <View style={styles.container}>
         <TouchableOpacity
           onPress={this._onPress}
           style={styles.button}
@@ -64,7 +65,7 @@ export default class SecondScreen extends Component {
         <Animated.View
           style={[styles.circle, {transform: [{scale: changeScale}]}]}
         />
-        
+        </View>
       </View>
     );
   }
@@ -73,9 +74,13 @@ export default class SecondScreen extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 20,
-    alignItems: 'flex-end',
     justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    margin: 20,
+    
+  },
+  textStyle: {
+    fontSize: 45,
   },
   button: {
     alignItems: 'center',
@@ -85,6 +90,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     zIndex: 99,
     backgroundColor: '#F035E0',
+
   },
   circle: {
     height: SIZE,
@@ -96,5 +102,6 @@ const styles = StyleSheet.create({
   image: {
     width: 24,
     height: 24,
+
   },
 });
