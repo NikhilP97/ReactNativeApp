@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   Animated,
   Easing,
+  Text,
 } from 'react-native';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
@@ -15,12 +16,14 @@ import arrowImg from '../images/left-arrow.png';
 const SIZE = 40;
 
 export default class SecondScreen extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       isLoading: false,
     };
+    this.nameVal = props.nameVal
+    this.password = props.password
 
     this._onPress = this._onPress.bind(this);
     this.growAnimated = new Animated.Value(0);
@@ -50,6 +53,8 @@ export default class SecondScreen extends Component {
 
     return (
       <View style={styles.container}>
+        <Text> {this.nameVal} </Text>
+        <Text> {this.password} </Text>
         <TouchableOpacity
           onPress={this._onPress}
           style={styles.button}
@@ -59,6 +64,7 @@ export default class SecondScreen extends Component {
         <Animated.View
           style={[styles.circle, {transform: [{scale: changeScale}]}]}
         />
+        
       </View>
     );
   }

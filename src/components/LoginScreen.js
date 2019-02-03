@@ -12,9 +12,10 @@ export default class LoginScreen extends Component {
       <Wallpaper>
         <Logo />
         <Form />
-        <SignupSection />
-        <ButtonSubmit />
+        
+        
       </Wallpaper>
     );
   }
 }
+

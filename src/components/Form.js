@@ -8,7 +8,8 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   Image,
-  TextInput
+  TextInput,
+  Text,
 } from 'react-native';
 import { Icon } from 'react-native-elements'
 import PasswordInputText from 'react-native-hide-show-password-input';
@@ -36,8 +37,9 @@ export default class Form extends Component {
 
   render() {
     let { nameVal } = this.state;
+    let {password} = this.state;
     return (
-      <KeyboardAvoidingView style={{margin: 20}}>
+      <KeyboardAvoidingView style={styles.container}>
 
         <TextField
         style={styles.textInput}
@@ -54,60 +56,34 @@ export default class Form extends Component {
             value={this.state.password}
             onChangeText={ (password) => this.setState({ password }) }
         />
+        <SignupSection />
+        <ButtonSubmit style={styles.loginButton} usernameVal={nameVal} passwordVal={password} />
+
+        
       </KeyboardAvoidingView>
     );
   }
 }
 
 
-
+// <Text style={styles.text}>Create Account</Text>
+        // <Text style={styles.text}>Forgot Password?</Text>
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
+  	
+    margin: 20,
   },
   textInput: {
-    
     height: 40,
-
   },
-  btnEye: {
-    position: 'absolute',
-    top: 55,
-    right: 28,
-    
+  loginButton: {
+  	position: 'absolute',
+  	top: 500,
   },
-  iconEyeOn: {
-    width: 25,
-    height: 25,
-    tintColor: 'rgba(0,0,0,0.2)',
-  },
-  getPadding: {
-    marginBottom: 15,
-  },
-  searchSection: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-},
-searchIcon: {
-    padding: 10,
-},
-input: {
-    flex: 1,
-    paddingTop: 10,
-    paddingRight: 10,
-    paddingBottom: 10,
-    paddingLeft: 0,
-    backgroundColor: '#fff',
-    color: '#424242',
-},
 });
 
 

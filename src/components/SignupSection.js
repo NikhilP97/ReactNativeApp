@@ -19,9 +19,9 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    top: 10,
-    width: DEVICE_WIDTH,
+    
+    
+    marginTop: 40,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
