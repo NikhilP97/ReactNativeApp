@@ -69,21 +69,20 @@ const options = {
     },
     terms: {
       label: 'Confirm registration',
-      error: 'tap this button =>'
+      error: 'tap this button =>',
     },
   },
   stylesheet: formStyles,
 };
 
-export default class App extends Component {
+export default class CreateAccountScreen extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
     console.log('value: ', value);
-    
 
     // Handle Error if any field is not filled
     if (value == null) {
-      console.log("i am null");
+      console.log('i am null');
       Alert.alert(
         'Field not filled',
         'Kindly fill the Fiels that are highlighted',
