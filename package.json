@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "nodemon": "^1.18.9",
     "prop-types": "^15.6.2",
     "react": "16.6.3",
@@ -28,5 +29,6 @@
   },
   "jest": {
     "preset": "react-native"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }

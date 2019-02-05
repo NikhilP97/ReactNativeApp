@@ -10,16 +10,19 @@ import {
 
 import t from 'tcomb-form-native';
 
+import axios from "axios";
+
+// Registration Form
 const Form = t.form.Form;
 
 const User = t.struct({
-  name: t.String,
+  nameVal: t.String,
   surname: t.String,
   branch: t.String,
   ucid: t.Number,
   password: t.String,
   email: t.String,
-  terms: t.Boolean,
+  confirm: t.Boolean,
 });
 
 const formStyles = {
@@ -48,7 +51,7 @@ const formStyles = {
 
 const options = {
   fields: {
-    name: {
+    nameVal: {
       error: 'name required',
     },
     surname: {
@@ -67,7 +70,7 @@ const options = {
     email: {
       error: 'enter a valid email address',
     },
-    terms: {
+    confirm: {
       label: 'Confirm registration',
       error: 'tap this button =>',
     },
@@ -75,7 +78,52 @@ const options = {
   stylesheet: formStyles,
 };
 
+
+
+  
+
+
+
+
 export default class CreateAccountScreen extends Component {
+
+  // GET and POST to DB
+// initialize our state 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      nameVal : 'AAA',
+      surname : 'AAA',
+      branch : 'AAA',
+      ucid : '1111',
+      password : 'AAA',
+      email : 'AAA',
+      confirm : true
+    }
+  }
+
+
+  //Send data to DB using Axios
+  putDataToDB = (userInfo) => {
+    console.log("userInfo : ", userInfo)
+    
+    const obj = {
+      nameVal : userInfo.nameVal,
+      surname : userInfo.surname,
+      branch : userInfo.branch,
+      ucid : userInfo.ucid,
+      password : userInfo.password,
+      email : userInfo.email,
+      confirm : true
+    };
+    axios.post('http://192.168.1.106:4000/business/add', obj)
+        .then(res => console.log(res.data)).catch(function (error) {
+          console.log(error);
+        });
+  };
+
+  // Function to handle the the SignUp button
   handleSubmit = () => {
     const value = this._form.getValue();
     console.log('value: ', value);
@@ -93,12 +141,21 @@ export default class CreateAccountScreen extends Component {
     }
 
     // Check if confirm button is pressed
-    if (value.terms) {
-      console.log('terms: ', value.terms);
+    if (value.confirm) {
+      console.log('confirm: ', value.confirm);
       if (value) {
         console.log(value);
+        //Put data in DB
+        this.putDataToDB(value)
         // clear all fields after submit
         this.clearForm();
+        //Registered Successfully
+        Alert.alert(
+        'Signed Up!',
+        'You have Registered Successfully',
+        [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+        { cancelable: false }
+      );
       }
     } else {
       Alert.alert(
