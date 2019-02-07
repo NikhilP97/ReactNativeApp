@@ -43,7 +43,7 @@ export default class ButtonSubmit extends Component {
 
   _onPress() {
     console.log("in on press");
-    Actions.secondScreen(this.sendData);
+    Actions.quizStartScreen();
   }
 
   _onGrow() {

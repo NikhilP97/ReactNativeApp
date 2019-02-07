@@ -4,6 +4,8 @@ import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import LoginScreen from './LoginScreen';
 import SecondScreen from './SecondScreen';
 import CreateAccountScreen from './CreateAccountScreen'
+import QuizStartScreen from './QuizStartScreen'
+import QuizQuestionScreen from './QuizQuestionScreen'
 
 export default class Main extends Component {
   render() {
@@ -26,6 +28,17 @@ export default class Main extends Component {
 	          animation='fade'
 	          hideNavBar={true}
 	        />
+	        <Scene key="quizStartScreen"
+	          component={QuizStartScreen}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="quizQuestionScreen"
+	          component={QuizQuestionScreen}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+
 	      </Scene>
 	    </Router>
 	  );
