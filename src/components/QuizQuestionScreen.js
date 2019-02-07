@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Link } from "react-router-native";
 import QuestionData from "./QuestionData";
+import axios from "axios";
 
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export default class QuizQuestionScreen extends React.Component {
     this.state = {
       loading: false,
       questions: [],
+      mLabQuestions: [],
 
       current: 0,
       correctScore: 5,
@@ -30,26 +32,37 @@ export default class QuizQuestionScreen extends React.Component {
     };
   }
 
+  // https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
   fetchQuestions = async () => {
     await this.setState({ loading: true });
+    // using mLab
     const response = await fetch(
-      `https://opentdb.com/api.php?amount=10&difficulty=medium`
+      `http://192.168.1.106:4000/business/`
     );
+    console.log("response", response);
     const questions = await response.json();
-
-    const { results } = questions;
+    console.log("questions", questions);
+    console.log("questions 0 ", questions[0].results);
+    const  results  = questions[0].results;
+    console.log("results", results);
 
     results.forEach(item => {
       item.id = Math.floor(Math.random() * 10000);
     });
 
-    await this.setState({ questions: results, loading: false });
+    console.log("results: ",results);
+
+    await this.setState({ questions: results, loading: false});
+
+    console.log("mLabQuestions again",this.state.mLabQuestions);
+
   };
 
   reset = () => {
     this.setState(
       {
         questions: [],
+        mLabQuestions: [],
         current: 0,
         results: {
           score: 0,
@@ -81,6 +94,7 @@ export default class QuizQuestionScreen extends React.Component {
   };
 
   componentDidMount() {
+
     this.fetchQuestions();
   }
 
