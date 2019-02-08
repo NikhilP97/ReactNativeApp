@@ -37,13 +37,13 @@ export default class QuizQuestionScreen extends React.Component {
     await this.setState({ loading: true });
     // using mLab
     const response = await fetch(
-      `http://192.168.1.106:4000/business/`
+      `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c5c77a6e7179a2ed61138aa`
     );
     console.log("response", response);
     const questions = await response.json();
     console.log("questions", questions);
-    console.log("questions 0 ", questions[0].results);
-    const  results  = questions[0].results;
+    console.log("questions 0 ", questions.results);
+    const  results  = questions.results;
     console.log("results", results);
 
     results.forEach(item => {
