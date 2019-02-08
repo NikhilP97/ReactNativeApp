@@ -38,21 +38,25 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 40,
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
+    borderRadius:20
   },
   buttonText: {
     fontSize: 18,
-    color: 'white',
+    color: '#0d87a1',
     alignSelf: 'center',
   },
   button: {
-    height: 22,
-    backgroundColor: '#01579B',
-    borderColor: '#01579B',
+    marginRight:40,
+    marginLeft:40,
+    marginTop:0,
+
+    height: 25,
+    borderColor: '#262626',
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: 25,
     marginBottom: 10,
-    alignSelf: 'stretch',
+    alignSelf: 'center',
     justifyContent: 'center',
   },
 });

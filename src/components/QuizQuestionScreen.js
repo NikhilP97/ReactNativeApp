@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router-native";
 import QuestionData from "./QuestionData";
 import axios from "axios";
+import BackgroundView from './BackgroundView'
 
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
@@ -100,6 +101,7 @@ export default class QuizQuestionScreen extends React.Component {
 
   render() {
     return (
+      <BackgroundView>
       <View style={styles.container}>
         {!!this.state.loading && (
           <View style={styles.loadingQuestions}>
@@ -138,6 +140,7 @@ export default class QuizQuestionScreen extends React.Component {
           )}
         </View>
       </View>
+      </BackgroundView>
     );
   }
 }

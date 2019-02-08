@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { RadioGroup, RadioButton } from "react-native-flexi-radio-button";
+import BackgroundView from './BackgroundView'
+
 
 export default class QuestionData extends React.Component {
   constructor() {
@@ -50,12 +52,13 @@ export default class QuestionData extends React.Component {
 
   render() {
     return (
+      <BackgroundView>
       <View style={{ flex: 1, padding: 12 }}>
         <Text style={{ fontSize: 16, color: "#666", textAlign: "right" }}>
           {this.props.current + 1} out of 10
         </Text>
 
-        <Text style={{ fontSize: 32, fontWeight: "bold", color: "#3498db" }}>
+        <Text style={{ fontSize: 32, fontWeight: "bold", color: "#0d87a1" }}>
           {this.props.question.question}
         </Text>
         <RadioGroup
@@ -67,17 +70,36 @@ export default class QuestionData extends React.Component {
 
         <Button
           title="Submit Answser"
+          style={styles.button}
           onPress={() => {
             this.props.onSelect(this.state.answer);
           }}
         />
       </View>
+      </BackgroundView>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
   radioText: {
-    fontSize: 20
-  }
+    fontSize: 20,
+    color: '#0d87a1'
+  },
+
+  button: {
+    marginRight:40,
+    marginLeft:40,
+    marginTop:0,
+    paddingTop:15,
+    paddingBottom:15,
+    backgroundColor:'#262626',
+    borderColor: '#0d87a1',
+    borderRadius:30,
+    borderWidth: 1,
+
+    
+    
+  },
 });

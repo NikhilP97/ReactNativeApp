@@ -16,7 +16,7 @@ export default class UserInput extends Component {
           autoCapitalize={this.props.autoCapitalize}
           returnKeyType={this.props.returnKeyType}
           placeholderTextColor="white"
-          underlineColorAndroid="transparent"
+          //underlineColorAndroid="transparent"
         />
       </View>
     );
@@ -37,13 +37,13 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   input: {
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    backgroundColor: '#0d87a1',
     width: DEVICE_WIDTH - 40,
     height: 40,
     marginHorizontal: 20,
     paddingLeft: 45,
     borderRadius: 20,
-    color: '#ffffff',
+    color: '#0d87a1',
   },
   inputWrapper: {
     flex: 1,

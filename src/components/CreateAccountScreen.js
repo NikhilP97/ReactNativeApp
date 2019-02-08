@@ -11,6 +11,7 @@ import {
 import t from 'tcomb-form-native';
 
 import axios from "axios";
+import BackgroundView from './BackgroundView'
 
 // Registration Form
 const Form = t.form.Form;
@@ -30,18 +31,19 @@ const formStyles = {
   formGroup: {
     normal: {
       marginBottom: 10,
+      color: '#0d87a1'
     },
   },
   controlLabel: {
     normal: {
-      color: '#0d47a1',
-      fontSize: 18,
+      color: '#0d87a1',
+      fontSize: 15,
       marginBottom: 7,
       fontWeight: '600',
     },
     // the style applied when a validation error occours
     error: {
-      color: 'red',
+      color: '#0d87a1',
       fontSize: 18,
       marginBottom: 7,
       fontWeight: '600',
@@ -182,6 +184,7 @@ export default class CreateAccountScreen extends Component {
 
   render() {
     return (
+      <BackgroundView>
       <View style={styles.container}>
         <Form ref={c => (this._form = c)} type={User} options={options} />
         <TouchableHighlight
@@ -191,6 +194,7 @@ export default class CreateAccountScreen extends Component {
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableHighlight>
       </View>
+      </BackgroundView>
     );
   }
 }
@@ -200,6 +204,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 50,
     padding: 20,
+    color: '#0d87a1'
     
   },
   buttonText: {
@@ -209,7 +214,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 36,
-    backgroundColor: '#48BBEC',
+    backgroundColor: '#262626',
     borderColor: '#48BBEC',
     borderWidth: 1,
     borderRadius: 8,

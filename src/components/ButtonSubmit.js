@@ -10,12 +10,14 @@ import {
   Image,
   Alert,
   View,
+  TouchableHighlight,
   Button
 } from 'react-native';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
 import spinner from '../images/loading.gif';
 import Form from './Form'
+//import BackgroundView from './BackgroundView'
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -70,13 +72,17 @@ export default class ButtonSubmit extends Component {
     };
 
     return (
+      
       <View style={styles.container}>
-          <TouchableOpacity style={styles.button}
-            onPress={this._onPress} >   
-          
-          <Text style={styles.text}>LOGoooofoo</Text>
-          </TouchableOpacity>
+        
+        <TouchableHighlight
+          style={styles.button}
+          onPress={this._onPress}
+          underlayColor="#f0f4f7">
+          <Text style={styles.buttonText}>Sign Up</Text>
+        </TouchableHighlight>
       </View>
+      
     );
   }
 }
@@ -87,30 +93,26 @@ const styles = StyleSheet.create({
     borderRadius:20,
     
   },
+  buttonText: {
+    fontSize: 18,
+    color: '#0d87a1',
+    alignSelf: 'center',
+  },
   button: {
     marginRight:40,
     marginLeft:40,
     marginTop:0,
     paddingTop:15,
     paddingBottom:15,
-    backgroundColor:'#841584',
+    backgroundColor:'#262626',
+    borderColor: '#0d87a1',
     borderRadius:30,
     borderWidth: 1,
 
     
     
   },
-  circle: {
-    height: MARGIN,
-    width: MARGIN,
-    marginTop: -MARGIN,
-    borderWidth: 1,
-    backgroundColor: 'transparent',
-    borderRadius: 100,
-    alignSelf: 'center',
-    
-    
-  },
+  
   text: {
     fontSize:20,
     color: 'white',

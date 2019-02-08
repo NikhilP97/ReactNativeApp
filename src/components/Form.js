@@ -22,6 +22,7 @@ import SignupSection from './SignupSection';
 import usernameImg from '../images/username.png';
 import passwordImg from '../images/password.png';
 import eyeImg from '../images/eye_black.png';
+//import BackgroundView from './BackgroundView'
 
 export default class Form extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ export default class Form extends Component {
     let { nameVal } = this.state;
     let {password} = this.state;
     return (
+      
       <KeyboardAvoidingView style={styles.container}>
 
         <TextField
@@ -61,6 +63,7 @@ export default class Form extends Component {
 
         
       </KeyboardAvoidingView>
+
     );
   }
 }
@@ -78,10 +81,12 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   textInput: {
+    color: '#0d87a1',
     height: 40,
   },
   loginButton: {
   	position: 'absolute',
+
   	top: 500,
   },
 });
@@ -101,7 +106,7 @@ const styles = StyleSheet.create({
         //   source={passwordImg}
         //   secureTextEntry={this.state.showPass}
         //   onPress={this.showEye}
-        //   placeholder="Password"
+        //   placeholder="Vidushi"
         //   returnKeyType={'done'}
         //   autoCapitalize={'none'}
         //   autoCorrect={false}

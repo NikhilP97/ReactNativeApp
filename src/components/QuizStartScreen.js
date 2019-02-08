@@ -11,6 +11,7 @@ import {
 import QuizQuestionScreen from "./QuizQuestionScreen";
 import Icon from 'react-native-ionicons';
 import {Actions, ActionConst} from 'react-native-router-flux';
+import BackgroundView from './BackgroundView'
 
 export default class QuizStartScreen extends React.Component {
 
@@ -23,13 +24,12 @@ export default class QuizStartScreen extends React.Component {
 
   render() {
     return (
+      <BackgroundView>
       <View style={styles.container}>
-        <Image
-          source={require("../assets/sss.jpg")}
-          style={{ width: 150, height: 150 }}
-        />
-        <Text style={styles.welcome}>Placement Predict</Text>
+        
+        
         <Text style={styles.paragraph}>
+        
           This test contains four sections with each section having equal weightage
         </Text>
         <TouchableOpacity style={styles.button} onPress={this._onPress} underlayColor="#f0f4f7">
@@ -38,7 +38,7 @@ export default class QuizStartScreen extends React.Component {
             <Text
               style={{
                 color: "white",
-                fontWeight: "bold",
+                
                 marginLeft: 10,
                 marginTop: 5
               }}
@@ -48,6 +48,7 @@ export default class QuizStartScreen extends React.Component {
           </View>
         </TouchableOpacity>
       </View>
+      </BackgroundView>
     );
   }
 }
@@ -55,33 +56,27 @@ export default class QuizStartScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#262626",
+
     alignItems: "center",
-    justifyContent: "center"
+    
   },
 
-  welcome: {
-
-    marginTop: 15,
-    fontSize: 22,
-    fontWeight: "bold",
-    backgroundColor: "#262626",
-    color: "white",
-    padding: 10
-  },
-
+  
   button: {
-    backgroundColor: "#3498db",
+    marginTop: 220,
+    backgroundColor: "#0d87a1",
     padding: 10,
     borderRadius: 10
+    
   },
 
   paragraph: {
+    marginTop: 40,
     fontSize: 16,
     color: "#32CD32",
     textAlign: "center",
     padding: 10,
-    marginTop: 15,
+  
     lineHeight: 25
   }
 });
