@@ -117,7 +117,7 @@ export default class CreateAccountScreen extends Component {
       email : userInfo.email,
       confirm : true
     };
-    axios.post('http://192.168.1.106:4000/business/add', obj)
+    axios.post('https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/', obj)
         .then(res => console.log(res.data)).catch(function (error) {
           console.log(error);
         });
