@@ -74,7 +74,7 @@ export default class ButtonSubmit extends Component {
           <TouchableOpacity style={styles.button}
             onPress={this._onPress} >   
           
-          <Text style={styles.text}>LOGIN</Text>
+          <Text style={styles.text}>LOGoooofoo</Text>
           </TouchableOpacity>
       </View>
     );
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#841584',
     borderRadius:30,
     borderWidth: 1,
+
     
     
   },
@@ -104,11 +105,11 @@ const styles = StyleSheet.create({
     width: MARGIN,
     marginTop: -MARGIN,
     borderWidth: 1,
-    borderColor: '#F035E0',
+    backgroundColor: 'transparent',
     borderRadius: 100,
     alignSelf: 'center',
     
-    backgroundColor: '#FF0000',
+    
   },
   text: {
     fontSize:20,

@@ -25,14 +25,12 @@ export default class QuizStartScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Image
-          source={require("../assets/logo.png")}
-          style={{ width: 200, height: 85 }}
+          source={require("../assets/sss.jpg")}
+          style={{ width: 150, height: 150 }}
         />
-        <Text style={styles.welcome}>YOUR ALL FAVORITE QUIZ APP</Text>
+        <Text style={styles.welcome}>Placement Predict</Text>
         <Text style={styles.paragraph}>
-          eQuiz fetches 10 questions from an open API and asks you question one
-          by one. You've to answer all the qeustions to understand your IQ
-          level.
+          This test contains four sections with each section having equal weightage
         </Text>
         <TouchableOpacity style={styles.button} onPress={this._onPress} underlayColor="#f0f4f7">
           <View style={{ display: "flex", flexDirection: "row" }}>
@@ -45,7 +43,7 @@ export default class QuizStartScreen extends React.Component {
                 marginTop: 5
               }}
             >
-              Start QuizQuestionScreen
+              Start Test
             </Text>
           </View>
         </TouchableOpacity>
@@ -57,15 +55,17 @@ export default class QuizStartScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#262626",
     alignItems: "center",
     justifyContent: "center"
   },
 
   welcome: {
+
+    marginTop: 15,
     fontSize: 22,
     fontWeight: "bold",
-    backgroundColor: "#3498db",
+    backgroundColor: "#262626",
     color: "white",
     padding: 10
   },
@@ -78,10 +78,16 @@ const styles = StyleSheet.create({
 
   paragraph: {
     fontSize: 16,
-    color: "#777",
+    color: "#32CD32",
     textAlign: "center",
     padding: 10,
     marginTop: 15,
     lineHeight: 25
   }
 });
+
+
+
+
+
+        
