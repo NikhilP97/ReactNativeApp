@@ -5,7 +5,8 @@ import {
   ActivityIndicator,
   StyleSheet,
   Picker,
-  Button
+  Button,
+  TouchableHighlight
 } from "react-native";
 import { Link } from "react-router-native";
 import QuestionData from "./QuestionData";
@@ -22,8 +23,8 @@ export default class QuizQuestionScreen extends React.Component {
       mLabQuestions: [],
 
       current: 0,
-      correctScore: 5,
-      totalScore: 50,
+      correctScore: 4,
+      totalScore: 100,
 
       results: {
         score: 0,
@@ -82,7 +83,7 @@ export default class QuizQuestionScreen extends React.Component {
     const isCorrect = question.correct_answer === answer;
     const results = { ...this.state.results };
 
-    results.score = isCorrect ? results.score + 5 : results.score;
+    results.score = isCorrect ? results.score + 4 : results.score;
     results.correctAnswers = isCorrect
       ? results.correctAnswers + 1
       : results.correctAnswers;
@@ -90,8 +91,10 @@ export default class QuizQuestionScreen extends React.Component {
     this.setState({
       current: index + 1,
       results,
-      completed: index === 9 ? true : false
+      completed: index === 24 ? true : false
+
     });
+    console.log("INDEX IS ",index);
   };
 
   componentDidMount() {
@@ -127,15 +130,29 @@ export default class QuizQuestionScreen extends React.Component {
         >
           {this.state.completed === true && (
             <View style={{ alignItems: "center" }}>
-              <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
+              <Text style={{ fontSize: 25,color: '#0d87a1' }}>Quiz Completed</Text>
               <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
               <Text>
-                Incorrect Answers: {10 - this.state.results.correctAnswers}
+                Incorrect Answers: {20 - this.state.results.correctAnswers}
               </Text>
-              <Text>Total Score: {50}</Text>
+              <Text>Total Score: {100}</Text>
               <Text>Obtained Score: {this.state.results.score}</Text>
 
-              <Button title="Restart Quiz" onPress={this.reset} />
+              
+
+
+
+              <TouchableHighlight
+            style={styles.button}
+            onPress={this.reset}
+           underlayColor="#f0f4f7">
+            <Text style={styles.buttonText}>Restart Quiz</Text>
+          </TouchableHighlight>
+
+
+
+
+
             </View>
           )}
         </View>
@@ -154,6 +171,31 @@ const styles = StyleSheet.create({
   loadingQuestions: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+
+  },
+
+  buttonText: {
+    fontSize: 18,
+    marginRight:40,
+    marginLeft:40,
+    color: '#0d87a1',
+    alignSelf: 'center',
+  },
+  button: {
+    marginRight:40,
+    marginLeft:40,
+    marginTop:60,
+    paddingTop:15,
+    paddingBottom:15,
+    backgroundColor:'#262626',
+    borderColor: '#0d87a1',
+    borderRadius:30,
+    borderWidth: 1,
+
+    
+    
   }
+
+
 });

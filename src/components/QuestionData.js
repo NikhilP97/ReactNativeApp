@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableHighlight } from "react-native";
 import { RadioGroup, RadioButton } from "react-native-flexi-radio-button";
-import BackgroundView from './BackgroundView'
+//import BackgroundView from './BackgroundView'
 
 
 export default class QuestionData extends React.Component {
@@ -52,13 +52,13 @@ export default class QuestionData extends React.Component {
 
   render() {
     return (
-      <BackgroundView>
+      
       <View style={{ flex: 1, padding: 12 }}>
-        <Text style={{ fontSize: 16, color: "#666", textAlign: "right" }}>
-          {this.props.current + 1} out of 10
+        <Text style={{ fontSize: 16, color: "#d4d4dc", textAlign: "right" }}>
+          {this.props.current + 1} out of 25
         </Text>
 
-        <Text style={{ fontSize: 32, fontWeight: "bold", color: "#0d87a1" }}>
+        <Text style={{ fontSize: 27, fontWeight: "bold", color: "#0d87a1" }}>
           {this.props.question.question}
         </Text>
         <RadioGroup
@@ -68,15 +68,28 @@ export default class QuestionData extends React.Component {
           {this.renderOptions(this.props.question)}
         </RadioGroup>
 
-        <Button
-          title="Submit Answser"
+       
+          
+
+          <TouchableHighlight
           style={styles.button}
           onPress={() => {
             this.props.onSelect(this.state.answer);
           }}
-        />
+          underlayColor="#f0f4f7">
+          <Text style={styles.buttonText}>Submit Answer</Text>
+        </TouchableHighlight>
+
+
+
+          
+          
+        
+        
+
+
       </View>
-      </BackgroundView>
+     
 
     );
   }
@@ -85,13 +98,19 @@ export default class QuestionData extends React.Component {
 const styles = StyleSheet.create({
   radioText: {
     fontSize: 20,
+    
     color: '#0d87a1'
   },
 
+  buttonText: {
+    fontSize: 18,
+    color: '#0d87a1',
+    alignSelf: 'center',
+  },
   button: {
     marginRight:40,
     marginLeft:40,
-    marginTop:0,
+    marginTop:20,
     paddingTop:15,
     paddingBottom:15,
     backgroundColor:'#262626',
@@ -101,5 +120,12 @@ const styles = StyleSheet.create({
 
     
     
-  },
-});
+  }
+
+  
+
+  
+
+    
+    
+  });
