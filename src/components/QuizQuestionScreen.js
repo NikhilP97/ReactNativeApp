@@ -4,12 +4,12 @@ import {
   Text,
   ActivityIndicator,
   StyleSheet,
-  Picker,
   Button
 } from "react-native";
-import { Link } from "react-router-native";
 import QuestionData from "./QuestionData";
-import axios from "axios";
+import BackgroundView from './BackgroundView'
+// import { RadioGroup, RadioButton } from "react-native-flexi-radio-button";
+import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
@@ -17,12 +17,14 @@ export default class QuizQuestionScreen extends React.Component {
 
     this.state = {
       loading: false,
-      questions: [],
-      mLabQuestions: [],
-
-      current: 0,
+      questionsArray: [],
+      clearSelection: null,
+      currentQuesNum: 0,
       correctScore: 5,
       totalScore: 50,
+      getSelectedValue:'',
+      getIndex: -1,
+      radio_props : [],
 
       results: {
         score: 0,
@@ -39,31 +41,36 @@ export default class QuizQuestionScreen extends React.Component {
     const response = await fetch(
       `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c5c77a6e7179a2ed61138aa`
     );
-    console.log("response", response);
-    const questions = await response.json();
-    console.log("questions", questions);
-    console.log("questions 0 ", questions.results);
-    const  results  = questions.results;
-    console.log("results", results);
+    // console.log("response", response);
+    const getQuestions = await response.json();
+    // console.log("getQuestions 0 ", getQuestions.results);
+    const  setQuestionArray  = getQuestions.results;
+    // console.log("results", results);
 
-    results.forEach(item => {
+    setQuestionArray.forEach(item => {
       item.id = Math.floor(Math.random() * 10000);
     });
 
-    console.log("results: ",results);
+    console.log(" Questions Array: ",setQuestionArray);
 
-    await this.setState({ questions: results, loading: false});
+    await this.setState({ questionsArray: setQuestionArray, loading: false});
 
-    console.log("mLabQuestions again",this.state.mLabQuestions);
+    // get first question
+    this.setState({radio_props: [
+      {label: this.state.questionsArray[this.state.currentQuesNum].correct_answer, value:this.state.questionsArray[this.state.currentQuesNum].correct_answer},
+      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0]},
+      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1]},
+      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2]},
+      ]})
+
 
   };
 
   reset = () => {
     this.setState(
       {
-        questions: [],
-        mLabQuestions: [],
-        current: 0,
+        questionsArray: [],
+        currentQuesNum: 0,
         results: {
           score: 0,
           correctAnswers: 0
@@ -76,30 +83,67 @@ export default class QuizQuestionScreen extends React.Component {
     );
   };
 
-  submitAnswer = (index, answer) => {
-    const question = this.state.questions[index];
-    const isCorrect = question.correct_answer === answer;
-    const results = { ...this.state.results };
 
+
+  componentDidMount() {
+    this.fetchQuestions();
+  }
+
+
+  onSelect = ( value, quesNum) => {
+    // set state of value selected
+    this.setState({getSelectedValue: value}, function () {
+      console.log("selected value: ", this.state.getSelectedValue)
+    });
+  }
+
+  getNextQuestion = () => {
+    
+    // Update score before fetching next value
+    const question = this.state.questionsArray[this.state.currentQuesNum];
+    const isCorrect = question.correct_answer === this.state.getSelectedValue;
+    console.log("isCorrect", isCorrect);
+    
+    const results = { ...this.state.results };
     results.score = isCorrect ? results.score + 5 : results.score;
     results.correctAnswers = isCorrect
       ? results.correctAnswers + 1
       : results.correctAnswers;
 
-    this.setState({
-      current: index + 1,
-      results,
-      completed: index === 9 ? true : false
+    this.setState({results});
+    console.log("updated results:", results)
+
+    var index = this.state.currentQuesNum + 1;
+
+    //get next question
+    this.setState({currentQuesNum: index}, function () {
+      this.setState({radio_props: [
+      {label: this.state.questionsArray[this.state.currentQuesNum].correct_answer, value:this.state.questionsArray[this.state.currentQuesNum].correct_answer},
+      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0]},
+      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1]},
+      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2]},
+      ]})
     });
-  };
 
-  componentDidMount() {
+    //check if quiz complted
+    console.log("question no : ", this.state.currentQuesNum)
+    this.setState({
+      completed: this.state.currentQuesNum === 9 ? true : false
+    });
 
-    this.fetchQuestions();
+    console.log("updated radio_props ", this.state.radio_props)
+    
   }
 
+
+
+  
+
   render() {
+
+    console.log()
     return (
+      <BackgroundView>
       <View style={styles.container}>
         {!!this.state.loading && (
           <View style={styles.loadingQuestions}>
@@ -108,16 +152,38 @@ export default class QuizQuestionScreen extends React.Component {
           </View>
         )}
 
-        {!!this.state.questions.length > 0 &&
+        {!!this.state.questionsArray.length > 0 &&
           this.state.completed === false && (
-            <QuestionData
-              onSelect={answer => {
-                this.submitAnswer(this.state.current, answer);
-              }}
-              question={this.state.questions[this.state.current]}
-              correctPosition={Math.floor(Math.random() * 3)}
-              current={this.state.current}
-            />
+            <View style={styles.container}>
+              
+              <Text style={{ fontSize: 16, color: "#666", textAlign: "right" }}>
+                {this.state.currentQuesNum + 1} out of 10
+              </Text>
+
+              <Text style={{ fontSize: 32, fontWeight: "bold", color: "#0d87a1" }}>
+                {this.state.questionsArray[this.state.currentQuesNum].question}
+              </Text>
+
+              <RadioForm
+                radio_props={this.state.radio_props}
+                initial={-1}
+                formHorizontal={false}
+                labelHorizontal={true}
+                buttonColor={'#50C900'} //default color on loading
+                labelColor={'#ffffff'} // default label color on loading
+                selectedButtonColor={'#F012BE'} // onClick color on loading
+                selectedLabelColor={'#ffffff'} // onClick label color on loading
+                
+                animation={true}
+                onPress={(value) => {this.onSelect(value, this.state.currentQuesNum)}}
+              />
+
+              <Button
+                title="Submit Answser"
+                onPress={this.getNextQuestion}
+              />
+              
+            </View>
           )}
 
         <View
@@ -138,6 +204,7 @@ export default class QuizQuestionScreen extends React.Component {
           )}
         </View>
       </View>
+      </BackgroundView>
     );
   }
 }
@@ -154,3 +221,98 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+
+// Comments Do not delete this under any cirCUMstnace
+
+
+              // <RadioGroup
+
+              //   selectedIndex={this.state.clearSelection}
+              //   onSelect = {(index, value) => this.onSelect(index, value, this.state.currentQuesNum,)}
+              // >
+              //   <RadioButton value={this.state.questionsArray[this.state.currentQuesNum].correct_answer} >
+              //     <Text>{this.state.questionsArray[this.state.currentQuesNum].correct_answer}</Text>
+              //   </RadioButton>
+         
+              //   <RadioButton value={this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0]}>
+              //     <Text>{this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0]}</Text>
+              //   </RadioButton>
+         
+              //   <RadioButton value={this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1]}>
+              //     <Text>{this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1]}</Text>
+              //   </RadioButton>
+
+              //   <RadioButton value={this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2]}>
+              //     <Text>{this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2]}</Text>
+              //   </RadioButton>
+
+              // </RadioGroup>
+
+
+
+              
+
+
+
+
+
+              // <RadioForm
+              //   radio_props={this.state.radio_props} 
+              //   initial={-1}
+              //   onPress={(value) => {this.onSelect(value, this.state.currentQuesNum)}}
+              //   formHorizontal={false}
+              //   labelHorizontal={true}
+              //   animation={true}
+              //   >
+              // {this.state.radio_props.map((obj, i) => {
+              //   var onPress = (value, index) => {
+              //       this.setState({
+              //         getSelectedValue: value,
+              //         getIndex: index
+              //       })
+              //     }
+              //   return (
+              //     <RadioButton selectedButtonColor={'#ffffff'} labelColor={'#ffffff'} labelHorizontal={true} key={i} >
+              //       {/*  You can set RadioButtonLabel before RadioButtonInput */}
+              //       <RadioButtonInput
+              //         obj={obj}
+              //         index={i}
+              //         isSelected={this.state.getIndex === i}
+              //         onPress={(value) => {this.onSelect(value, this.state.currentQuesNum)}}
+              //         buttonInnerColor={'#f39c12'}
+              //         buttonOuterColor={this.state.value3Index === i ? '#2196f3' : '#000'}
+              //         buttonSize={30}
+              //         buttonStyle={{}}
+              //         buttonWrapStyle={{marginLeft: 10}}
+              //       />
+              //       <RadioButtonLabel
+              //         obj={obj}
+              //         index={i}
+              //         onPress={(value) => {this.onSelect(value, this.state.currentQuesNum)}}
+              //         labelStyle={{fontWeight: 'bold', color: '#2ecc71'}}
+              //         labelWrapStyle={{}}
+              //       />
+              //     </RadioButton>
+              //     )
+              //   })}
+              // </RadioForm>
+
+
+
+                // submitAnswer = (index, answer) => {
+                //   const question = this.state.questionsArray[index];
+                //   const isCorrect = question.correct_answer === answer;
+                //   const results = { ...this.state.results };
+
+                //   results.score = isCorrect ? results.score + 5 : results.score;
+                //   results.correctAnswers = isCorrect
+                //     ? results.correctAnswers + 1
+                //     : results.correctAnswers;
+
+                //   this.setState({
+                //     currentQuesNum: index + 1,
+                //     results,
+                //     completed: index === 9 ? true : false
+                //   });
+                // };
