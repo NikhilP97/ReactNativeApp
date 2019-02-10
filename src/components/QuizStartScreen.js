@@ -30,7 +30,7 @@ export default class QuizStartScreen extends React.Component {
         
         <Text style={styles.paragraph}>
         
-          This test contains four sections with each section having equal weightage
+          This test contains five sections with each section having equal weightage
         </Text>
         <TouchableOpacity style={styles.button} onPress={this._onPress} underlayColor="#f0f4f7">
           <View style={{ display: "flex", flexDirection: "row" }}>
@@ -80,9 +80,3 @@ const styles = StyleSheet.create({
     lineHeight: 25
   }
 });
-
-
-
-
-
-        
