@@ -100,6 +100,23 @@ export default class QuizQuestionScreen extends React.Component {
     });
   }
 
+  //Randomize given array
+  randomize( array ) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+  } 
+
+
   getNextQuestion = () => {
     
     // Update score before fetching next value
@@ -115,20 +132,36 @@ export default class QuizQuestionScreen extends React.Component {
       : results.correctAnswers;
 
     this.setState({results});
-    console.log("updated results:", results)
+    console.log("updated results:", results);
 
     var index = this.state.currentQuesNum + 1;
     var section_index = this.state.currentQuesNum + 5;
 
     //get next question
     this.setState({currentQuesNum: index}, function () {
+
+      //Randomize answers
+      var storedQuestions = [];
+      storedQuestions[0] = this.state.questionsArray[this.state.currentQuesNum].correct_answer;
+      storedQuestions[1] = this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0];
+      storedQuestions[2] = this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1];
+      storedQuestions[3] = this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2];
+      console.log("storedQuestions: ", storedQuestions);
+
+      var randomArray = [];
+      randomArray = this.randomize(storedQuestions);
+      console.log("randomized: ", randomArray);
+
       this.setState({radio_props: [
-      {label: this.state.questionsArray[this.state.currentQuesNum].correct_answer, value:this.state.questionsArray[this.state.currentQuesNum].correct_answer},
-      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0]},
-      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1]},
-      {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2]},
+      {label: randomArray[0], value: randomArray[0]},
+      {label: randomArray[1], value: randomArray[1]},
+      {label: randomArray[2], value: randomArray[2]},
+      {label: randomArray[3], value: randomArray[3]},
       ]})
     });
+
+    //send alert for next section
+    this.Nested_If_Else()
 
     //check if quiz complted
     console.log("question no : ", this.state.currentQuesNum)
@@ -141,48 +174,30 @@ export default class QuizQuestionScreen extends React.Component {
   }
 
   Nested_If_Else=()=>{
- 
-    if( this.state.currentQuesNum == 5  )
-    {
- 
+    if( this.state.currentQuesNum == 5  ){
       Alert.alert("Section 2.");
- 
     }
-    else if(this.state.currentQuesNum == 10  )
-    {
- 
+    else if(this.state.currentQuesNum == 10  ){
       Alert.alert("Section 3.")
- 
     }
-    else if(this.state.currentQuesNum == 15  )
-    {
- 
+    else if(this.state.currentQuesNum == 15  ){
       Alert.alert("Section 4.")
- 
     }
-
-    else if(this.state.currentQuesNum == 20  )
-    {
- 
+    else if(this.state.currentQuesNum == 20  ){
       Alert.alert("Section 5.")
- 
-    }
-    
+    }  
   }
  
 
 
 
-  
-
   render() {
 
-    console.log()
     return (
       <BackgroundView>
-      {this.Nested_If_Else()}   
+         
       <View style={styles.container}>
-        {!!this.state.loading && (
+        {!!this.state.loading && ( 
           <View style={styles.loadingQuestions}>
             <ActivityIndicator size="large" color="#00ff00" />
             <Text>Please wait while we are loading questions for you</Text>
@@ -193,13 +208,11 @@ export default class QuizQuestionScreen extends React.Component {
           this.state.completed === false && (
             <View style={styles.container}>
               
-              <Text style={{ fontSize: 16, color: "#666", textAlign: "right" }}>
+              <Text style={{ fontSize: 16, color: "#d8ab4e", textAlign: "right" }}>
                 {this.state.currentQuesNum + 1} out of 25
               </Text>
 
-              
-
-              <Text style={{ fontSize: 32, fontWeight: "bold", color: "#0d87a1" }}>
+              <Text style={{ fontSize: 22, fontWeight: "bold", color: "#0d87a1", marginBottom: 20 }}>
                 {this.state.questionsArray[this.state.currentQuesNum].question}
               </Text>
 
@@ -208,34 +221,23 @@ export default class QuizQuestionScreen extends React.Component {
                 initial={-1}
                 formHorizontal={false}
                 labelHorizontal={true}
-                buttonColor={'#50C900'} //default color on loading
+                buttonColor={'#eaeaea'} //default color on loading
                 labelColor={'#ffffff'} // default label color on loading
-                selectedButtonColor={'#F012BE'} // onClick color on loading
+                selectedButtonColor={'#7dce94'} // onClick color on loading
                 selectedLabelColor={'#ffffff'} // onClick label color on loading
-                
+                labelStyle={{fontSize: 18, color: '#ffffff'}}
+                buttonWrapStyle={{marginBottom: 100}}
                 animation={true}
                 onPress={(value) => {this.onSelect(value, this.state.currentQuesNum)}}
               />
 
-              
-
-
-                <TouchableHighlight
-              style={styles.button}
-              onPress={this.getNextQuestion}
-               underlayColor="#f0f4f7">
-              <Text style={styles.buttonText}>Submit Answer</Text>
+              <TouchableHighlight
+                style={styles.button}
+                onPress={this.getNextQuestion}
+                underlayColor="#f0f4f7">
+                  <Text style={styles.buttonText}>Submit Answer</Text>
               </TouchableHighlight>
-
-
-
-
-
-
-
-
-
-              
+   
             </View>
           )}
 
@@ -257,8 +259,8 @@ export default class QuizQuestionScreen extends React.Component {
           <TouchableHighlight
             style={styles.button}
             onPress={this.reset}
-           underlayColor="#f0f4f7">
-            <Text style={styles.buttonText}>Restart Quiz</Text>
+            underlayColor="#f0f4f7">
+              <Text style={styles.buttonText}>Restart Quiz</Text>
           </TouchableHighlight>
 
 
@@ -288,22 +290,20 @@ const styles = StyleSheet.create({
   },
 
 buttonText: {
-    fontSize: 18,
-    marginRight:40,
-    marginLeft:40,
+    fontSize: 20,
     color: '#0d87a1',
     alignSelf: 'center',
   },
   button: {
-    marginRight:40,
-    marginLeft:40,
+    marginRight:120,
+    marginLeft:120,
     marginTop:60,
-    paddingTop:15,
-    paddingBottom:15,
+    paddingTop:10,
+    paddingBottom:10,
     backgroundColor:'#262626',
     borderColor: '#0d87a1',
     borderRadius:30,
-    borderWidth: 1,
+    borderWidth: 3,
 
     
     
