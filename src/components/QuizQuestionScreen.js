@@ -4,9 +4,11 @@ import {
   Text,
   ActivityIndicator,
   StyleSheet,
-  Button
+  Button,
+  Alert,
+  TouchableHighlight
 } from "react-native";
-import QuestionData from "./QuestionData";
+
 import BackgroundView from './BackgroundView'
 // import { RadioGroup, RadioButton } from "react-native-flexi-radio-button";
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
@@ -20,8 +22,9 @@ export default class QuizQuestionScreen extends React.Component {
       questionsArray: [],
       clearSelection: null,
       currentQuesNum: 0,
-      correctScore: 5,
-      totalScore: 50,
+      section:0,
+      correctScore: 4,
+      totalScore: 100,
       getSelectedValue:'',
       getIndex: -1,
       radio_props : [],
@@ -101,11 +104,12 @@ export default class QuizQuestionScreen extends React.Component {
     
     // Update score before fetching next value
     const question = this.state.questionsArray[this.state.currentQuesNum];
+    //const section = this.state.currentQuesNum;
     const isCorrect = question.correct_answer === this.state.getSelectedValue;
     console.log("isCorrect", isCorrect);
     
     const results = { ...this.state.results };
-    results.score = isCorrect ? results.score + 5 : results.score;
+    results.score = isCorrect ? results.score + 4 : results.score;
     results.correctAnswers = isCorrect
       ? results.correctAnswers + 1
       : results.correctAnswers;
@@ -114,6 +118,7 @@ export default class QuizQuestionScreen extends React.Component {
     console.log("updated results:", results)
 
     var index = this.state.currentQuesNum + 1;
+    var section_index = this.state.currentQuesNum + 5;
 
     //get next question
     this.setState({currentQuesNum: index}, function () {
@@ -128,12 +133,43 @@ export default class QuizQuestionScreen extends React.Component {
     //check if quiz complted
     console.log("question no : ", this.state.currentQuesNum)
     this.setState({
-      completed: this.state.currentQuesNum === 9 ? true : false
+      completed: this.state.currentQuesNum === 24 ? true : false
     });
 
     console.log("updated radio_props ", this.state.radio_props)
     
   }
+
+  Nested_If_Else=()=>{
+ 
+    if( this.state.currentQuesNum == 5  )
+    {
+ 
+      Alert.alert("Section 2.");
+ 
+    }
+    else if(this.state.currentQuesNum == 10  )
+    {
+ 
+      Alert.alert("Section 3.")
+ 
+    }
+    else if(this.state.currentQuesNum == 15  )
+    {
+ 
+      Alert.alert("Section 4.")
+ 
+    }
+
+    else if(this.state.currentQuesNum == 20  )
+    {
+ 
+      Alert.alert("Section 5.")
+ 
+    }
+    
+  }
+ 
 
 
 
@@ -144,6 +180,7 @@ export default class QuizQuestionScreen extends React.Component {
     console.log()
     return (
       <BackgroundView>
+      {this.Nested_If_Else()}   
       <View style={styles.container}>
         {!!this.state.loading && (
           <View style={styles.loadingQuestions}>
@@ -157,8 +194,10 @@ export default class QuizQuestionScreen extends React.Component {
             <View style={styles.container}>
               
               <Text style={{ fontSize: 16, color: "#666", textAlign: "right" }}>
-                {this.state.currentQuesNum + 1} out of 10
+                {this.state.currentQuesNum + 1} out of 25
               </Text>
+
+              
 
               <Text style={{ fontSize: 32, fontWeight: "bold", color: "#0d87a1" }}>
                 {this.state.questionsArray[this.state.currentQuesNum].question}
@@ -178,10 +217,24 @@ export default class QuizQuestionScreen extends React.Component {
                 onPress={(value) => {this.onSelect(value, this.state.currentQuesNum)}}
               />
 
-              <Button
-                title="Submit Answser"
-                onPress={this.getNextQuestion}
-              />
+              
+
+
+                <TouchableHighlight
+              style={styles.button}
+              onPress={this.getNextQuestion}
+               underlayColor="#f0f4f7">
+              <Text style={styles.buttonText}>Submit Answer</Text>
+              </TouchableHighlight>
+
+
+
+
+
+
+
+
+
               
             </View>
           )}
@@ -194,12 +247,25 @@ export default class QuizQuestionScreen extends React.Component {
               <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
               <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
               <Text>
-                Incorrect Answers: {10 - this.state.results.correctAnswers}
+                Incorrect Answers: {25 - this.state.results.correctAnswers}
               </Text>
-              <Text>Total Score: {50}</Text>
+              <Text>Total Score: {100}</Text>
               <Text>Obtained Score: {this.state.results.score}</Text>
 
-              <Button title="Restart Quiz" onPress={this.reset} />
+
+
+          <TouchableHighlight
+            style={styles.button}
+            onPress={this.reset}
+           underlayColor="#f0f4f7">
+            <Text style={styles.buttonText}>Restart Quiz</Text>
+          </TouchableHighlight>
+
+
+
+
+ 
+             
             </View>
           )}
         </View>
@@ -219,7 +285,32 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
+  },
+
+buttonText: {
+    fontSize: 18,
+    marginRight:40,
+    marginLeft:40,
+    color: '#0d87a1',
+    alignSelf: 'center',
+  },
+  button: {
+    marginRight:40,
+    marginLeft:40,
+    marginTop:60,
+    paddingTop:15,
+    paddingBottom:15,
+    backgroundColor:'#262626',
+    borderColor: '#0d87a1',
+    borderRadius:30,
+    borderWidth: 1,
+
+    
+    
   }
+
+  
+  
 });
 
 
