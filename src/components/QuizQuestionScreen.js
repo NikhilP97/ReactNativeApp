@@ -162,6 +162,7 @@ export default class QuizQuestionScreen extends React.Component {
       ]});
 
       this.countdown.restartCount();
+      this.radioFormClear.updateIsActiveIndex(-1);
     });
 
     //send alert for next section
@@ -233,6 +234,7 @@ export default class QuizQuestionScreen extends React.Component {
               </Text>
 
               <RadioForm
+                ref = {ref => this.radioFormClear = ref}
                 radio_props={this.state.radio_props}
                 initial={-1}
                 formHorizontal={false}
