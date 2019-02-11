@@ -12,6 +12,7 @@ import {
 import BackgroundView from './BackgroundView'
 // import { RadioGroup, RadioButton } from "react-native-flexi-radio-button";
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+import CountdownCircle from 'react-native-countdown-circle'
 
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class QuizQuestionScreen extends React.Component {
       getSelectedValue:'',
       getIndex: -1,
       radio_props : [],
+      countDownTime: 5,
 
       results: {
         score: 0,
@@ -157,7 +159,9 @@ export default class QuizQuestionScreen extends React.Component {
       {label: randomArray[1], value: randomArray[1]},
       {label: randomArray[2], value: randomArray[2]},
       {label: randomArray[3], value: randomArray[3]},
-      ]})
+      ]});
+
+      this.countdown.restartCount();
     });
 
     //send alert for next section
@@ -211,6 +215,18 @@ export default class QuizQuestionScreen extends React.Component {
               <Text style={{ fontSize: 16, color: "#d8ab4e", textAlign: "right" }}>
                 {this.state.currentQuesNum + 1} out of 25
               </Text>
+
+              <CountdownCircle
+                ref = {ref => this.countdown = ref}
+                seconds={this.state.countDownTime}
+                radius={30}
+                borderWidth={8}
+                color="#ff003f"
+                bgColor="#fff"
+                textStyle={{ fontSize: 20 }}
+                onTimeElapsed={() => {console.log('Elapsed!');
+                                      this.getNextQuestion()}}
+              />
 
               <Text style={{ fontSize: 22, fontWeight: "bold", color: "#0d87a1", marginBottom: 20 }}>
                 {this.state.questionsArray[this.state.currentQuesNum].question}
