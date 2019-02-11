@@ -14,6 +14,7 @@ import BackgroundView from './BackgroundView'
 // import { RadioGroup, RadioButton } from "react-native-flexi-radio-button";
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import CountdownCircle from 'react-native-countdown-circle'
+import * as Progress from 'react-native-progress';
 
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ export default class QuizQuestionScreen extends React.Component {
       radio_props : [],
       countDownTime: 20,
       questionProgess: 0,
+      linearProgVar: 0,
 
       results: {
         score: 0,
@@ -164,10 +166,39 @@ export default class QuizQuestionScreen extends React.Component {
       ]});
 
       // For progress Bar
-      var tempValP = 24 - this.state.currentQuesNum;
-      var setProgress = 1 / tempValP;
-      console.log("setProgress: ", setProgress);
-      this.setState({questionProgess: 1/this.state.currentQuesNum});
+      
+      // For linear
+      
+      if(this.state.currentQuesNum % 3 === 0){
+        var assignLinearVal = this.state.linearProgVar + 0.1
+        console.log("assignLinearVal", assignLinearVal)
+      }
+
+      this.setState({linearProgVar: assignLinearVal}, function (){
+        if(this.state.currentQuesNum % 3 === 0){
+          console.log("inside modulo")
+          if(this.linearProgVar > this.questionProgess){
+            var higherValProg = this.linearProgVar + this.questionProgess
+            this.setState({questionProgess: higherValProg});
+          }
+          console.log("questionProgess linear", this.state.questionProgess)
+
+        }
+        else{
+          var tempValP = 24 - this.state.currentQuesNum;
+          var setIndexProgress = 1 / tempValP;
+          // console.log("setIndexProgress: ", setIndexProgress);
+          this.setState({questionProgess: setIndexProgress});
+          console.log("questionProgess indexed", this.state.questionProgess)
+        }
+        console.log(" Final questionProgess", this.state.questionProgess)
+      })
+      
+
+       
+
+
+
       // For countdownCircle and RadioForm reset
       if(this.state.currentQuesNum <= 23){
         this.countdown.restartCount();
@@ -240,12 +271,9 @@ export default class QuizQuestionScreen extends React.Component {
                                       this.getNextQuestion()}}
               />
 
-              <ProgressBarAndroid
-                styleAttr=""
-                indeterminate={false}
-                color="#2196F3"
+              <Progress.Bar
                 progress={this.state.questionProgess}
-              />
+                width={null} />
 
 
               <Text style={{ fontSize: 22, fontWeight: "bold", color: "#0d87a1", marginBottom: 20 }}>
