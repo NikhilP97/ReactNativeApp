@@ -34,6 +34,7 @@ export default class QuizQuestionScreen extends React.Component {
       countDownTime: 20,
       questionProgess: 0,
       linearProgVar: 0,
+      lastIndexProgress: 0,
 
       results: {
         score: 0,
@@ -84,7 +85,11 @@ export default class QuizQuestionScreen extends React.Component {
           score: 0,
           correctAnswers: 0
         },
-        completed: false
+        completed: false,
+        countDownTime: 20,
+        questionProgess: 0,
+        linearProgVar: 0,
+        lastIndexProgress: 0,
       },
       () => {
         this.fetchQuestions();
@@ -125,11 +130,12 @@ export default class QuizQuestionScreen extends React.Component {
 
   getNextQuestion = () => {
     
+    console.log("question no : ", this.state.currentQuesNum)
     // Update score before fetching next value
     const question = this.state.questionsArray[this.state.currentQuesNum];
     //const section = this.state.currentQuesNum;
     const isCorrect = question.correct_answer === this.state.getSelectedValue;
-    console.log("isCorrect", isCorrect);
+    // console.log("isCorrect", isCorrect);
     
     const results = { ...this.state.results };
     results.score = isCorrect ? results.score + 4 : results.score;
@@ -138,7 +144,7 @@ export default class QuizQuestionScreen extends React.Component {
       : results.correctAnswers;
 
     this.setState({results});
-    console.log("updated results:", results);
+    // console.log("updated results:", results);
 
     var index = this.state.currentQuesNum + 1;
     var section_index = this.state.currentQuesNum + 5;
@@ -152,11 +158,11 @@ export default class QuizQuestionScreen extends React.Component {
       storedQuestions[1] = this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[0];
       storedQuestions[2] = this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[1];
       storedQuestions[3] = this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2];
-      console.log("storedQuestions: ", storedQuestions);
+      // console.log("storedQuestions: ", storedQuestions);
 
       var randomArray = [];
       randomArray = this.randomize(storedQuestions);
-      console.log("randomized: ", randomArray);
+      // console.log("randomized: ", randomArray);
 
       this.setState({radio_props: [
       {label: randomArray[0], value: randomArray[0]},
@@ -170,29 +176,39 @@ export default class QuizQuestionScreen extends React.Component {
       // For linear
       
       if(this.state.currentQuesNum % 3 === 0){
-        var assignLinearVal = this.state.linearProgVar + 0.1
-        console.log("assignLinearVal", assignLinearVal)
-      }
-
-      this.setState({linearProgVar: assignLinearVal}, function (){
-        if(this.state.currentQuesNum % 3 === 0){
-          console.log("inside modulo")
-          if(this.linearProgVar > this.questionProgess){
-            var higherValProg = this.linearProgVar + this.questionProgess
+        var assignLinearVal = this.state.linearProgVar + 0.1;
+        this.setState({linearProgVar: assignLinearVal}, function (){
+          console.log("linearProgVar inside", this.state.linearProgVar)
+          if(this.state.linearProgVar > this.state.questionProgess){
+            var higherValProg = this.state.linearProgVar;
             this.setState({questionProgess: higherValProg});
           }
-          console.log("questionProgess linear", this.state.questionProgess)
+          
+        })
+        console.log("questionProgess linear", this.state.questionProgess)
+        var eachIndexProgress = 1 / 23;
+        var currentIndexProgress = this.state.lastIndexProgress + eachIndexProgress;
+        this.setState({lastIndexProgress: currentIndexProgress});
+      }
+      else{
+        var eachIndexProgress = 1 / 23;
+        var currentIndexProgress = this.state.lastIndexProgress + eachIndexProgress;
+        console.log("currentIndexProgress", currentIndexProgress);
+        this.setState({lastIndexProgress: currentIndexProgress});
+        var setIndexProgress;
+        if(this.state.lastIndexProgress > this.state.linearProgVar){
+          setIndexProgress = this.state.lastIndexProgress;
+        } else {
+          setIndexProgress = this.state.linearProgVar;
+        }
 
-        }
-        else{
-          var tempValP = 24 - this.state.currentQuesNum;
-          var setIndexProgress = 1 / tempValP;
-          // console.log("setIndexProgress: ", setIndexProgress);
-          this.setState({questionProgess: setIndexProgress});
-          console.log("questionProgess indexed", this.state.questionProgess)
-        }
-        console.log(" Final questionProgess", this.state.questionProgess)
-      })
+        // console.log("setIndexProgress: ", setIndexProgress);
+        this.setState({questionProgess: setIndexProgress});
+        console.log("questionProgess indexed", this.state.questionProgess)
+      }
+      console.log("final progress", this.state.questionProgess)
+
+      
       
 
        
@@ -211,12 +227,12 @@ export default class QuizQuestionScreen extends React.Component {
     this.Nested_If_Else()
 
     //check if quiz complted
-    console.log("question no : ", this.state.currentQuesNum)
+    
     this.setState({
       completed: this.state.currentQuesNum === 23 ? true : false
     });
 
-    console.log("updated radio_props ", this.state.radio_props)
+    // console.log("updated radio_props ", this.state.radio_props)
     
   }
 
