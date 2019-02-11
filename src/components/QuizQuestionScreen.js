@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Button,
   Alert,
-  TouchableHighlight
+  TouchableHighlight,
+  ProgressBarAndroid
 } from "react-native";
 
 import BackgroundView from './BackgroundView'
@@ -29,7 +30,8 @@ export default class QuizQuestionScreen extends React.Component {
       getSelectedValue:'',
       getIndex: -1,
       radio_props : [],
-      countDownTime: 5,
+      countDownTime: 20,
+      questionProgess: 0,
 
       results: {
         score: 0,
@@ -161,8 +163,17 @@ export default class QuizQuestionScreen extends React.Component {
       {label: randomArray[3], value: randomArray[3]},
       ]});
 
-      this.countdown.restartCount();
-      this.radioFormClear.updateIsActiveIndex(-1);
+      // For progress Bar
+      var tempValP = 24 - this.state.currentQuesNum;
+      var setProgress = 1 / tempValP;
+      console.log("setProgress: ", setProgress);
+      this.setState({questionProgess: 1/this.state.currentQuesNum});
+      // For countdownCircle and RadioForm reset
+      if(this.state.currentQuesNum <= 23){
+        this.countdown.restartCount();
+        this.radioFormClear.updateIsActiveIndex(-1);
+      }
+
     });
 
     //send alert for next section
@@ -171,7 +182,7 @@ export default class QuizQuestionScreen extends React.Component {
     //check if quiz complted
     console.log("question no : ", this.state.currentQuesNum)
     this.setState({
-      completed: this.state.currentQuesNum === 24 ? true : false
+      completed: this.state.currentQuesNum === 23 ? true : false
     });
 
     console.log("updated radio_props ", this.state.radio_props)
@@ -228,6 +239,14 @@ export default class QuizQuestionScreen extends React.Component {
                 onTimeElapsed={() => {console.log('Elapsed!');
                                       this.getNextQuestion()}}
               />
+
+              <ProgressBarAndroid
+                styleAttr=""
+                indeterminate={false}
+                color="#2196F3"
+                progress={this.state.questionProgess}
+              />
+
 
               <Text style={{ fontSize: 22, fontWeight: "bold", color: "#0d87a1", marginBottom: 20 }}>
                 {this.state.questionsArray[this.state.currentQuesNum].question}
