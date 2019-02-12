@@ -16,6 +16,7 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 import CountdownCircle from 'react-native-countdown-circle'
 import * as Progress from 'react-native-progress';
 import Pie from 'react-native-pie';
+import {Actions, ActionConst} from 'react-native-router-flux';
 
 var totalQuestions = 24;
 export default class QuizQuestionScreen extends React.Component {
@@ -121,6 +122,10 @@ export default class QuizQuestionScreen extends React.Component {
     }
     return array;
   } 
+
+  getResultsScreen = () =>{
+    Actions.resultsScreen();
+  }
 
 
   getNextQuestion = () => {
@@ -270,7 +275,7 @@ export default class QuizQuestionScreen extends React.Component {
 
               <TouchableHighlight
                 style={styles.button}
-                onPress={this.getNextQuestion}
+                onPress={this.getResultsScreen}
                 underlayColor="#f0f4f7">
                   <Text style={styles.buttonText}>Submit Answer</Text>
               </TouchableHighlight>

@@ -16,7 +16,7 @@ import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-
 import * as Progress from 'react-native-progress';
 import Pie from 'react-native-pie';
 
-export default class QuizQuestionScreen extends React.Component {
+export default class ResultsScreen extends React.Component {
 
   constructor(props) {
     super(props);
@@ -37,7 +37,7 @@ export default class QuizQuestionScreen extends React.Component {
       lastIndexProgress: 0,
 
       results: {
-        score: 10,
+        score: 9,
         
         correctAnswers: 0
       },
@@ -54,7 +54,7 @@ export default class QuizQuestionScreen extends React.Component {
       //Put your code here and don't fuck up indentation
 
       
-        <View style={styles.container}>
+      <View style={styles.container}>
 
           
 
