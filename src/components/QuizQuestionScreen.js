@@ -127,8 +127,10 @@ export default class QuizQuestionScreen extends React.Component {
   // Usage
   // constructor(props) {
   //   super(props);
-  //   theUltimateScore: this.props.finalScore,
-  //   theCorrectAnswers: this.props.correctAns
+  //   this.state = {
+  //      theUltimateScore: this.props.finalScore,
+  //      theCorrectAnswers: this.props.correctAns
+  //   }   
   // }
   // If you still can't understand, GOD HELP YOU! xD
   getResultsScreen = () =>{
