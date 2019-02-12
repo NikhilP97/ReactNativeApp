@@ -7,7 +7,8 @@ import {
   Button,
   Alert,
   TouchableHighlight,
-  ProgressBarAndroid
+  ProgressBarAndroid,
+  Dimensions
 } from "react-native";
 
 import BackgroundView from './BackgroundView'
@@ -144,7 +145,17 @@ export default class QuizQuestionScreen extends React.Component {
 
 
   getNextQuestion = () => {
-    
+
+    // Check if radio button is clicked else send alert
+    // if (typeof this.state.getSelectedValue == 'undefined'){
+    //   Alert.alert(
+    //     'Button Not Selected',
+    //     'Kindly choose an option to continue',
+    //     [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+    //     { cancelable: false }
+    //   );
+    //   return;
+    // }
     
     // Update score before fetching next value
     const question = this.state.questionsArray[this.state.currentQuesNum];
@@ -258,37 +269,43 @@ export default class QuizQuestionScreen extends React.Component {
           {!!this.state.loading && ( 
             <View style={styles.loadingQuestions}>
               <ActivityIndicator size="large" color="#00ff00" />
-              <Text>Please wait while we are loading questions for you</Text>
+              <Text style={{color:'#fff'}}>Please wait while we are loading questions for you</Text>
             </View>
           )}
 
           {!!this.state.questionsArray.length > 0 &&
             this.state.completed === false && (
-            <View style={styles.container}>
+            <View style={styles.innerContainer}>
+
+              <View style={{margin: 5, flexDirection:'row', justifyContent: 'space-between'}}>
+                <CountdownCircle
+                  ref = {ref => this.countdown = ref}
+                  seconds={this.state.countDownTime}
+                  radius={30}
+                  borderWidth={4}
+                  color="#0d87a1"
+                  bgColor="#262626"
+                  textStyle={{color:"#fff", fontSize: 20 }}
+                  onTimeElapsed={() => {console.log('Elapsed!');
+                                        this.getNextQuestion()}}
+                />
+
+                <Text style={{ fontSize: 25, color: "#d8ab4e",textAlign: "right", marginTop: 12}}>
+                Question {this.state.currentQuesNum + 1} /  25
+                </Text>
+
+              </View>
               
-              <Text style={{ fontSize: 16, color: "#d8ab4e", textAlign: "right" }}>
-                {this.state.currentQuesNum + 1} out of 25
-              </Text>
-
-              <CountdownCircle
-                ref = {ref => this.countdown = ref}
-                seconds={this.state.countDownTime}
-                radius={30}
-                borderWidth={8}
-                color="#ff003f"
-                bgColor="#fff"
-                textStyle={{ fontSize: 20 }}
-                onTimeElapsed={() => {console.log('Elapsed!');
-                                      this.getNextQuestion()}}
-              />
-
-              <Progress.Bar
+              
+              <View style={{marginTop: 10, justifyContent: 'center',alignItems: 'center'}}>
+                <Progress.Bar
                 progress={this.state.questionProgess}
-                width={null}
-              />
-
-
-              <Text style={{ fontSize: 22, fontWeight: "bold", color: "#0d87a1", marginBottom: 20 }}>
+                width={Dimensions.get('window').width - 10}
+                height={5}
+                />
+              </View>
+              
+              <Text style={{marginTop: 20, marginLeft: 5, marginRight: 5, fontSize: 22, fontWeight: "bold", color: "#fff", marginBottom: 20 }}>
                 {this.state.questionsArray[this.state.currentQuesNum].question}
               </Text>
 
@@ -298,11 +315,13 @@ export default class QuizQuestionScreen extends React.Component {
                 initial={-1}
                 formHorizontal={false}
                 labelHorizontal={true}
-                buttonColor={'#eaeaea'} //default color on loading
+                buttonColor={'#0d87a1'} //default color on loading
                 labelColor={'#ffffff'} // default label color on loading
-                selectedButtonColor={'#7dce94'} // onClick color on loading
+                selectedButtonColor={'#007AFF'} // onClick color on loading
                 selectedLabelColor={'#ffffff'} // onClick label color on loading
                 labelStyle={{fontSize: 18, color: '#ffffff'}}
+                labelWrapStyle={{marginBottom: 100}}
+                buttonStyle={{marginBottom: 100}}
                 buttonWrapStyle={{marginBottom: 100}}
                 animation={true}
                 onPress={(value) => {this.onSelect(value, this.state.currentQuesNum)}}
@@ -310,9 +329,11 @@ export default class QuizQuestionScreen extends React.Component {
 
               <TouchableHighlight
                 style={styles.button}
-                onPress={this.getNextQuestion}
+                onPress={this.state.currentQuesNum == totalQuestions ? this.getResultsScreen : this.getNextQuestion}
                 underlayColor="#f0f4f7">
-                  <Text style={styles.buttonText}>Submit Answer</Text>
+                  {this.state.currentQuesNum == totalQuestions ? <Text style={styles.buttonText}>Finish</Text> : 
+                    <Text style={styles.buttonText}>Next</Text>
+                  }
               </TouchableHighlight>
 
             </View>
@@ -326,7 +347,13 @@ export default class QuizQuestionScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    height: "100%"
+    height: "100%",
+    margin: 5,
+  },
+  innerContainer: {
+    display: "flex",
+    height: "100%",
+    margin: 5,
   },
   loadingQuestions: {
     flex: 1,
@@ -335,19 +362,19 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 20,
-    color: '#0d87a1',
+    color: '#fff',
     alignSelf: 'center',
   },
   button: {
-    marginRight:120,
-    marginLeft:120,
+    marginRight:150,
+    marginLeft:150,
     marginTop:60,
     paddingTop:10,
     paddingBottom:10,
     backgroundColor:'#262626',
     borderColor: '#0d87a1',
     borderRadius:30,
-    borderWidth: 3,
+    borderWidth: 1,
   }  
 });
 

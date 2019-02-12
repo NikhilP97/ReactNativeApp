@@ -79,7 +79,7 @@ export default class ButtonSubmit extends Component {
           style={styles.button}
           onPress={this._onPress}
           underlayColor="#f0f4f7">
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
       </View>
       
@@ -99,11 +99,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   button: {
-    marginRight:40,
-    marginLeft:40,
+    marginRight:100,
+    marginLeft:100,
     marginTop:0,
-    paddingTop:15,
-    paddingBottom:15,
+    paddingTop:10,
+    paddingBottom:10,
     backgroundColor:'#262626',
     borderColor: '#0d87a1',
     borderRadius:30,
