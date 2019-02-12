@@ -15,6 +15,7 @@ import BackgroundView from './BackgroundView'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import CountdownCircle from 'react-native-countdown-circle'
 import * as Progress from 'react-native-progress';
+import Pie from 'react-native-pie';
 
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
@@ -237,16 +238,16 @@ export default class QuizQuestionScreen extends React.Component {
   }
 
   Nested_If_Else=()=>{
-    if( this.state.currentQuesNum == 5  ){
+    if( this.state.currentQuesNum == 4  ){
       Alert.alert("Section 2.");
     }
-    else if(this.state.currentQuesNum == 10  ){
+    else if(this.state.currentQuesNum == 9  ){
       Alert.alert("Section 3.")
     }
-    else if(this.state.currentQuesNum == 15  ){
+    else if(this.state.currentQuesNum == 14  ){
       Alert.alert("Section 4.")
     }
-    else if(this.state.currentQuesNum == 20  ){
+    else if(this.state.currentQuesNum == 19  ){
       Alert.alert("Section 5.")
     }  
   }
@@ -258,14 +259,21 @@ export default class QuizQuestionScreen extends React.Component {
 
     return (
       <BackgroundView>
-         
       <View style={styles.container}>
+
+
+
+
         {!!this.state.loading && ( 
           <View style={styles.loadingQuestions}>
             <ActivityIndicator size="large" color="#00ff00" />
             <Text>Please wait while we are loading questions for you</Text>
           </View>
         )}
+
+
+
+
 
         {!!this.state.questionsArray.length > 0 &&
           this.state.completed === false && (
@@ -322,12 +330,31 @@ export default class QuizQuestionScreen extends React.Component {
             </View>
           )}
 
-        <View
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          {this.state.completed === true && (
+
+
+
+
+
+    <View
+    style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+    >
+      {this.state.completed === true && this.state.results.score < 5 && (
+      <Pie
+          radius={70}
+          //completly filled pie chart with radius 70
+          innerRadius={40}
+          //to make donut pie chart define inner radius
+          series={[10, 20, 30, 40]}
+          //values to show and color sequentially
+          colors={['#f00', '#0f0', '#00f', '#ff0']}
+        />
+        )}
+
+
+          {this.state.completed === true && this.state.results.score < 5 && (
             <View style={{ alignItems: "center" }}>
               <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
+              <Text style={{ fontSize: 25 }}>Infosys</Text>
               <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
               <Text>
                 Incorrect Answers: {25 - this.state.results.correctAnswers}
@@ -335,26 +362,118 @@ export default class QuizQuestionScreen extends React.Component {
               <Text>Total Score: {100}</Text>
               <Text>Obtained Score: {this.state.results.score}</Text>
 
-
-
-          <TouchableHighlight
+              <TouchableHighlight
             style={styles.button}
             onPress={this.reset}
             underlayColor="#f0f4f7">
               <Text style={styles.buttonText}>Restart Quiz</Text>
-          </TouchableHighlight>
+            </TouchableHighlight>
+          
+            </View>
+         )}
 
 
 
 
- 
-             
+          
+
+
+
+        
+          
+
+          {this.state.completed === true && this.state.results.score > 5 && this.state.results.score < 10 &&  (
+            <View style={{ alignItems: "center" }}>
+              <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
+              <Text style={{ fontSize: 25 }}>Deloitte</Text>
+              <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
+              <Text>
+                Incorrect Answers: {25 - this.state.results.correctAnswers}
+              </Text>
+              <Text>Total Score: {100}</Text>
+              <Text>Obtained Score: {this.state.results.score}</Text>
+
+              <TouchableHighlight
+              style={styles.button}
+              onPress={this.reset}
+              underlayColor="#f0f4f7">
+              <Text style={styles.buttonText}>Restart Quiz</Text>
+              </TouchableHighlight>
+          
             </View>
           )}
+
+          
+          
+
+          {this.state.completed === true && this.state.results.score > 10 && this.state.results.score < 25 && (
+            <View style={{ alignItems: "center" }}>
+              <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
+              <Text style={{ fontSize: 25 }}>Barclays</Text>
+              <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
+              <Text>
+                Incorrect Answers: {25 - this.state.results.correctAnswers}
+              </Text>
+              <Text>Total Score: {100}</Text>
+              <Text>Obtained Score: {this.state.results.score}</Text>
+
+              <TouchableHighlight
+               style={styles.button}
+               onPress={this.reset}
+               underlayColor="#f0f4f7">
+              <Text style={styles.buttonText}>Restart Quiz</Text>
+              </TouchableHighlight>
+          
+            </View>
+          )}
+
+
+          {this.state.completed === true && this.state.results.score > 25  &&  (
+            <View style={{ alignItems: "center" }}>
+              <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
+              <Text style={{ fontSize: 25 }}>Morgan Stanley</Text>
+              <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
+              <Text>
+                Incorrect Answers: {25 - this.state.results.correctAnswers}
+              </Text>
+              <Text>Total Score: {100}</Text>
+              <Text>Obtained Score: {this.state.results.score}</Text>
+
+              <TouchableHighlight
+              style={styles.button}
+              onPress={this.reset}
+              underlayColor="#f0f4f7">
+              <Text style={styles.buttonText}>Restart Quiz</Text>
+              </TouchableHighlight>
+          
+            </View>
+          )}
+
+
+
+
+          
+
+
+
         </View>
+
+
+
+
+
+
+
+
+
+
       </View>
       </BackgroundView>
     );
+
+
+
+    
   }
 }
 
