@@ -17,6 +17,7 @@ import CountdownCircle from 'react-native-countdown-circle'
 import * as Progress from 'react-native-progress';
 import Pie from 'react-native-pie';
 
+var totalQuestions = 24;
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -34,8 +35,6 @@ export default class QuizQuestionScreen extends React.Component {
       radio_props : [],
       countDownTime: 20,
       questionProgess: 0,
-      linearProgVar: 0,
-      lastIndexProgress: 0,
 
       results: {
         score: 0,
@@ -89,8 +88,6 @@ export default class QuizQuestionScreen extends React.Component {
         completed: false,
         countDownTime: 20,
         questionProgess: 0,
-        linearProgVar: 0,
-        lastIndexProgress: 0,
       },
       () => {
         this.fetchQuestions();
@@ -175,49 +172,14 @@ export default class QuizQuestionScreen extends React.Component {
       // For progress Bar
       
       // For linear
-      
-      if(this.state.currentQuesNum % 3 === 0){
-        var assignLinearVal = this.state.linearProgVar + 0.1;
-        this.setState({linearProgVar: assignLinearVal}, function (){
-          console.log("linearProgVar inside", this.state.linearProgVar)
-          if(this.state.linearProgVar > this.state.questionProgess){
-            var higherValProg = this.state.linearProgVar;
-            this.setState({questionProgess: higherValProg});
-          }
-          
-        })
-        console.log("questionProgess linear", this.state.questionProgess)
-        var eachIndexProgress = 1 / 23;
-        var currentIndexProgress = this.state.lastIndexProgress + eachIndexProgress;
-        this.setState({lastIndexProgress: currentIndexProgress});
-      }
-      else{
-        var eachIndexProgress = 1 / 23;
-        var currentIndexProgress = this.state.lastIndexProgress + eachIndexProgress;
-        console.log("currentIndexProgress", currentIndexProgress);
-        this.setState({lastIndexProgress: currentIndexProgress});
-        var setIndexProgress;
-        if(this.state.lastIndexProgress > this.state.linearProgVar){
-          setIndexProgress = this.state.lastIndexProgress;
-        } else {
-          setIndexProgress = this.state.linearProgVar;
-        }
 
-        // console.log("setIndexProgress: ", setIndexProgress);
-        this.setState({questionProgess: setIndexProgress});
-        console.log("questionProgess indexed", this.state.questionProgess)
-      }
+      var eachIndexProgress = 1 / totalQuestions;
+      var setIndexProgress = this.state.currentQuesNum * eachIndexProgress;
+      this.setState({questionProgess: setIndexProgress});
       console.log("final progress", this.state.questionProgess)
 
-      
-      
-
-       
-
-
-
       // For countdownCircle and RadioForm reset
-      if(this.state.currentQuesNum <= 23){
+      if(this.state.currentQuesNum <= totalQuestions){
         this.countdown.restartCount();
         this.radioFormClear.updateIsActiveIndex(-1);
       }
@@ -230,7 +192,7 @@ export default class QuizQuestionScreen extends React.Component {
     //check if quiz complted
     
     this.setState({
-      completed: this.state.currentQuesNum === 23 ? true : false
+      completed: this.state.currentQuesNum === totalQuestions ? true : false
     });
 
     // console.log("updated radio_props ", this.state.radio_props)
