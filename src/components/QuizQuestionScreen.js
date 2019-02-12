@@ -73,7 +73,6 @@ export default class QuizQuestionScreen extends React.Component {
       {label: this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2], value:this.state.questionsArray[this.state.currentQuesNum].incorrect_answers[2]},
       ]})
 
-
   };
 
   reset = () => {
@@ -101,7 +100,6 @@ export default class QuizQuestionScreen extends React.Component {
     this.fetchQuestions();
   }
 
-
   onSelect = ( value, quesNum) => {
     // set state of value selected
     this.setState({getSelectedValue: value}, function () {
@@ -121,7 +119,6 @@ export default class QuizQuestionScreen extends React.Component {
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
     }
-
     return array;
   } 
 
@@ -171,8 +168,6 @@ export default class QuizQuestionScreen extends React.Component {
 
       // For progress Bar
       
-      // For linear
-
       var eachIndexProgress = 1 / totalQuestions;
       var setIndexProgress = this.state.currentQuesNum * eachIndexProgress;
       this.setState({questionProgess: setIndexProgress});
@@ -190,7 +185,6 @@ export default class QuizQuestionScreen extends React.Component {
     this.Nested_If_Else()
 
     //check if quiz complted
-    
     this.setState({
       completed: this.state.currentQuesNum === totalQuestions ? true : false
     });
@@ -215,30 +209,21 @@ export default class QuizQuestionScreen extends React.Component {
   }
  
 
-
-
   render() {
 
     return (
       <BackgroundView>
-      <View style={styles.container}>
+        <View style={styles.container}>
 
+          {!!this.state.loading && ( 
+            <View style={styles.loadingQuestions}>
+              <ActivityIndicator size="large" color="#00ff00" />
+              <Text>Please wait while we are loading questions for you</Text>
+            </View>
+          )}
 
-
-
-        {!!this.state.loading && ( 
-          <View style={styles.loadingQuestions}>
-            <ActivityIndicator size="large" color="#00ff00" />
-            <Text>Please wait while we are loading questions for you</Text>
-          </View>
-        )}
-
-
-
-
-
-        {!!this.state.questionsArray.length > 0 &&
-          this.state.completed === false && (
+          {!!this.state.questionsArray.length > 0 &&
+            this.state.completed === false && (
             <View style={styles.container}>
               
               <Text style={{ fontSize: 16, color: "#d8ab4e", textAlign: "right" }}>
@@ -259,7 +244,8 @@ export default class QuizQuestionScreen extends React.Component {
 
               <Progress.Bar
                 progress={this.state.questionProgess}
-                width={null} />
+                width={null}
+              />
 
 
               <Text style={{ fontSize: 22, fontWeight: "bold", color: "#0d87a1", marginBottom: 20 }}>
@@ -288,154 +274,12 @@ export default class QuizQuestionScreen extends React.Component {
                 underlayColor="#f0f4f7">
                   <Text style={styles.buttonText}>Submit Answer</Text>
               </TouchableHighlight>
-   
+
             </View>
           )}
-
-
-
-
-
-
-    <View
-    style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-    >
-      {this.state.completed === true && this.state.results.score < 5 && (
-      <Pie
-          radius={70}
-          //completly filled pie chart with radius 70
-          innerRadius={40}
-          //to make donut pie chart define inner radius
-          series={[10, 20, 30, 40]}
-          //values to show and color sequentially
-          colors={['#f00', '#0f0', '#00f', '#ff0']}
-        />
-        )}
-
-
-          {this.state.completed === true && this.state.results.score < 5 && (
-            <View style={{ alignItems: "center" }}>
-              <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
-              <Text style={{ fontSize: 25 }}>Infosys</Text>
-              <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
-              <Text>
-                Incorrect Answers: {25 - this.state.results.correctAnswers}
-              </Text>
-              <Text>Total Score: {100}</Text>
-              <Text>Obtained Score: {this.state.results.score}</Text>
-
-              <TouchableHighlight
-            style={styles.button}
-            onPress={this.reset}
-            underlayColor="#f0f4f7">
-              <Text style={styles.buttonText}>Restart Quiz</Text>
-            </TouchableHighlight>
-          
-            </View>
-         )}
-
-
-
-
-          
-
-
-
-        
-          
-
-          {this.state.completed === true && this.state.results.score > 5 && this.state.results.score < 10 &&  (
-            <View style={{ alignItems: "center" }}>
-              <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
-              <Text style={{ fontSize: 25 }}>Deloitte</Text>
-              <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
-              <Text>
-                Incorrect Answers: {25 - this.state.results.correctAnswers}
-              </Text>
-              <Text>Total Score: {100}</Text>
-              <Text>Obtained Score: {this.state.results.score}</Text>
-
-              <TouchableHighlight
-              style={styles.button}
-              onPress={this.reset}
-              underlayColor="#f0f4f7">
-              <Text style={styles.buttonText}>Restart Quiz</Text>
-              </TouchableHighlight>
-          
-            </View>
-          )}
-
-          
-          
-
-          {this.state.completed === true && this.state.results.score > 10 && this.state.results.score < 25 && (
-            <View style={{ alignItems: "center" }}>
-              <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
-              <Text style={{ fontSize: 25 }}>Barclays</Text>
-              <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
-              <Text>
-                Incorrect Answers: {25 - this.state.results.correctAnswers}
-              </Text>
-              <Text>Total Score: {100}</Text>
-              <Text>Obtained Score: {this.state.results.score}</Text>
-
-              <TouchableHighlight
-               style={styles.button}
-               onPress={this.reset}
-               underlayColor="#f0f4f7">
-              <Text style={styles.buttonText}>Restart Quiz</Text>
-              </TouchableHighlight>
-          
-            </View>
-          )}
-
-
-          {this.state.completed === true && this.state.results.score > 25  &&  (
-            <View style={{ alignItems: "center" }}>
-              <Text style={{ fontSize: 25 }}>Quiz Completed</Text>
-              <Text style={{ fontSize: 25 }}>Morgan Stanley</Text>
-              <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
-              <Text>
-                Incorrect Answers: {25 - this.state.results.correctAnswers}
-              </Text>
-              <Text>Total Score: {100}</Text>
-              <Text>Obtained Score: {this.state.results.score}</Text>
-
-              <TouchableHighlight
-              style={styles.button}
-              onPress={this.reset}
-              underlayColor="#f0f4f7">
-              <Text style={styles.buttonText}>Restart Quiz</Text>
-              </TouchableHighlight>
-          
-            </View>
-          )}
-
-
-
-
-          
-
-
-
         </View>
-
-
-
-
-
-
-
-
-
-
-      </View>
       </BackgroundView>
     );
-
-
-
-    
   }
 }
 
@@ -444,14 +288,12 @@ const styles = StyleSheet.create({
     display: "flex",
     height: "100%"
   },
-
   loadingQuestions: {
     flex: 1,
     alignItems: "center",
     justifyContent: "center"
   },
-
-buttonText: {
+  buttonText: {
     fontSize: 20,
     color: '#0d87a1',
     alignSelf: 'center',
@@ -466,13 +308,7 @@ buttonText: {
     borderColor: '#0d87a1',
     borderRadius:30,
     borderWidth: 3,
-
-    
-    
-  }
-
-  
-  
+  }  
 });
 
 
