@@ -29,17 +29,17 @@ export default class QuizQuestionScreen extends React.Component {
       clearSelection: null,
       currentQuesNum: 0,
       section:0,
-      correctScore: 4,
-      totalScore: 100,
       getSelectedValue:'',
       getIndex: -1,
       radio_props : [],
       countDownTime: 20,
       questionProgess: 0,
-
+      sectionScore: [0],
+      lastSectionScore: 0,
       results: {
         score: 0,
-        correctAnswers: 0
+        correctAnswers: 0,
+        
       },
       completed: false
     };
@@ -123,14 +123,27 @@ export default class QuizQuestionScreen extends React.Component {
     return array;
   } 
 
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Use this as props for your screen!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // Usage
+  // constructor(props) {
+  //   super(props);
+  //   theUltimateScore: this.props.finalScore,
+  //   theCorrectAnswers: this.props.correctAns
+  // }
+  // If you still can't understand, GOD HELP YOU! xD
   getResultsScreen = () =>{
-    Actions.resultsScreen();
+    var sendData = {
+      finalScore: this.state.results.score, // here finalScore can be used in other file using props
+      correctAns: this.state.results.correctAnswers,
+      secScore: this.state.results.sectionScore
+    }
+    Actions.resultsScreen(sendData);
   }
 
 
   getNextQuestion = () => {
     
-    console.log("question no : ", this.state.currentQuesNum)
+    
     // Update score before fetching next value
     const question = this.state.questionsArray[this.state.currentQuesNum];
     //const section = this.state.currentQuesNum;
@@ -143,9 +156,28 @@ export default class QuizQuestionScreen extends React.Component {
       ? results.correctAnswers + 1
       : results.correctAnswers;
 
-    this.setState({results});
-    // console.log("updated results:", results);
+    // console.log("question no : ", this.state.currentQuesNum);
+    // console.log("current score: ", this.state.results.score);
+    var multipleOfFive = this.state.currentQuesNum+1;
+    this.setState({results}, function () {
+      
+      console.log("multipleOfFive : ", multipleOfFive);
+      if(multipleOfFive % 5 == 0){
+        var index = multipleOfFive/5;
+        // console.log("current section: ", index)
+        var getSectionScore = this.state.results.score - this.state.lastSectionScore;
+        this.setState({
+          sectionScore: [...this.state.sectionScore, getSectionScore]
+        });
+        this.setState({
+          lastSectionScore: this.state.results.score
+        });
 
+      }
+      
+    });
+    // console.log("updated results:", results);
+    
     var index = this.state.currentQuesNum + 1;
     var section_index = this.state.currentQuesNum + 5;
 
@@ -176,7 +208,7 @@ export default class QuizQuestionScreen extends React.Component {
       var eachIndexProgress = 1 / totalQuestions;
       var setIndexProgress = this.state.currentQuesNum * eachIndexProgress;
       this.setState({questionProgess: setIndexProgress});
-      console.log("final progress", this.state.questionProgess)
+      // console.log("final progress", this.state.questionProgess)
 
       // For countdownCircle and RadioForm reset
       if(this.state.currentQuesNum <= totalQuestions){
@@ -193,7 +225,8 @@ export default class QuizQuestionScreen extends React.Component {
     this.setState({
       completed: this.state.currentQuesNum === totalQuestions ? true : false
     });
-
+    
+    
     // console.log("updated radio_props ", this.state.radio_props)
     
   }
@@ -215,7 +248,7 @@ export default class QuizQuestionScreen extends React.Component {
  
 
   render() {
-
+    console.log("section Score: ", this.state.sectionScore);
     return (
       <BackgroundView>
         <View style={styles.container}>
@@ -275,7 +308,7 @@ export default class QuizQuestionScreen extends React.Component {
 
               <TouchableHighlight
                 style={styles.button}
-                onPress={this.getResultsScreen}
+                onPress={this.getNextQuestion}
                 underlayColor="#f0f4f7">
                   <Text style={styles.buttonText}>Submit Answer</Text>
               </TouchableHighlight>
