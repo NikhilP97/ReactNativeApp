@@ -135,7 +135,7 @@ export default class ResultsScreen extends React.Component {
             // </View>
           />
           <Text style={{ fontSize: 25, marginTop: 40 }}>Quiz Completed</Text>
-          <Text style={{ fontSize: 25 }}>Quantiphi</Text>
+          
           <Text>Correct Answers: {this.state.results.correctAnswers}</Text>
           <Text>
             Incorrect Answers: {25 - this.state.results.correctAnswers}
