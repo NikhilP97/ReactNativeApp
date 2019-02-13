@@ -123,9 +123,7 @@ export default class QuizQuestionScreen extends React.Component {
     return array;
   } 
 
-  getResultsScreen = () =>{
-    Actions.resultsScreen();
-  }
+  
 
 
   getNextQuestion = () => {
@@ -212,7 +210,9 @@ export default class QuizQuestionScreen extends React.Component {
       Alert.alert("Section 5.")
     }  
   }
- 
+ getResultsScreen = () =>{
+    Actions.resultsScreen();
+  }
 
   render() {
 

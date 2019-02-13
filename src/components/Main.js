@@ -7,6 +7,7 @@ import CreateAccountScreen from './CreateAccountScreen'
 import QuizStartScreen from './QuizStartScreen'
 import QuizQuestionScreen from './QuizQuestionScreen'
 import ResultsScreen from './ResultsScreen'
+import PredictCompany from './PredictCompany'
 
 export default class Main extends Component {
   render() {
@@ -41,6 +42,11 @@ export default class Main extends Component {
 	        />
 	        <Scene key="resultsScreen"
 	          component={ResultsScreen}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="predictCompany"
+	          component={PredictCompany}
 	          animation='fade'
 	          hideNavBar={true}
 	        />
