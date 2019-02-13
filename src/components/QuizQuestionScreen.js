@@ -138,8 +138,9 @@ export default class QuizQuestionScreen extends React.Component {
     var sendData = {
       finalScore: this.state.results.score, // here finalScore can be used in other file using props
       correctAns: this.state.results.correctAnswers,
-      secScore: this.state.results.sectionScore
+      secScore: this.state.sectionScore
     }
+    console.log("sendData: ", sendData);
     Actions.resultsScreen(sendData);
   }
 
@@ -330,7 +331,7 @@ export default class QuizQuestionScreen extends React.Component {
 
               <TouchableHighlight
                 style={styles.button}
-                onPress={this.state.currentQuesNum == totalQuestions ? this.getResultsScreen : this.getNextQuestion}
+                onPress={this.getNextQuestion}
                 underlayColor="#f0f4f7">
                   {this.state.currentQuesNum == totalQuestions ? <Text style={styles.buttonText}>Finish</Text> : 
                     <Text style={styles.buttonText}>Next</Text>
@@ -339,6 +340,22 @@ export default class QuizQuestionScreen extends React.Component {
 
             </View>
           )}
+
+          {this.state.completed==true && (
+            <View style={styles.innerContainer}>
+              <TouchableHighlight
+                style={styles.finishButton}
+                onPress={this.getResultsScreen}
+                underlayColor="#f0f4f7">
+                  <Text style={styles.buttonText}>Finish Test</Text>  
+              </TouchableHighlight>
+            </View>
+
+            )
+
+
+          }
+          
         </View>
       </BackgroundView>
     );
@@ -369,6 +386,20 @@ const styles = StyleSheet.create({
   button: {
     marginRight:150,
     marginLeft:150,
+    marginTop:60,
+    paddingTop:10,
+    paddingBottom:10,
+    backgroundColor:'#262626',
+    borderColor: '#0d87a1',
+    borderRadius:30,
+    borderWidth: 1,
+  },
+  finishButton:{
+    flex:1,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight:120,
+    marginLeft:120,
     marginTop:60,
     paddingTop:10,
     paddingBottom:10,
