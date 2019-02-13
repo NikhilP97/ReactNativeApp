@@ -49,6 +49,8 @@ export default class Form extends Component {
         labelFontSize={20}
         disabledLineWidth={0}
         value={nameVal}
+        tintColor='#f2f2f2'
+        baseColor='#f2f2f2'
         onChangeText={ (nameVal) => this.setState({ nameVal }) }
         />
 
@@ -56,6 +58,10 @@ export default class Form extends Component {
             style={styles.textInput}
             labelFontSize={20}
             value={this.state.password}
+            tintColor={'#f2f2f2'}
+            textColor={'#FFF'}
+            baseColor={'#f2f2f2'}
+            iconColor={'#f2f2f2'}
             onChangeText={ (password) => this.setState({ password }) }
         />
         <SignupSection />
@@ -81,7 +87,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   textInput: {
-    color: '#0d87a1',
+    color: '#fff',
     height: 40,
   },
   loginButton: {
