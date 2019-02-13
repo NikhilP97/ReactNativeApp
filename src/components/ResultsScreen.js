@@ -58,7 +58,7 @@ export default class ResultsScreen extends React.Component {
 		            //completly filled pie chart with radius 70
 		            innerRadius={40}
 		            //to make donut pie chart define inner radius
-		            series={this.secScoreArray.shift()}
+		            series={this.secScoreArray}
 		            //values to show and color sequentially
 		            colors={['#f00', '#0f0', '#00f', '#ff0','#6699ff']}
 		            />

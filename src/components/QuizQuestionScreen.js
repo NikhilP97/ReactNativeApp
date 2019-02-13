@@ -35,7 +35,7 @@ export default class QuizQuestionScreen extends React.Component {
       radio_props : [],
       countDownTime: 20,
       questionProgess: 0,
-      sectionScore: [0],
+      sectionScore: [0, 20, 20, 20, 20, 20],
       lastSectionScore: 0,
       results: {
         score: 0,
@@ -135,13 +135,20 @@ export default class QuizQuestionScreen extends React.Component {
   // }
   // If you still can't understand, GOD HELP YOU! xD
   getResultsScreen = () =>{
-    var sendData = {
-      finalScore: this.state.results.score, // here finalScore can be used in other file using props
-      correctAns: this.state.results.correctAnswers,
-      secScore: this.state.sectionScore
-    }
-    console.log("sendData: ", sendData);
-    Actions.resultsScreen(sendData);
+    var array = [...this.state.sectionScore];
+    console.log("array: ", array)
+    array.splice(0, 1);
+    console.log("array splice: ", array)
+    this.setState({sectionScore: array}, function() {
+        var sendData = {
+        finalScore: this.state.results.score, // here finalScore can be used in other file using props
+        correctAns: this.state.results.correctAnswers,
+        secScore: this.state.sectionScore
+      }
+      console.log("sendData: ", sendData);
+      Actions.resultsScreen(sendData);
+    })
+    
   }
 
 
