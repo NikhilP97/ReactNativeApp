@@ -299,13 +299,14 @@ export default class QuizQuestionScreen extends React.Component {
               
               <View style={{marginTop: 10, justifyContent: 'center',alignItems: 'center'}}>
                 <Progress.Bar
+                color={'#0d87a1'}
                 progress={this.state.questionProgess}
-                width={Dimensions.get('window').width - 10}
+                width={Dimensions.get('window').width - 20}
                 height={5}
                 />
               </View>
               
-              <Text style={{marginTop: 20, marginLeft: 5, marginRight: 5, fontSize: 22, fontWeight: "bold", color: "#fff", marginBottom: 20 }}>
+              <Text style={{marginTop: 20, marginLeft: 5, marginRight: 5, fontSize: 22, fontWeight: "bold", color: "#f2f2f2", marginBottom: 20 }}>
                 {this.state.questionsArray[this.state.currentQuesNum].question}
               </Text>
 
@@ -316,10 +317,10 @@ export default class QuizQuestionScreen extends React.Component {
                 formHorizontal={false}
                 labelHorizontal={true}
                 buttonColor={'#0d87a1'} //default color on loading
-                labelColor={'#ffffff'} // default label color on loading
-                selectedButtonColor={'#007AFF'} // onClick color on loading
-                selectedLabelColor={'#ffffff'} // onClick label color on loading
-                labelStyle={{fontSize: 18, color: '#ffffff'}}
+                labelColor={'#f2f2f2'} // default label color on loading
+                selectedButtonColor={'#0d87a1'} // onClick color on loading
+                selectedLabelColor={'#f2f2f2'} // onClick label color on loading
+                labelStyle={{fontSize: 18, color: '#f2f2f2'}}
                 labelWrapStyle={{marginBottom: 100}}
                 buttonStyle={{marginBottom: 100}}
                 buttonWrapStyle={{marginBottom: 100}}
@@ -348,7 +349,7 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     height: "100%",
-    margin: 5,
+    margin: 15,
   },
   innerContainer: {
     display: "flex",
