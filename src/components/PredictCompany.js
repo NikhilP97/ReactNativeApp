@@ -39,6 +39,9 @@ export default class PredictCompany extends React.Component {
       questionProgess: 0,
       linearProgVar: 0,
       lastIndexProgress: 0,
+      theFinalScore: props.finalScore,
+      theCorrectAnswers: props.correctAns,
+      secScoreArray: props.secScore,
 
       results: {
         score: 14,
@@ -53,7 +56,11 @@ export default class PredictCompany extends React.Component {
       },
       completed: true
     };
+    this.theFinalScore = props.finalScore;
+    this.theCorrectAnswers = props.correctAns;
+    this.secScoreArray = props.secScore;
 
+console.log("Final Score: ", this.theFinalScore);
 
 
   }
@@ -130,7 +137,7 @@ export default class PredictCompany extends React.Component {
       
             )}
 
-          {this.state.completed === true && this.state.results.score > 15 && this.state.results.score < 25  &&  (
+          {this.state.completed === true && this.theFinalScore > 15 && this.theFinalScore < 25  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -172,7 +179,7 @@ export default class PredictCompany extends React.Component {
             )}                
 
       
-          {this.state.completed === true && this.state.results.score > 25 && this.state.results.score < 30  &&  (
+          {this.state.completed === true && this.theFinalScore > 25 && this.theFinalScore < 30  &&  (
                 <SectionGrid
 
                   itemDimension={110}

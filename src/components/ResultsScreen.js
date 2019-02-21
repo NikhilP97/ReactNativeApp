@@ -105,20 +105,20 @@ export default class ResultsScreen extends React.Component {
                 <TouchableHighlight
                 style={styles.button4}
                 underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Correct Answers: 8</Text>
+                <Text style = {styles.buttonText3}>Correct Answers: {this.theCorrectAnswers}</Text>
                 </TouchableHighlight>
 
 
                 <TouchableHighlight
                 style={styles.button3}
                 underlayColor="#f7f0f0">
-                <Text style = {styles.buttonText3}>Incorrect Answers: {25 - 8}</Text>
+                <Text style = {styles.buttonText3}>Incorrect Answers: {25 - this.theCorrectAnswers}</Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight
                 style={styles.button1}
                 underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Total Score: {100}</Text>
+                <Text style = {styles.buttonText3}>Total Score: {100} </Text>
                 </TouchableHighlight>
 
                 
@@ -127,7 +127,7 @@ export default class ResultsScreen extends React.Component {
                 <TouchableHighlight
                 style={styles.button1}
                 underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Obtained Score: {32}</Text>
+                <Text style = {styles.buttonText3}>Obtained Score: {this.theFinalScore}</Text>
                 </TouchableHighlight>
                 
                 
