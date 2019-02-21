@@ -19,7 +19,7 @@ import * as Progress from 'react-native-progress';
 import Pie from 'react-native-pie';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
-var totalQuestions = 0;
+var totalQuestions = 24;
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,7 @@ export default class QuizQuestionScreen extends React.Component {
       radio_props : [],
       countDownTime: 20,
       questionProgess: 0,
-      sectionScore: [0],
+      sectionScore: [0, 20, 20, 20, 20, 20],
       lastSectionScore: 0,
       results: {
         score: 0,
@@ -135,12 +135,20 @@ export default class QuizQuestionScreen extends React.Component {
   // }
   // If you still can't understand, GOD HELP YOU! xD
   getResultsScreen = () =>{
-    var sendData = {
-      finalScore: this.state.results.score, // here finalScore can be used in other file using props
-      correctAns: this.state.results.correctAnswers,
-      secScore: this.state.results.sectionScore
-    }
-    Actions.resultsScreen(sendData);
+    var array = [...this.state.sectionScore];
+    console.log("array: ", array)
+    array.splice(0, 1);
+    console.log("array splice: ", array)
+    this.setState({sectionScore: array}, function() {
+        var sendData = {
+        finalScore: this.state.results.score, // here finalScore can be used in other file using props
+        correctAns: this.state.results.correctAnswers,
+        secScore: this.state.sectionScore
+      }
+      console.log("sendData: ", sendData);
+      Actions.resultsScreen(sendData);
+    })
+    
   }
 
 
@@ -330,7 +338,7 @@ export default class QuizQuestionScreen extends React.Component {
 
               <TouchableHighlight
                 style={styles.button}
-                onPress={this.state.currentQuesNum == totalQuestions ? this.getResultsScreen : this.getNextQuestion}
+                onPress={this.getNextQuestion}
                 underlayColor="#f0f4f7">
                   {this.state.currentQuesNum == totalQuestions ? <Text style={styles.buttonText}>Finish</Text> : 
                     <Text style={styles.buttonText}>Next</Text>
@@ -339,6 +347,22 @@ export default class QuizQuestionScreen extends React.Component {
 
             </View>
           )}
+
+          {this.state.completed==true && (
+            <View style={styles.innerContainer}>
+              <TouchableHighlight
+                style={styles.finishButton}
+                onPress={this.getResultsScreen}
+                underlayColor="#f0f4f7">
+                  <Text style={styles.buttonText}>Finish Test</Text>  
+              </TouchableHighlight>
+            </View>
+
+            )
+
+
+          }
+          
         </View>
       </BackgroundView>
     );
@@ -353,7 +377,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     display: "flex",
-    height: "100%",
+    
     margin: 5,
   },
   loadingQuestions: {
@@ -376,7 +400,18 @@ const styles = StyleSheet.create({
     borderColor: '#0d87a1',
     borderRadius:30,
     borderWidth: 1,
-  }  
+  },
+  finishButton:{
+    marginRight:120,
+    marginLeft:120,
+    marginTop:75,
+    paddingTop:10,
+    paddingBottom:10,
+    backgroundColor:'#262626',
+    borderColor: '#0d87a1',
+    borderRadius:30,
+    borderWidth: 3,
+  },
 });
 
 

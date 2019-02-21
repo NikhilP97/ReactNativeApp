@@ -62,26 +62,27 @@ export default class PredictCompany extends React.Component {
 
   render() {
       const items = [
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Cognizant', code: '#0d87a1' },
+      { name: 'Infosys', code: '#128c7e' },
+      { name: 'Cognizant', code: '#ed2939' },
       { name: 'Capgemini', code: '#0d87a1' },
       { name: 'Cognizant', code: '#0d87a1' },
       { name: 'IVP', code: '#0d87a1' },
       { name: 'Quantiphi', code: '#0d87a1' },
-      { name: 'Deloitte', code: '#0d87a1' },
-      { name: 'Citius Tech ', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Infosys ', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
+      { name: 'Deloitte', code: '#ed2939' },
+      { name: 'Citius Tech ', code: '#ff6600' },
+      { name: 'KPMG', code: '#0d87a1' },
+      { name: 'GEP ', code: '#ff69b4' },
+      { name: 'Amadeus', code: '#7dce94' },
+      { name: 'ISS', code: '#d4af37' },
       { name: 'Infosys', code: '#0d87a1' },
       { name: 'Infosys', code: '#0d87a1' },
       { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Deutsche Bank', code: '#0d87a1' },
-      { name: 'Accolite', code: '#0d87a1' },
-      { name: 'Morgan Stanley', code: '#0d87a1' },
+      { name: 'Infosys', code: '#0d87a1' },
+      { name: 'Infosys', code: '#0d87a1' },
+      { name: 'Morgan Stanley', code: '#7c0a02' },
+      { name: 'Deutsche Bank', code: '#269ccc' },
+      { name: 'Accolite', code: '#9955bb' },
+      
     ];
 
     return (
@@ -106,7 +107,7 @@ export default class PredictCompany extends React.Component {
                     },
                     {
                       title: 'Ambitious',
-                      data: items.slice(12, 20),
+                      data: items.slice(17, 20),
                     },
                   ]}
 
@@ -115,7 +116,7 @@ export default class PredictCompany extends React.Component {
                   renderItem={({ item, section, index }) => (
                     <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
 
-                    <TouchableHighlight onPress={() => alert('Do something!')}>
+                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
                       <Text style={styles.itemName}>{item.name}</Text>
                       </TouchableHighlight>
                       
@@ -156,7 +157,7 @@ export default class PredictCompany extends React.Component {
                   renderItem={({ item, section, index }) => (
                     <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
 
-                    <TouchableHighlight onPress={() => alert('Do something!')}>
+                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
                       <Text style={styles.itemName}>{item.name}</Text>
                       </TouchableHighlight>
                       
@@ -198,7 +199,7 @@ export default class PredictCompany extends React.Component {
                   renderItem={({ item, section, index }) => (
                     <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
 
-                    <TouchableHighlight onPress={() => alert('Do something!')}>
+                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
                       <Text style={styles.itemName}>{item.name}</Text>
                       </TouchableHighlight>
                       
@@ -273,9 +274,10 @@ buttonText: {
     height: 150,
   },
   itemName: {
-    fontSize: 17,
+    fontSize: 22,
     color: '#fff',
     fontWeight: '600',
+    alignItems: "center",
   },
   itemCode: {
     fontWeight: '600',
