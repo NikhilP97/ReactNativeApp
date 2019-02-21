@@ -34,12 +34,7 @@ export default class ResultsScreen extends React.Component {
   constructor(props) {
     super(props);
     console.log("props: ", this.props);
-    state = {
-      theFinalScore: props.finalScore,
-      theCorrectAnswers: props.correctAns,
-      secScoreArray: props.secScore,
-    }
-    console.log("state: ", this.state);
+    
     this.theFinalScore = props.finalScore;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
@@ -53,133 +48,74 @@ export default class ResultsScreen extends React.Component {
   }
 
   render() {
-    let sampleData = [
-    {
-      value: 50,
-      label: 'Quants',
-      color: 'red',
-    }, {
-      value: 40,
-      label: 'LR and DI',
-      color: 'blue'
-    }, {
-      value: 25,
-      label: 'Verbal',
-      color: 'green'
-    },
-    {
-      value: 25,
-      label: 'Technical',
-      color: '#0d87a1'
-    },
-     {
-      value: 25,
-      label: 'Core',
-      color: '#ffff00'
-    }
- 
-  ]
-  
+	let sampleData = [
+		{
+		  value: this.secScoreArray[0],
+		  label: 'Quants',
+		  color: 'red',
+		}, {
+		  value: this.secScoreArray[1],
+		  label: 'LR and DI',
+		  color: 'blue'
+		}, {
+		  value: this.secScoreArray[2],
+		  label: 'Verbal',
+		  color: 'green'
+		},
+		{
+		  value: this.secScoreArray[3],
+		  label: 'Technical',
+		  color: '#0d87a1'
+		},
+		 {
+		  value: this.secScoreArray[4],
+		  label: 'Core',
+		  color: '#ffff00'
+		}
+	]
+
+	return (
+
+		<BackgroundView>
+	  
+	  		<View style={{ alignItems: "center", marginTop: 25, borderRadius: 40 }}>
+	  		  	<PureChart data={sampleData} type='pie' />
+
+		      	<TouchableHighlight
+		        style={styles.button}
+		        onPress={this.getPredictCompany}
+		        underlayColor="#f0f4f7">
+		        <Text style={styles.buttonText}>Predict my Comapny</Text>
+		        </TouchableHighlight>
+
+		        <TouchableHighlight
+		        style={styles.button4}
+		        underlayColor="#f0f4f7">
+		        <Text style = {styles.buttonText3}>Correct Answers: {this.theCorrectAnswers}</Text>
+		        </TouchableHighlight>
 
 
-    
-  
-       
+		        <TouchableHighlight
+		        style={styles.button3}
+		        underlayColor="#f7f0f0">
+		        <Text style = {styles.buttonText3}>Incorrect Answers: {25 - this.theCorrectAnswers}</Text>
+		        </TouchableHighlight>
 
-    
-    return (
-<<<<<<< HEAD
-      <BackgroundView>
-      
-      
- 
-  <View style={{ alignItems: "center", marginTop: 25, borderRadius: 40 }}>
-  <PureChart data={sampleData} type='pie' />
+		        <TouchableHighlight
+		        style={styles.button1}
+		        underlayColor="#f0f4f7">
+		        <Text style = {styles.buttonText3}>Total Score: {100} </Text>
+		        </TouchableHighlight>
 
-              <TouchableHighlight
-                style={styles.button}
-                onPress={this.getPredictCompany}
-                underlayColor="#f0f4f7">
-                <Text style={styles.buttonText}>Predict my Comapny</Text>
-                </TouchableHighlight>
+		        <TouchableHighlight
+		        style={styles.button1}
+		        underlayColor="#f0f4f7">
+		        <Text style = {styles.buttonText3}>Obtained Score: {this.theFinalScore}</Text>
+		        </TouchableHighlight>
+	        </View>
+		</BackgroundView>
 
-                <TouchableHighlight
-                style={styles.button4}
-                underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Correct Answers: {this.theCorrectAnswers}</Text>
-                </TouchableHighlight>
-
-
-                <TouchableHighlight
-                style={styles.button3}
-                underlayColor="#f7f0f0">
-                <Text style = {styles.buttonText3}>Incorrect Answers: {25 - this.theCorrectAnswers}</Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight
-                style={styles.button1}
-                underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Total Score: {100} </Text>
-                </TouchableHighlight>
-
-                
-                
-                
-                <TouchableHighlight
-                style={styles.button1}
-                underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Obtained Score: {this.theFinalScore}</Text>
-                </TouchableHighlight>
-                
-                
-
-                
-
-                
-          
-            </View>
-                
-                
-            
-      </BackgroundView>
-=======
-    	<BackgroundView>
-	    		<View style={{ alignItems: "center", marginTop: 50 }}>
-		    		<Pie
-		    		radius={70}
-		            //completly filled pie chart with radius 70
-		            innerRadius={40}
-		            //to make donut pie chart define inner radius
-		            series={this.secScoreArray}
-		            //values to show and color sequentially
-		            colors={['#f00', '#0f0', '#00f', '#ff0','#6699ff']}
-		            />
-		            <Text style={{ fontSize: 25, marginTop: 40 }}>Quiz Completed</Text>
-
-		            <Text>Correct Answers: {this.theCorrectAnswers}</Text>
-		            <Text>
-		            Incorrect Answers: {25 - this.theCorrectAnswers}
-		            </Text>
-		            <Text>Total Score: {100}</Text>
-		            <Text>Obtained Score: {this.theFinalScore}</Text>
-
-		            <TouchableHighlight
-		            style={styles.button}
-		            onPress={this.getPredictCompany}
-		            underlayColor="#f0f4f7">
-		            <Text style={styles.buttonText}>Predict my Comapny</Text>
-		            </TouchableHighlight>
-
-		            <TouchableHighlight
-		            style={styles.button}
-		            onPress={this.reset}
-		            underlayColor="#f0f4f7">
-		            <Text style={styles.buttonText}>Restart Quiz</Text>
-		            </TouchableHighlight>
-		        </View>
-    	</BackgroundView>
->>>>>>> b79e493f4b4f955f45f54a35a8a97942811e0b2c
-    );
+	);
   } 
 } 
 

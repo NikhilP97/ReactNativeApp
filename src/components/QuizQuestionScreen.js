@@ -155,15 +155,15 @@ export default class QuizQuestionScreen extends React.Component {
   getNextQuestion = () => {
 
     // Check if radio button is clicked else send alert
-    // if (typeof this.state.getSelectedValue == 'undefined'){
-    //   Alert.alert(
-    //     'Button Not Selected',
-    //     'Kindly choose an option to continue',
-    //     [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
-    //     { cancelable: false }
-    //   );
-    //   return;
-    // }
+    if (typeof this.state.getSelectedValue == 'undefined'){
+      Alert.alert(
+        'Button Not Selected',
+        'Kindly choose an option to continue',
+        [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+        { cancelable: false }
+      );
+      return;
+    }
     
     // Update score before fetching next value
     const question = this.state.questionsArray[this.state.currentQuesNum];
@@ -240,7 +240,7 @@ export default class QuizQuestionScreen extends React.Component {
     });
 
     //send alert for next section
-    // this.Nested_If_Else()
+    this.Nested_If_Else()
 
     //check if quiz complted
     this.setState({
@@ -315,7 +315,7 @@ export default class QuizQuestionScreen extends React.Component {
               </View>
               
               <Text style={{marginTop: 20, marginLeft: 5, marginRight: 5, fontSize: 22, fontWeight: "bold", color: "#f2f2f2", marginBottom: 20 }}>
-                {this.state.questionsArray[this.state.currentQuesNum].question}
+                Q. {this.state.questionsArray[this.state.currentQuesNum].question}
               </Text>
 
               <RadioForm
@@ -404,7 +404,7 @@ const styles = StyleSheet.create({
   finishButton:{
     marginRight:120,
     marginLeft:120,
-    marginTop:75,
+    marginTop:375,
     paddingTop:10,
     paddingBottom:10,
     backgroundColor:'#262626',
