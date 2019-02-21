@@ -35,7 +35,7 @@ export default class QuizQuestionScreen extends React.Component {
       radio_props : [],
       countDownTime: 20,
       questionProgess: 0,
-      sectionScore: [0, 20, 20, 20, 20, 20],
+      sectionScore: [0],
       lastSectionScore: 0,
       results: {
         score: 0,
@@ -240,7 +240,7 @@ export default class QuizQuestionScreen extends React.Component {
     });
 
     //send alert for next section
-    this.Nested_If_Else()
+    // this.Nested_If_Else()
 
     //check if quiz complted
     this.setState({
