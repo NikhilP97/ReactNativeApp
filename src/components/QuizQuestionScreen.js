@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     display: "flex",
-    height: "100%",
+    
     margin: 5,
   },
   loadingQuestions: {
@@ -402,19 +402,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   finishButton:{
-    flex:1,
-    alignItems: "center",
-    justifyContent: "center",
     marginRight:120,
     marginLeft:120,
-    marginTop:60,
+    marginTop:75,
     paddingTop:10,
     paddingBottom:10,
     backgroundColor:'#262626',
     borderColor: '#0d87a1',
     borderRadius:30,
-    borderWidth: 1,
-  }  
+    borderWidth: 3,
+  },
 });
 
 
