@@ -45,7 +45,7 @@ export default class Form extends Component {
 
         <TextField
         style={styles.textInput}
-        label='Name'
+        label='UCID'
         labelFontSize={20}
         disabledLineWidth={0}
         value={nameVal}

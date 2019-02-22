@@ -34,12 +34,7 @@ export default class ResultsScreen extends React.Component {
   constructor(props) {
     super(props);
     console.log("props: ", this.props);
-    state = {
-      theFinalScore: props.finalScore,
-      theCorrectAnswers: props.correctAns,
-      secScoreArray: props.secScore,
-    }
-    console.log("state: ", this.state);
+    
     this.theFinalScore = props.finalScore;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
@@ -54,6 +49,7 @@ export default class ResultsScreen extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
     let sampleData = [
     {
       value: 50,
@@ -145,6 +141,76 @@ export default class ResultsScreen extends React.Component {
       </BackgroundView>
 
     );
+=======
+	let sampleData = [
+		{
+		  value: this.secScoreArray[0],
+		  label: 'Quants',
+		  color: 'red',
+		}, {
+		  value: this.secScoreArray[1],
+		  label: 'LR and DI',
+		  color: 'blue'
+		}, {
+		  value: this.secScoreArray[2],
+		  label: 'Verbal',
+		  color: 'green'
+		},
+		{
+		  value: this.secScoreArray[3],
+		  label: 'Technical',
+		  color: '#0d87a1'
+		},
+		 {
+		  value: this.secScoreArray[4],
+		  label: 'Core',
+		  color: '#ffff00'
+		}
+	]
+
+	return (
+
+		<BackgroundView>
+	  
+	  		<View style={{ alignItems: "center", marginTop: 25, borderRadius: 40 }}>
+	  		  	<PureChart data={sampleData} type='pie' />
+
+		      	<TouchableHighlight
+		        style={styles.button}
+		        onPress={this.getPredictCompany}
+		        underlayColor="#f0f4f7">
+		        <Text style={styles.buttonText}>Predict my Comapny</Text>
+		        </TouchableHighlight>
+
+		        <TouchableHighlight
+		        style={styles.button4}
+		        underlayColor="#f0f4f7">
+		        <Text style = {styles.buttonText3}>Correct Answers: {this.theCorrectAnswers}</Text>
+		        </TouchableHighlight>
+
+
+		        <TouchableHighlight
+		        style={styles.button3}
+		        underlayColor="#f7f0f0">
+		        <Text style = {styles.buttonText3}>Incorrect Answers: {25 - this.theCorrectAnswers}</Text>
+		        </TouchableHighlight>
+
+		        <TouchableHighlight
+		        style={styles.button1}
+		        underlayColor="#f0f4f7">
+		        <Text style = {styles.buttonText3}>Total Score: {100} </Text>
+		        </TouchableHighlight>
+
+		        <TouchableHighlight
+		        style={styles.button1}
+		        underlayColor="#f0f4f7">
+		        <Text style = {styles.buttonText3}>Obtained Score: {this.theFinalScore}</Text>
+		        </TouchableHighlight>
+	        </View>
+		</BackgroundView>
+
+	);
+>>>>>>> 3e2f7ae81e5406ae103e765ef6863c3b6bcc79ab
   } 
 } 
 
