@@ -49,7 +49,6 @@ export default class ResultsScreen extends React.Component {
   }
 
   render() {
-<<<<<<< HEAD
     let sampleData = [
     {
       value: 50,
@@ -86,62 +85,7 @@ export default class ResultsScreen extends React.Component {
     
     return (
 
-      <BackgroundView>
       
-      
- 
-  <View style={{ alignItems: "center", marginTop: 25, borderRadius: 40 }}>
-  <PureChart data={sampleData} type='pie' />
-
-              <TouchableHighlight
-                style={styles.button}
-                onPress={this.getPredictCompany}
-                underlayColor="#f0f4f7">
-                <Text style={styles.buttonText}>Predict my Comapny</Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight
-                style={styles.button4}
-                underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Correct Answers: {this.theCorrectAnswers}</Text>
-                </TouchableHighlight>
-
-
-                <TouchableHighlight
-                style={styles.button3}
-                underlayColor="#f7f0f0">
-                <Text style = {styles.buttonText3}>Incorrect Answers: {25 - this.theCorrectAnswers}</Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight
-                style={styles.button1}
-                underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Total Score: {100} </Text>
-                </TouchableHighlight>
-
-                
-                
-                
-                <TouchableHighlight
-                style={styles.button1}
-                underlayColor="#f0f4f7">
-                <Text style = {styles.buttonText3}>Obtained Score: {this.theFinalScore}</Text>
-                </TouchableHighlight>
-                
-                
-
-                
-
-                
-          
-            </View>
-                
-                
-            
-      </BackgroundView>
-
-    );
-=======
 	let sampleData = [
 		{
 		  value: this.secScoreArray[0],
@@ -210,7 +154,7 @@ export default class ResultsScreen extends React.Component {
 		</BackgroundView>
 
 	);
->>>>>>> 3e2f7ae81e5406ae103e765ef6863c3b6bcc79ab
+
   } 
 } 
 
