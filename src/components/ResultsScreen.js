@@ -49,7 +49,8 @@ export default class ResultsScreen extends React.Component {
   }
 
   getPredictCompany = () =>{
-    Actions.predictCompany();
+    Actions.predictCompany(this.theFinalScore);
+
   }
 
   render() {
@@ -88,7 +89,7 @@ export default class ResultsScreen extends React.Component {
 
     
     return (
-<<<<<<< HEAD
+
       <BackgroundView>
       
       
@@ -142,43 +143,7 @@ export default class ResultsScreen extends React.Component {
                 
             
       </BackgroundView>
-=======
-    	<BackgroundView>
-	    		<View style={{ alignItems: "center", marginTop: 50 }}>
-		    		<Pie
-		    		radius={70}
-		            //completly filled pie chart with radius 70
-		            innerRadius={40}
-		            //to make donut pie chart define inner radius
-		            series={this.secScoreArray}
-		            //values to show and color sequentially
-		            colors={['#f00', '#0f0', '#00f', '#ff0','#6699ff']}
-		            />
-		            <Text style={{ fontSize: 25, marginTop: 40 }}>Quiz Completed</Text>
 
-		            <Text>Correct Answers: {this.theCorrectAnswers}</Text>
-		            <Text>
-		            Incorrect Answers: {25 - this.theCorrectAnswers}
-		            </Text>
-		            <Text>Total Score: {100}</Text>
-		            <Text>Obtained Score: {this.theFinalScore}</Text>
-
-		            <TouchableHighlight
-		            style={styles.button}
-		            onPress={this.getPredictCompany}
-		            underlayColor="#f0f4f7">
-		            <Text style={styles.buttonText}>Predict my Comapny</Text>
-		            </TouchableHighlight>
-
-		            <TouchableHighlight
-		            style={styles.button}
-		            onPress={this.reset}
-		            underlayColor="#f0f4f7">
-		            <Text style={styles.buttonText}>Restart Quiz</Text>
-		            </TouchableHighlight>
-		        </View>
-    	</BackgroundView>
->>>>>>> b79e493f4b4f955f45f54a35a8a97942811e0b2c
     );
   } 
 } 

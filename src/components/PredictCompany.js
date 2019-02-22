@@ -39,9 +39,7 @@ export default class PredictCompany extends React.Component {
       questionProgess: 0,
       linearProgVar: 0,
       lastIndexProgress: 0,
-      theFinalScore: props.finalScore,
-      theCorrectAnswers: props.correctAns,
-      secScoreArray: props.secScore,
+      
 
       results: {
         score: 14,
@@ -56,7 +54,7 @@ export default class PredictCompany extends React.Component {
       },
       completed: true
     };
-    this.theFinalScore = props.finalScore;
+    this.theFinalScore = props.theFinalScore;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
 
@@ -81,9 +79,9 @@ console.log("Final Score: ", this.theFinalScore);
       { name: 'GEP ', code: '#ff69b4' },
       { name: 'Amadeus', code: '#7dce94' },
       { name: 'ISS', code: '#d4af37' },
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
+      { name: 'HDFC', code: '#0d87a1' },
+      { name: 'OM Partners', code: '#0d87a1' },
+      { name: 'Amazon', code: '#0d87a1' },
       { name: 'Infosys', code: '#0d87a1' },
       { name: 'Infosys', code: '#0d87a1' },
       { name: 'Morgan Stanley', code: '#7c0a02' },
@@ -96,7 +94,7 @@ console.log("Final Score: ", this.theFinalScore);
       
            <BackgroundView>
 
-            {this.state.completed === true && this.state.results.score  < 15  &&  (
+            {this.state.completed === true && this.theFinalScore  < 15  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -137,7 +135,7 @@ console.log("Final Score: ", this.theFinalScore);
       
             )}
 
-          {this.state.completed === true && this.theFinalScore > 15 && this.theFinalScore < 25  &&  (
+          {this.state.completed === true && this.theFinalScore > 15 && this.theFinalScore < 30  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -147,15 +145,15 @@ console.log("Final Score: ", this.theFinalScore);
                   sections={[
                     {
                       title: 'Current Performance',
-                      data: items.slice(4, 5),
+                      data: items.slice(5, 6),
                     },
                     {
                       title: 'Next threshold',
-                      data: items.slice(6, 12),
+                      data: items.slice(8, 14),
                     },
                     {
                       title: 'Ambitious',
-                      data: items.slice(12, 20),
+                      data: items.slice(17, 20),
                     },
                   ]}
 
@@ -179,7 +177,7 @@ console.log("Final Score: ", this.theFinalScore);
             )}                
 
       
-          {this.state.completed === true && this.theFinalScore > 25 && this.theFinalScore < 30  &&  (
+          {this.state.completed === true && this.theFinalScore > 30 && this.theFinalScore < 50  &&  (
                 <SectionGrid
 
                   itemDimension={110}
