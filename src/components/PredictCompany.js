@@ -24,41 +24,12 @@ import {Actions, ActionConst} from 'react-native-router-flux';
 export default class PredictCompany extends React.Component {
     constructor(props) {
     super(props);
-    this.state = {
-      loading: false,
-      questionsArray: [],
-      clearSelection: null,
-      currentQuesNum: 0,
-      section:0,
-      correctScore: 4,
-      totalScore: 100,
-      getSelectedValue:'',
-      getIndex: -1,
-      radio_props : [],
-      countDownTime: 20,
-      questionProgess: 0,
-      linearProgVar: 0,
-      lastIndexProgress: 0,
-      
-
-      results: {
-        score: 14,
-        section1: 10,
-        section2: 15,
-        section3: 20,
-        section4: 20,
-
-
-        
-        correctAnswers: 0
-      },
-      completed: true
-    };
-    this.theFinalScore = 15;
+    console.log("props: ", props);
+    this.theFinalScore = props.data;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
 
-console.log("Final Score: ", this.theFinalScore);
+	console.log("Final Score: ", this.theFinalScore);
 
 
   }
@@ -94,7 +65,7 @@ console.log("Final Score: ", this.theFinalScore);
       
            <BackgroundView>
 
-            {this.state.completed === true && this.theFinalScore  < 15  &&  (
+            {this.theFinalScore  < 15  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -135,7 +106,7 @@ console.log("Final Score: ", this.theFinalScore);
       
             )}
 
-          {this.state.completed === true && this.theFinalScore > 15 && this.theFinalScore < 30  &&  (
+          {this.theFinalScore > 15 && this.theFinalScore < 30  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -177,7 +148,7 @@ console.log("Final Score: ", this.theFinalScore);
             )}                
 
       
-          {this.state.completed === true && this.theFinalScore > 30 && this.theFinalScore < 50  &&  (
+          {this.theFinalScore > 30 && this.theFinalScore < 50  &&  (
                 <SectionGrid
 
                   itemDimension={110}
