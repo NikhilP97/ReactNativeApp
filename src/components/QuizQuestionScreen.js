@@ -8,7 +8,8 @@ import {
   Alert,
   TouchableHighlight,
   ProgressBarAndroid,
-  Dimensions
+  Dimensions,
+  ScrollView
 } from "react-native";
 
 import BackgroundView from './BackgroundView'
@@ -385,6 +386,7 @@ export default class QuizQuestionScreen extends React.Component {
     console.log("section Score: ", this.state.sectionScore);
     return (
       <BackgroundView>
+      <ScrollView>
         <View style={styles.container}>
 
           {!!this.state.loading && ( 
@@ -477,6 +479,7 @@ export default class QuizQuestionScreen extends React.Component {
           }
           
         </View>
+        </ScrollView>
       </BackgroundView>
     );
   }

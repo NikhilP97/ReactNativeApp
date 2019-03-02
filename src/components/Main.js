@@ -8,6 +8,7 @@ import QuizStartScreen from './QuizStartScreen'
 import QuizQuestionScreen from './QuizQuestionScreen'
 import ResultsScreen from './ResultsScreen'
 import PredictCompany from './PredictCompany'
+import Infosys from './Infosys'
 
 export default class Main extends Component {
   render() {
@@ -47,6 +48,11 @@ export default class Main extends Component {
 	        />
 	        <Scene key="predictCompany"
 	          component={PredictCompany}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="infosys"
+	          component={Infosys}
 	          animation='fade'
 	          hideNavBar={true}
 	        />

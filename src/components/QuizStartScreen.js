@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 
   
   button: {
-    marginTop: 180,
+    marginTop: 80,
     backgroundColor: "#0d87a1",
     padding: 10,
     borderRadius: 10
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
 
   paragraph: {
-    marginTop: 90,
+    marginTop: 20,
     fontSize: 16,
     color: "#32CD32",
     textAlign: "center",
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     lineHeight: 25
   },
   instructionsTest: {
-    marginTop: 10,
+    marginTop: 5,
     fontSize: 16,
     color: "#0d87a1",
     textAlign: "center",
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     lineHeight: 25
   },
   negativeMarking: {
-    marginTop: 10,
+    marginTop: 5,
     fontSize: 16,
     color: "#BC040F",
     textAlign: "center",

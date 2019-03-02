@@ -22,12 +22,20 @@ import { SectionGrid } from 'react-native-super-grid';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
 export default class PredictCompany extends React.Component {
+
+    _onPress_Infosys() {
+      // console.log("in on press");
+      Actions.infosys();
+    }
+
+
     constructor(props) {
     super(props);
     console.log("props: ", props);
     this.theFinalScore = props.data;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
+    //this.results = 15;
 
 	console.log("Final Score: ", this.theFinalScore);
 
@@ -38,26 +46,47 @@ export default class PredictCompany extends React.Component {
 
   render() {
       const items = [
+      
+
+
+
+
+
+
+
       { name: 'Infosys', code: '#128c7e' },
       { name: 'Cognizant', code: '#ed2939' },
+      { name: 'Fractal', code: '#0d87a1' },
       { name: 'Capgemini', code: '#0d87a1' },
-      { name: 'Cognizant', code: '#0d87a1' },
-      { name: 'IVP', code: '#0d87a1' },
+      { name: 'Citius Tech', code: '#0d87a1' },
       { name: 'Quantiphi', code: '#0d87a1' },
       { name: 'Deloitte', code: '#ed2939' },
-      { name: 'Citius Tech ', code: '#ff6600' },
+      { name: 'IVP', code: '#ff6600' },
       { name: 'KPMG', code: '#0d87a1' },
+      { name: 'Amdocs', code: '#0d87a1' }, 
+      { name: 'ISS', code: '#d4af37' },
+      { name: 'ZS Associates', code: '#ed2939' },
+      { name: 'Carwale', code: '#0d87a1' },
+      { name: 'Interactive Brokers', code: '#0d87a1' },
+      { name: 'OM Partners', code: '#0d87a1' },
       { name: 'GEP ', code: '#ff69b4' },
       { name: 'Amadeus', code: '#7dce94' },
-      { name: 'ISS', code: '#d4af37' },
+      { name: 'Siemens', code: '#0d87a1' },
+      { name: 'LTTS', code: '#0d87a1' },
+      { name: 'Barclays', code: '#ed2939' },
+      { name: 'Carwale', code: '#0d87a1' },
+      { name: 'Nomura', code: '#0d87a1' },
+      { name: 'GEP ', code: '#ff69b4' },
+      { name: 'Amadeus', code: '#7dce94' },
       { name: 'HDFC', code: '#0d87a1' },
-      { name: 'OM Partners', code: '#0d87a1' },
       { name: 'Amazon', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Infosys', code: '#0d87a1' },
-      { name: 'Morgan Stanley', code: '#7c0a02' },
+      { name: 'PhonePe', code: '#0d87a1' },
+      { name: 'Credit Suisse', code: '#0d87a1' },
+      { name: 'JP Morgan Chase', code: '#0d87a1' },
+      { name: 'Accolite', code: '#7c0a02' },
       { name: 'Deutsche Bank', code: '#269ccc' },
-      { name: 'Accolite', code: '#9955bb' },
+      { name: 'Morgan Stanley', code: '#9955bb' },
+      { name: 'Microsoft', code: '#9955bb' },
       
     ];
 
@@ -65,7 +94,7 @@ export default class PredictCompany extends React.Component {
       
            <BackgroundView>
 
-            {this.theFinalScore  < 15  &&  (
+            {this.theFinalScore  < 25  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -79,24 +108,25 @@ export default class PredictCompany extends React.Component {
                     },
                     {
                       title: 'Next threshold',
-                      data: items.slice(6, 12),
+                      data: items.slice(3, 9),
                     },
                     {
                       title: 'Ambitious',
-                      data: items.slice(17, 20),
+                      data: items.slice(15, 18),
                     },
                   ]}
 
 
                   style={styles.gridView}
-                  renderItem={({ item, section, index }) => (
-                    <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
 
-                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
-                      <Text style={styles.itemName}>{item.name}</Text>
-                      </TouchableHighlight>
-                      
-                    </View>
+                  renderItem={({ item, section, index }) => (
+                    <TouchableHighlight onPress={this._onPress_Infosys}>
+
+                      <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
+                        <Text style={styles.itemName}>{item.name}</Text>
+                      </View>
+
+                    </TouchableHighlight>
                   )}
                   renderSectionHeader={({ section }) => (
                     <Text style={styles.sectionHeader}>{section.title}</Text>
@@ -106,7 +136,49 @@ export default class PredictCompany extends React.Component {
       
             )}
 
-          {this.theFinalScore > 15 && this.theFinalScore < 30  &&  (
+          {this.theFinalScore > 25 && this.theFinalScore < 40  &&  (
+                <SectionGrid
+
+                  itemDimension={110}
+                  // staticDimension={300}
+                  // fixed
+                  // spacing={20}
+                  sections={[
+                    {
+                      title: 'Current Performance',
+                      data: items.slice(4, 5),
+                    },
+                    {
+                      title: 'Next threshold',
+                      data: items.slice(5, 11),
+                    },
+                    {
+                      title: 'Ambitious',
+                      data: items.slice(15, 17),
+                    },
+                  ]}
+
+
+                  style={styles.gridView}
+                  renderItem={({ item, section, index }) => (
+                    <TouchableHighlight onPress={this._onPress_Infosys}>
+
+                      <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
+                        <Text style={styles.itemName}>{item.name}</Text>
+                      </View>
+                      
+                    </TouchableHighlight>
+                  )}
+                  renderSectionHeader={({ section }) => (
+                    <Text style={styles.sectionHeader}>{section.title}</Text>
+                  )}
+                />
+
+      
+            )}                
+
+      
+          {this.theFinalScore > 39 && this.theFinalScore < 50  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -120,24 +192,24 @@ export default class PredictCompany extends React.Component {
                     },
                     {
                       title: 'Next threshold',
-                      data: items.slice(8, 14),
+                      data: items.slice(19, 25),
                     },
                     {
                       title: 'Ambitious',
-                      data: items.slice(17, 20),
+                      data: items.slice(25, 28),
                     },
                   ]}
 
 
                   style={styles.gridView}
                   renderItem={({ item, section, index }) => (
-                    <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
+                    <TouchableHighlight onPress={this._onPress_Infosys}>
 
-                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
-                      <Text style={styles.itemName}>{item.name}</Text>
-                      </TouchableHighlight>
+                      <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
+                        <Text style={styles.itemName}>{item.name}</Text>
+                      </View>
                       
-                    </View>
+                    </TouchableHighlight>
                   )}
                   renderSectionHeader={({ section }) => (
                     <Text style={styles.sectionHeader}>{section.title}</Text>
@@ -145,10 +217,9 @@ export default class PredictCompany extends React.Component {
                 />
 
       
-            )}                
+            )}             
 
-      
-          {this.theFinalScore > 30 && this.theFinalScore < 50  &&  (
+                  {this.theFinalScore > 50 && this.theFinalScore < 75  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -162,24 +233,24 @@ export default class PredictCompany extends React.Component {
                     },
                     {
                       title: 'Next threshold',
-                      data: items.slice(6, 12),
+                      data: items.slice(25, 28),
                     },
                     {
                       title: 'Ambitious',
-                      data: items.slice(12, 20),
+                      data: items.slice(28, 31),
                     },
                   ]}
 
 
                   style={styles.gridView}
                   renderItem={({ item, section, index }) => (
-                    <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
-
                     <TouchableHighlight onPress={() => alert('Past Experiences')}>
-                      <Text style={styles.itemName}>{item.name}</Text>
-                      </TouchableHighlight>
+
+                      <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
+                        <Text style={styles.itemName}>{item.name}</Text>
+                      </View>
                       
-                    </View>
+                    </TouchableHighlight>
                   )}
                   renderSectionHeader={({ section }) => (
                     <Text style={styles.sectionHeader}>{section.title}</Text>
@@ -187,7 +258,82 @@ export default class PredictCompany extends React.Component {
                 />
 
       
-            )}                      
+            )}        
+
+                  {this.theFinalScore > 75 && this.theFinalScore < 90  &&  (
+                <SectionGrid
+
+                  itemDimension={110}
+                  // staticDimension={300}
+                  // fixed
+                  // spacing={20}
+                  sections={[
+                    {
+                      title: 'Current Performance',
+                      data: items.slice(27, 28),
+                    },
+                    {
+                      title: 'Next threshold',
+                      data: items.slice(28, 31),
+                    },
+                    {
+                      title: 'Ambitious',
+                      data: items.slice(31, 33),
+                    },
+                  ]}
+
+
+                  style={styles.gridView}
+                  renderItem={({ item, section, index }) => (
+                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
+
+                      <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
+                        <Text style={styles.itemName}>{item.name}</Text>
+                      </View>
+                      
+                    </TouchableHighlight>
+                  )}
+                  renderSectionHeader={({ section }) => (
+                    <Text style={styles.sectionHeader}>{section.title}</Text>
+                  )}
+                />
+
+      
+            )}              
+
+                  {this.theFinalScore > 90  &&  (
+                <SectionGrid
+
+                  itemDimension={110}
+                  // staticDimension={300}
+                  // fixed
+                  // spacing={20}
+                  sections={[
+                    {
+                      title: 'Current Performance',
+                      data: items.slice(31, 33),
+                    },
+                    
+                  ]}
+
+
+                  style={styles.gridView}
+                  renderItem={({ item, section, index }) => (
+                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
+
+                      <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
+                        <Text style={styles.itemName}>{item.name}</Text>
+                      </View>
+                      
+                    </TouchableHighlight>
+                  )}
+                  renderSectionHeader={({ section }) => (
+                    <Text style={styles.sectionHeader}>{section.title}</Text>
+                  )}
+                />
+
+      
+            )}                
     
 
       
