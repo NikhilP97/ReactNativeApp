@@ -54,7 +54,7 @@ export default class PredictCompany extends React.Component {
       },
       completed: true
     };
-    this.theFinalScore = props.theFinalScore;
+    this.theFinalScore = 15;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
 
