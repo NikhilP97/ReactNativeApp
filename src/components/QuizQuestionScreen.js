@@ -48,8 +48,10 @@ export default class QuizQuestionScreen extends React.Component {
 
   // https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
   fetchQuestions = async () => {
+    var concatenateArray = [[]];
     await this.setState({ loading: true });
     // using mLab
+    // all questions 
     const response = await fetch(
       `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c5c77a6e7179a2ed61138aa`
     );
@@ -58,14 +60,125 @@ export default class QuizQuestionScreen extends React.Component {
     // console.log("getQuestions 0 ", getQuestions.results);
     const  setQuestionArray  = getQuestions.results;
     // console.log("results", results);
-
     setQuestionArray.forEach(item => {
       item.id = Math.floor(Math.random() * 10000);
     });
+    console.log(" Questions Array before random : ",setQuestionArray);
+    var randomizeQuestionsAll = [];
+    randomizeQuestionsAll = this.randomize(setQuestionArray);
 
-    console.log(" Questions Array: ",setQuestionArray);
 
-    await this.setState({ questionsArray: setQuestionArray, loading: false});
+    // First section
+    const response1 = await fetch(
+      `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7a4180e7179a3e36e0175e`
+    );
+    // console.log("response", response);
+    const getQuestions1 = await response1.json();
+    // console.log("getQuestions 0 ", getQuestions.results);
+    const  setQuestionArray1  = getQuestions1.results;
+    // console.log("results", results);
+    setQuestionArray1.forEach(item => {
+      item.id = Math.floor(Math.random() * 10000);
+    });
+    console.log(" Questions Array before random 1 : ",setQuestionArray1);
+    var randomizeQuestions1 = [];
+    var Array1 = [];
+    randomizeQuestions1 = this.randomize(setQuestionArray1);
+    for (var i = 0; i < 5; i++) {
+      Array1[i] = randomizeQuestions1[i];
+    }
+    console.log("Array1: ", Array1);
+
+
+    // second section
+    const response2 = await fetch(
+      `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7a44b2e7179a3e36e017cb`
+    );
+    // console.log("response", response);
+    const getQuestions2 = await response2.json();
+    // console.log("getQuestions 0 ", getQuestions.results);
+    const  setQuestionArray2  = getQuestions2.results;
+    // console.log("results", results);
+    setQuestionArray2.forEach(item => {
+      item.id = Math.floor(Math.random() * 10000);
+    });
+    console.log(" Questions Array before random 2 : ",setQuestionArray2);
+    var randomizeQuestions2 = [];
+    Array2 = [];
+    randomizeQuestions2 = this.randomize(setQuestionArray2);
+    for (var i = 0; i < 5; i++) {
+      Array2[i] = randomizeQuestions2[i];
+    }
+    console.log("Array2 : ", Array2);
+
+    //third section
+    const response3 = await fetch(
+      `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7a4d82e7179a3e36e01a05`
+    );
+    // console.log("response", response);
+    const getQuestions3 = await response3.json();
+    // console.log("getQuestions 0 ", getQuestions.results);
+    const  setQuestionArray3  = getQuestions3.results;
+    // console.log("results", results);
+    setQuestionArray3.forEach(item => {
+      item.id = Math.floor(Math.random() * 10000);
+    });
+    console.log(" Questions Array before random 2 : ",setQuestionArray3);
+    var randomizeQuestions3 = [];
+    Array3 = [];
+    randomizeQuestions3 = this.randomize(setQuestionArray3);
+    for (var i = 0; i < 5; i++) {
+      Array3[i] = randomizeQuestions3[i];
+    }
+    console.log("Array3 : ", Array3);
+
+    //fourth section
+    const response4 = await fetch(
+      `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7a4e30e7179a3e36e01a31`
+    );
+    // console.log("response", response);
+    const getQuestions4 = await response4.json();
+    // console.log("getQuestions 0 ", getQuestions.results);
+    const  setQuestionArray4  = getQuestions4.results;
+    // console.log("results", results);
+    setQuestionArray4.forEach(item => {
+      item.id = Math.floor(Math.random() * 10000);
+    });
+    console.log(" Questions Array before random 4 : ",setQuestionArray4);
+    var randomizeQuestions4 = [];
+    Array4 = [];
+    randomizeQuestions4 = this.randomize(setQuestionArray4);
+    for (var i = 0; i < 5; i++) {
+      Array4[i] = randomizeQuestions4[i];
+    }
+    console.log("Array4 : ", Array4);
+
+    //fifth section
+    const response5 = await fetch(
+      `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7a4f21e7179a3e36e01a57`
+    );
+    // console.log("response", response);
+    const getQuestions5 = await response5.json();
+    // console.log("getQuestions 0 ", getQuestions.results);
+    const  setQuestionArray5  = getQuestions5.results;
+    // console.log("results", results);
+    setQuestionArray5.forEach(item => {
+      item.id = Math.floor(Math.random() * 10000);
+    });
+    console.log(" Questions Array before random 5 : ",setQuestionArray5);
+    var randomizeQuestions5 = [];
+    Array5 = [];
+    randomizeQuestions5 = this.randomize(setQuestionArray5);
+    for (var i = 0; i < 6; i++) {
+      Array5[i] = randomizeQuestions5[i];
+    }
+    console.log("Array5 : ", Array5);
+
+    var finalArray = Array1.concat(Array2, Array3, Array4, Array5);
+
+    console.log("final array: ", finalArray);
+
+    await this.setState({ questionsArray: finalArray, loading: false});
 
     // get first question
     this.setState({radio_props: [
