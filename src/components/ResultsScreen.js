@@ -49,7 +49,47 @@ export default class ResultsScreen extends React.Component {
   }
 
   render() {
+<<<<<<< HEAD
 
+=======
+    let sampleData = [
+    {
+      value: 50,
+      label: 'Quants',
+      color: 'red',
+    }, {
+      value: 40,
+      label: 'LR and DI',
+      color: 'blue'
+    }, {
+      value: 25,
+      label: 'Verbal',
+      color: 'green'
+    },
+    {
+      value: 25,
+      label: 'Technical',
+      color: '#0d87a1'
+    },
+     {
+      value: 25,
+      label: 'Core',
+      color: '#ffff00'
+    }
+ 
+  ]
+  
+
+
+    
+  
+       
+
+    
+    return (
+
+      
+>>>>>>> 91b2488d37569f75f68c73216f5929285d2db25e
 	let sampleData = [
 		{
 		  value: this.secScoreArray[0],
