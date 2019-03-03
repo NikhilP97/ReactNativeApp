@@ -21,6 +21,7 @@ import {
 var getCorrectURL = {
   Infosys: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7c357ae7179a3e36e083da`
 };
+
 export default class LoginScreen extends Component {
   constructor(props) {
     super(props);
@@ -30,8 +31,9 @@ export default class LoginScreen extends Component {
   }
 
   fetchData = async () => {
+    
     const response = await fetch(
-      this.getCorrectURL.Infosys
+      getCorrectURL.Infosys
     );
     // console.log("response", response);
     const getData = await response.json();
