@@ -18,8 +18,37 @@ import {
   ScrollView
 } from "react-native";
 
-
+var getCorrectURL = {
+  Infosys: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7c357ae7179a3e36e083da`
+};
 export default class LoginScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sampleText: "aaaa",
+    };
+  }
+
+  fetchData = async () => {
+    const response = await fetch(
+      this.getCorrectURL.Infosys
+    );
+    // console.log("response", response);
+    const getData = await response.json();
+    // console.log("getQuestions 0 ", getQuestions.results);
+    const  setData  = getData.Section1;
+
+    this.setState({ sampleText: setData});
+
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+
+
+
   render() {
     return (
       //<BackgroundView>
@@ -33,13 +62,13 @@ export default class LoginScreen extends Component {
           Job Profile: System Engineer
       </Text>
 
+      <Text style={styles.header2}>
+          checking if it works!!!!!!!!!!!!!!!!!!
+          {this.state.sampleText}
+      </Text>
+
       <Text style={styles._text}>
-          The selection process started with a pre-placement talk in the morning at around
-9:30 am. We were introduced with brief information about the company such as
-what it exactly does, job profiles, training provided by the Infosys and also viewed
-a video of Infosys Campus located at Mysore where the employees will be trained.
-After the pre placement talk, the actual selection process started which was a 2 day
-process.
+          
       </Text> 
 
       <Text style={styles.header2}>

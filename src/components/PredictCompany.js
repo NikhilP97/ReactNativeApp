@@ -23,9 +23,9 @@ import {Actions, ActionConst} from 'react-native-router-flux';
 
 export default class PredictCompany extends React.Component {
 
-    _onPress_Infosys() {
+    _onPress_Infosys(companyName) {
       // console.log("in on press");
-      Actions.infosys();
+      Actions.infosys(companyName);
     }
 
 
@@ -120,7 +120,7 @@ export default class PredictCompany extends React.Component {
                   style={styles.gridView}
 
                   renderItem={({ item, section, index }) => (
-                    <TouchableHighlight onPress={this._onPress_Infosys}>
+                    <TouchableHighlight onPress={() => this._onPress_Infosys(item.name)} onPress={this._onPress_Infosys}>
 
                       <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
                         <Text style={styles.itemName}>{item.name}</Text>
