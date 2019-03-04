@@ -20,7 +20,7 @@ import * as Progress from 'react-native-progress';
 import Pie from 'react-native-pie';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
-var totalQuestions = 24;
+var totalQuestions = 1;
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -257,7 +257,7 @@ export default class QuizQuestionScreen extends React.Component {
         var sendData = {
         finalScore: this.state.results.score, // here finalScore can be used in other file using props
         correctAns: this.state.results.correctAnswers,
-        secScore: this.state.sectionScore
+        secScore: [4,0,0,4,0] //this.state.sectionScore
       }
       console.log("sendData: ", sendData);
       Actions.resultsScreen(sendData);
@@ -355,13 +355,10 @@ export default class QuizQuestionScreen extends React.Component {
 
     //send alert for next section
     this.Nested_If_Else()
-
     //check if quiz complted
     this.setState({
       completed: this.state.currentQuesNum === totalQuestions ? true : false
     });
-    
-    
     // console.log("updated radio_props ", this.state.radio_props)
     
   }
@@ -386,7 +383,7 @@ export default class QuizQuestionScreen extends React.Component {
     console.log("section Score: ", this.state.sectionScore);
     return (
       <BackgroundView>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View style={styles.container}>
 
           {!!this.state.loading && ( 
@@ -472,11 +469,7 @@ export default class QuizQuestionScreen extends React.Component {
                   <Text style={styles.buttonText}>Finish Test</Text>  
               </TouchableHighlight>
             </View>
-
-            )
-
-
-          }
+          )}
           
         </View>
         </ScrollView>
@@ -497,9 +490,13 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   loadingQuestions: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonText: {
     fontSize: 20,

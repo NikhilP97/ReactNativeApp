@@ -26,148 +26,150 @@ export default class LoginScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sampleText: "aaaa",
+      loading: true,
+      companyName: "loading",
+      jobProfile: "loading",
+      section1: "loading",
+      header1: "loading",
+      section2: "loading",
+      header2: "loading",
+      section3: "loading",
+      header3: "loading",
+      section4: "loading",
+      header4: "loading",
+      section5: "loading",
     };
+    console.log("props: ", props);
+    this.companyName = props.data;
+    console.log("company Name received : ", this.companyName);
   }
 
   fetchData = async () => {
-    
+    await this.setState({ loading: true });
+    var selectedCompany = this.companyName;
+    console.log("selectedCompany: ", selectedCompany)
     const response = await fetch(
-      getCorrectURL.Infosys
+      getCorrectURL[selectedCompany]
     );
     // console.log("response", response);
     const getData = await response.json();
     // console.log("getQuestions 0 ", getQuestions.results);
-    const  setData  = getData.Section1;
-
-    this.setState({ sampleText: setData});
-
+    const fetchedCompanyName = getData.CompanyName;
+    this.setState({ companyName: fetchedCompanyName});
+    const fetchedJobProfile = getData.JobProfile;
+    this.setState({ jobProfile: fetchedJobProfile});
+    const  fetchedSection1  = getData.Section1;
+    this.setState({ section1: fetchedSection1});
+    const  fetchedHeader1  = getData.Header1;
+    this.setState({ header1: fetchedHeader1});
+    const  fetchedSection2  = getData.Section2;
+    this.setState({ section2: fetchedSection2});
+    const  fetchedHeader2  = getData.Header2;
+    this.setState({ header2: fetchedHeader2});
+    const  fetchedSection3  = getData.Section3;
+    this.setState({ section3: fetchedSection3});
+    const  fetchedHeader3  = getData.Header3;
+    this.setState({ header3: fetchedHeader3});
+    const  fetchedSection4  = getData.Section4;
+    this.setState({ section4: fetchedSection4});
+    const  fetchedHeader4  = getData.Header4;
+    this.setState({ header4: fetchedHeader4});
+    const  fetchedSection5  = getData.Section5;
+    await this.setState({ section5: fetchedSection5, loading: false});
   }
 
   componentDidMount() {
     this.fetchData();
   }
 
-
-
-
   render() {
     return (
       //<BackgroundView>
-      <ScrollView>
-      <View style={styles.container}>
-      <Text style={styles.header}>
-          INFOSYS
-      </Text>
-
-      <Text style={styles.header2}>
-          Job Profile: System Engineer
-      </Text>
-
-      <Text style={styles.header2}>
-          checking if it works!!!!!!!!!!!!!!!!!!
-          {this.state.sampleText}
-      </Text>
-
-      <Text style={styles._text}>
-          
-      </Text> 
-
-      <Text style={styles.header2}>
-          Day 1: Aptitude Round:
-      </Text>
-
-      <Text style={styles._text}>
-          The students were asked to carry the information sheet that consists of the details
-of the students as well as their overall marks right from the S.S.C. upto 6th
-semester. The softcopy of this was provided by the TPC’s two days before the
-actual process along with ID proof. The students were divided in batches and the
-rooms were allotted for the test. The aptitude consisted of three sections namely
-Verbal, Quants and Logical Reasoning. The aptitude round had sectional cut offs.
-
-The results were declared on the same day after few hours and the next day
-we had a single interview round.
-
-      </Text>
-
-      <Text style={styles.header2}>
-          Day 2: Interviews
-      </Text>
       
-      <Text style={styles._text}>
-          On the day of the interview, the shortlisted students assembled in the room around
-8:30 am and were divided in batches. The students were asked to carry the same
-information sheet which was carried during the aptitude test, ID proof, 2
-photographs with name and date of birth written behind it and the Resume (the
-most important thing). There was a single interview round which that was a
-combination of Technical and HR and was a one to one process. I was asked in
-depth about my projects and the main focus was on my current BE project. I was
-asked questions such as what is the motivation behind the project, working, circuit
-diagram, outcomes, why this particular component is used and also I was asked
-about the vendor of a component to which I didn’t have any answer. Further, I was
-asked about the uses of Internet and it’s pros and cons, questions on automation
-and LabVIEW and also I was asked about the company such as what kind of
-training it provides, what actually the company does, what did I liked about the
-company, do I follow any blogs related to the company, which is your dream
-company, why IT firm and questions on hobbies were also asked. Since I was from
-electronics background, I was asked questions on only Basics of Data Structures
-and C as mentioned in my resume. Then what subjects I had in the previous
-semesters and my areas of interests. After that, I asked a question to the
-interviewer related to the training they provide.
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+        <View style={styles.container}>
+          {!this.state.loading && (
+            <View style={styles.container}>
+              <Text style={styles.header}>
+                {this.state.companyName}
+              </Text>
 
-      </Text> 
+              <Text style={styles.header2}>
+                {this.state.jobProfile}
+              </Text>
 
-      <Text style={styles.header2}>
-          Remember:
-      </Text>
+              <Text style={styles.header2}>
+                {this.state.section1}
+              </Text>
 
+              <Text style={styles.header2}>
+                {this.state.header1}
+              </Text>
 
-      <Text style={styles._text}>
-          During the interview, if you don’t have an answer to a question, don’t
-get nervous and say no. Saying no does not means that you will be rejected, it
-shows your honesty. Be confident during the interview and don’t fumble.
-Interviews are meant to test your knowledge, your overall personality and most
-importantly your way of handling complex situations. 
+              <Text style={styles._text}>
+                {this.state.section2}
+              </Text>
 
-      </Text> 
+              <Text style={styles.header2}>
+                {this.state.header2}
+              </Text>
+              
+              <Text style={styles._text}>
+                {this.state.section3}
+              </Text> 
 
+              <Text style={styles.header2}>
+                {this.state.header3}
+              </Text>
 
-      <Text style={styles.header2}>
-          Tips:
-      </Text>
+              <Text style={styles._text}>
+                {this.state.section4}
+              </Text> 
 
+              <Text style={styles.header2}>
+                {this.state.header4}
+              </Text>
 
-      <Text style={styles._text}>
-          Before the placement seasons begins, do attend the practice sessions held by
-the TPC’s, practice aptitude questions as well as puzzles and also attend mock
-interviews. This will help you build confidence. Before the interviews, go through
-their websites as there are a lot of questions asked related to the company. Also,
-prepare your resume thouroughly as 90% of the questions come from your resume
-and the focus is mainly on your projects.
-So work hard, believe in yourself and never be disheartened by rejections. 
+              <Text style={styles._text}>
+                {this.state.section5}   
+              </Text>
+            </View>
+          )}
 
-      </Text> 
-
-       </View> 
-       </ScrollView>
+          {this.state.loading && ( 
+            <View style={styles.loadingQuestions}>
+              <ActivityIndicator size="large" color="#000" />
+              <Text style={{color:'#000', fontSize: 20}}>loading</Text>
+            </View>
+          )}
+           
+        </View> 
+      </ScrollView>  
       
     );
   }
 }
 
 
-
 const styles = StyleSheet.create({
+  contentContainer: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-
     alignItems: "center",
-    
+    justifyContent: "center",  
   },
-
-  
-  
-
+  loadingQuestions: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    color:'#000'
+  },
   header: {
     marginTop: 10,
     fontFamily: "Helvetica",
@@ -175,7 +177,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "black",
   },
-
   header2: {
     marginTop: 10,
     fontFamily: "Helvetica",
@@ -184,7 +185,6 @@ const styles = StyleSheet.create({
     color: "black",
     textAlign: 'left',
   },
-  
   instructionsTest: {
     marginTop: 5,
     fontSize: 16,
@@ -193,18 +193,15 @@ const styles = StyleSheet.create({
     padding: 10,
     lineHeight: 25
   },
-
   example:{
-          fontSize: 18,
-          fontStyle:'italic',
-          fontWeight: '100',
-          textAlign: 'center',
-          color: "#0d87a1",
-          paddingBottom:20,
-
-    },
-
-   _text: {
+    fontSize: 18,
+    fontStyle:'italic',
+    fontWeight: '100',
+    textAlign: 'center',
+    color: "#0d87a1",
+    paddingBottom:20,
+  },
+  _text: {
     fontFamily: "Verdana",
     fontSize: 18,
     color: "black",
