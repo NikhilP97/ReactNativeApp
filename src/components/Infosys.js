@@ -19,7 +19,9 @@ import {
 } from "react-native";
 
 var getCorrectURL = {
-  Infosys: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7c357ae7179a3e36e083da`
+  Infosys: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7c357ae7179a3e36e083da`,
+  Capgemini: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7cfba8fb6fc072012d4220`,
+  'Citius Tech': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0142fb6fc072012d46ba`
 };
 
 export default class LoginScreen extends Component {
@@ -27,17 +29,19 @@ export default class LoginScreen extends Component {
     super(props);
     this.state = {
       loading: true,
+      yourName: "loading",
+      branch: "loading",
       companyName: "loading",
       jobProfile: "loading",
-      section1: "loading",
-      header1: "loading",
-      section2: "loading",
-      header2: "loading",
-      section3: "loading",
-      header3: "loading",
-      section4: "loading",
-      header4: "loading",
-      section5: "loading",
+      location: "loading",
+      package: "loading",
+      generalInfo: "loading",
+      aptitude: "loading",
+      gD: "loading",
+      tech: "loading",
+      hR: "loading",
+      experience: "loading",
+      tips: "loading", 
     };
     console.log("props: ", props);
     this.companyName = props.data;
@@ -54,28 +58,33 @@ export default class LoginScreen extends Component {
     // console.log("response", response);
     const getData = await response.json();
     // console.log("getQuestions 0 ", getQuestions.results);
+    const fetchedYourName = getData.YourName;
+    this.setState({ yourName: fetchedYourName});
+    const fetchedBranch = getData.Branch;
+    this.setState({ branch: fetchedBranch});
     const fetchedCompanyName = getData.CompanyName;
     this.setState({ companyName: fetchedCompanyName});
     const fetchedJobProfile = getData.JobProfile;
     this.setState({ jobProfile: fetchedJobProfile});
-    const  fetchedSection1  = getData.Section1;
-    this.setState({ section1: fetchedSection1});
-    const  fetchedHeader1  = getData.Header1;
-    this.setState({ header1: fetchedHeader1});
-    const  fetchedSection2  = getData.Section2;
-    this.setState({ section2: fetchedSection2});
-    const  fetchedHeader2  = getData.Header2;
-    this.setState({ header2: fetchedHeader2});
-    const  fetchedSection3  = getData.Section3;
-    this.setState({ section3: fetchedSection3});
-    const  fetchedHeader3  = getData.Header3;
-    this.setState({ header3: fetchedHeader3});
-    const  fetchedSection4  = getData.Section4;
-    this.setState({ section4: fetchedSection4});
-    const  fetchedHeader4  = getData.Header4;
-    this.setState({ header4: fetchedHeader4});
-    const  fetchedSection5  = getData.Section5;
-    await this.setState({ section5: fetchedSection5, loading: false});
+    const fetchedLocation = getData.Location;
+    this.setState({ location: fetchedLocation});
+    const fetchedPackage = getData.Package;
+    this.setState({ package: fetchedPackage});
+    const fetchedGeneralInfo = getData.GeneralInfo;
+    this.setState({ generalInfo: fetchedGeneralInfo});
+    const fetchedAptitude = getData.Aptitude;
+    this.setState({ aptitude: fetchedAptitude});
+    const fetchedGD = getData.GD;
+    this.setState({ gD: fetchedGD});
+    const fetchedTech = getData.Tech;
+    this.setState({ tech: fetchedTech});
+    const fetchedHR = getData.HR;
+    this.setState({ hR: fetchedHR});
+    const fetchedExperience = getData.Experience;
+    this.setState({ experience: fetchedExperience});
+    const fetchedTips = getData.Tips;
+    await this.setState({ tips: fetchedTips, loading: false});
+    
   }
 
   componentDidMount() {
@@ -91,47 +100,79 @@ export default class LoginScreen extends Component {
           {!this.state.loading && (
             <View style={styles.container}>
               <Text style={styles.header}>
+                {this.state.yourName}
+              </Text>
+
+              <Text style={styles.header}>
+                {this.state.branch}
+              </Text>
+
+              <Text style={styles.header}>
                 {this.state.companyName}
               </Text>
 
               <Text style={styles.header2}>
-                {this.state.jobProfile}
+                Job Profile: {this.state.jobProfile}
               </Text>
 
               <Text style={styles.header2}>
-                {this.state.section1}
+                Location: {this.state.location}
               </Text>
 
               <Text style={styles.header2}>
-                {this.state.header1}
+                Package: {this.state.package}
               </Text>
 
               <Text style={styles._text}>
-                {this.state.section2}
+                {this.state.generalInfo}
               </Text>
 
               <Text style={styles.header2}>
-                {this.state.header2}
+                Aptitude:
+              </Text>
+
+              <Text style={styles._text}>
+                {this.state.aptitude}
+              </Text>
+
+              <Text style={styles.header2}>
+                Group Discussion:
               </Text>
               
               <Text style={styles._text}>
-                {this.state.section3}
+                {this.state.gD}
               </Text> 
 
               <Text style={styles.header2}>
-                {this.state.header3}
+                Technical Interview:
               </Text>
 
               <Text style={styles._text}>
-                {this.state.section4}
+                {this.state.tech}
+              </Text>
+
+              <Text style={styles.header2}>
+                HR:
+              </Text>
+
+              <Text style={styles._text}>
+                {this.state.hR}
               </Text> 
 
               <Text style={styles.header2}>
-                {this.state.header4}
+                Interview Experience:
               </Text>
 
               <Text style={styles._text}>
-                {this.state.section5}   
+                {this.state.experience}   
+              </Text>
+
+              <Text style={styles.header2}>
+                Tips:
+              </Text>
+
+              <Text style={styles._text}>
+                {this.state.tips}   
               </Text>
             </View>
           )}
