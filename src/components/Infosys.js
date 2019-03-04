@@ -21,7 +21,33 @@ import {
 var getCorrectURL = {
   Infosys: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7c357ae7179a3e36e083da`,
   Capgemini: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7cfba8fb6fc072012d4220`,
-  'Citius Tech': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0142fb6fc072012d46ba`
+  'Citius Tech': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0142fb6fc072012d46ba`,
+  Quantiphi: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Deloitte: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d15b3fb6fc072012d557f`,
+  IVP: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  KPMG: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  GEP: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Amadeus: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Siemens: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Amdocs: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  ISS: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  'ZS Associates': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Carwale: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  'Interactive Brokers': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  'OM Partners': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Barclays: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Nomura: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  HDFC: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Amazon: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  PhonePe: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  'Credit Suisse': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  'JP Morgan Chase': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Accolite: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  'Deutsche Bank': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  'Morgan Stanley': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Accolite: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`
+  
+
 };
 
 export default class LoginScreen extends Component {
@@ -180,7 +206,7 @@ export default class LoginScreen extends Component {
           {this.state.loading && ( 
             <View style={styles.loadingQuestions}>
               <ActivityIndicator size="large" color="#000" />
-              <Text style={{color:'#000', fontSize: 20}}>loading</Text>
+              <Text style={{color:'#000', fontSize: 20}}>Fetching</Text>
             </View>
           )}
            

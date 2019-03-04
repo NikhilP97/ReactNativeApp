@@ -20,7 +20,7 @@ import * as Progress from 'react-native-progress';
 import Pie from 'react-native-pie';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
-var totalQuestions = 1;
+var totalQuestions = 24;
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
     super(props);
