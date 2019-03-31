@@ -7,6 +7,7 @@ import ButtonSubmit from './ButtonSubmit';
 import SignupSection from './SignupSection';
 import BackgroundView from './BackgroundView';
 import {Actions, ActionConst} from 'react-native-router-flux';
+import { ImageBackground } from 'react-native';
 import {
   StyleSheet,
   Text,
@@ -24,15 +25,15 @@ var getCorrectURL = {
   'Citius Tech': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0142fb6fc072012d46ba`,
   Quantiphi: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
   Deloitte: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d15b3fb6fc072012d557f`,
-  IVP: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  KPMG: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  GEP: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  Amadeus: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  Siemens: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  Amdocs: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  ISS: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  'ZS Associates': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  Carwale: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  IVP: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c9368d0fb6fc0465d4a1e22`,
+  KPMG: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c9372b8fb6fc0465d4a2810`,
+  GEP: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c9375affb6fc0465d4a29a9`,
+  Amadeus: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c937e91fb6fc0465d4a2c7d`,
+  Siemens: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c9380d2fb6fc0465d4a2d10`,
+  Amdocs: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c9e31e9fb6fc0465d4ebd00`,
+  ISS: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c9e337cfb6fc0465d4ebdd4`,
+  'ZS Associates': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c9e3cc6fb6fc0465d4ec2ee`,
+  Carwale: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c9e3d5efb6fc0465d4ec332`,
   'Interactive Brokers': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
   'OM Partners': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
   Barclays: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
@@ -120,6 +121,12 @@ export default class LoginScreen extends Component {
   render() {
     return (
       //<BackgroundView>
+      <ImageBackground
+        style={{ flex: 1 }}
+        imageStyle={{ width: 'auto', height: '100%' }}
+        source={require('../images/experience.png')}
+      >
+        
       
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View style={styles.container}>
@@ -205,13 +212,14 @@ export default class LoginScreen extends Component {
 
           {this.state.loading && ( 
             <View style={styles.loadingQuestions}>
-              <ActivityIndicator size="large" color="#000" />
-              <Text style={{color:'#000', fontSize: 20}}>Fetching</Text>
+              <ActivityIndicator size="large" color="#00caa6" />
+              <Text style={{color:'#00caa6', fontSize: 20}}>Fetching</Text>
             </View>
           )}
            
         </View> 
       </ScrollView>  
+    </ImageBackground>  
       
     );
   }
@@ -225,7 +233,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",  
+    justifyContent: "center", 
+    
+ 
   },
   loadingQuestions: {
     position: 'absolute',
@@ -242,14 +252,14 @@ const styles = StyleSheet.create({
     fontFamily: "Helvetica",
     fontSize: 36,
     fontWeight: "bold",
-    color: "black",
+    color: "#00caa6",
   },
   header2: {
     marginTop: 10,
     fontFamily: "Helvetica",
     fontSize: 20,
     fontWeight: "bold",
-    color: "black",
+    color: "#EFD469",
     textAlign: 'left',
   },
   instructionsTest: {
@@ -271,7 +281,7 @@ const styles = StyleSheet.create({
   _text: {
     fontFamily: "Verdana",
     fontSize: 18,
-    color: "black",
+    color: "#9ed2c5",
     //fontStyle:'italic',
     marginTop: 10,
     textAlign: 'left',

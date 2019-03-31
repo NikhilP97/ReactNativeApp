@@ -54,6 +54,9 @@ export default class PredictCompany extends React.Component {
 
 
 
+      
+
+
       { name: 'Infosys', code: '#128c7e' },
       { name: 'Cognizant', code: '#ed2939' },
       { name: 'Fractal', code: '#0d87a1' },
