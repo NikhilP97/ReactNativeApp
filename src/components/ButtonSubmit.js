@@ -45,7 +45,7 @@ export default class ButtonSubmit extends Component {
 
   _onPress() {
     console.log("in on press");
-    Actions.quizStartScreen();
+    Actions.menuScreen();
   }
 
   _onGrow() {
@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
   container: {
     padding: 30,
     borderRadius:20,
-    
   },
   buttonText: {
     fontSize: 18,

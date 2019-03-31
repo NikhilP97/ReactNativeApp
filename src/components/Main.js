@@ -9,6 +9,7 @@ import QuizQuestionScreen from './QuizQuestionScreen'
 import ResultsScreen from './ResultsScreen'
 import PredictCompany from './PredictCompany'
 import Infosys from './Infosys'
+import MenuScreen from './MenuScreen'
 
 export default class Main extends Component {
   render() {
@@ -28,6 +29,11 @@ export default class Main extends Component {
 	        />
 	        <Scene key="createAccountScreen"
 	          component={CreateAccountScreen}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="menuScreen"
+	          component={MenuScreen}
 	          animation='fade'
 	          hideNavBar={true}
 	        />
