@@ -54,6 +54,7 @@ const formStyles = {
 const options = {
   fields: {
     nameVal: {
+      label: 'Name',
       error: 'name required',
     },
     surname: {

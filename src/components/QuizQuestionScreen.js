@@ -20,7 +20,7 @@ import * as Progress from 'react-native-progress';
 import Pie from 'react-native-pie';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
-var totalQuestions = 24; //1
+var totalQuestions = 1; //1
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -248,7 +248,7 @@ export default class QuizQuestionScreen extends React.Component {
         var sendData = {
         finalScore: this.state.results.score, // here finalScore can be used in other file using props
         correctAns: this.state.results.correctAnswers,
-        secScore: this.state.sectionScore //[4,0,0,4,0]
+        secScore:  [4,0,0,4,0] //this.state.sectionScore
       }
       console.log("sendData: ", sendData);
       Actions.resultsScreen(sendData);

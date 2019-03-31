@@ -126,6 +126,18 @@ export default class MenuScreen extends Component {
 				        style={ miniCardStyle }
 				        imageMargin={ {top: 5} }
 				    />
+				    <CardViewWithImage
+				        width={ (Dimensions.get("window").width) - 30}
+				        source={ require('../images/menuLogos/mainQuiz.png') }
+				        imageWidth={ 88 }
+				        imageHeight={ 88 }
+				        titleFontSize={17}
+				        onPress={() => Actions.quizStartScreen()}
+				        roundedImage={ false }
+				        roundedImageValue={ 50 }
+				        style={ miniCardStyle }
+				        
+				    />
 		        </View>
 	     	</View>
 	     	</BackgroundView>
