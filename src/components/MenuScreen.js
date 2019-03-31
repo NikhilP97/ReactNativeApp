@@ -35,7 +35,7 @@ export default class MenuScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ 40 }
 				        imageHeight={ 40 }
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.menuItem('java')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -48,7 +48,7 @@ export default class MenuScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ 40 }
 				        imageHeight={ 40 }
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.menuItem('apti')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -59,7 +59,7 @@ export default class MenuScreen extends Component {
 				        source={ require('../images/menuLogos/c1.png') }
 				        imageWidth={ 82 }
 				        imageHeight={ 82 }
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.menuItem('cLang')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -70,7 +70,7 @@ export default class MenuScreen extends Component {
 				        source={ require('../images/menuLogos/cpp1.png') }
 				        imageWidth={ 82 }
 				        imageHeight={ 82 }
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.menuItem('cppLang')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -83,7 +83,7 @@ export default class MenuScreen extends Component {
 				        imageHeight={ 43 }
 				        title={ 'Python' }
 				        titleFontSize={17}
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.menuItem('python')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -96,7 +96,7 @@ export default class MenuScreen extends Component {
 				        imageHeight={ 43 }
 				        title={ 'Data Structures' }
 				        titleFontSize={17}
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.menuItem('ds')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -108,7 +108,7 @@ export default class MenuScreen extends Component {
 				        imageHeight={ 43 }
 				        title={ 'Algorithms' }
 				        titleFontSize={17}
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.menuItem('algos')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -120,7 +120,7 @@ export default class MenuScreen extends Component {
 				        imageHeight={ 38 }
 				        title={ 'DBMS' }
 				        titleFontSize={17}
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.menuItem('dbms')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }

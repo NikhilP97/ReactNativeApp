@@ -10,6 +10,9 @@ import ResultsScreen from './ResultsScreen'
 import PredictCompany from './PredictCompany'
 import Infosys from './Infosys'
 import MenuScreen from './MenuScreen'
+import MenuItem from './MenuItem'
+import WebViewItem from './WebViewItem'
+import StudyMatCards from './StudyMatCards'
 
 export default class Main extends Component {
   render() {
@@ -34,6 +37,21 @@ export default class Main extends Component {
 	        />
 	        <Scene key="menuScreen"
 	          component={MenuScreen}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="menuItem"
+	          component={MenuItem}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="studyMatCards"
+	          component={StudyMatCards}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="webViewItem"
+	          component={WebViewItem}
 	          animation='fade'
 	          hideNavBar={true}
 	        />
