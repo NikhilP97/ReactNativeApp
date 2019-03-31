@@ -45,7 +45,8 @@ var getCorrectURL = {
   Accolite: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
   'Deutsche Bank': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
   'Morgan Stanley': `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
-  Accolite: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`
+  Accolite: `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018`,
+  Microsoft: 'https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c7d0e71fb6fc072012d5018'
   
 
 };

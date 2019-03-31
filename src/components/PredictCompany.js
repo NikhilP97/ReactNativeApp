@@ -46,13 +46,6 @@ export default class PredictCompany extends React.Component {
 
   render() {
       const items = [
-      
-
-
-
-
-
-
 
       { name: 'Infosys', code: '#128c7e' },
       { name: 'Cognizant', code: '#ed2939' },
@@ -69,14 +62,14 @@ export default class PredictCompany extends React.Component {
       { name: 'Carwale', code: '#0d87a1' },
       { name: 'Interactive Brokers', code: '#0d87a1' },
       { name: 'OM Partners', code: '#0d87a1' },
-      { name: 'GEP ', code: '#ff69b4' },
+      { name: 'GEP', code: '#ff69b4' },
       { name: 'Amadeus', code: '#7dce94' },
       { name: 'Siemens', code: '#0d87a1' },
       { name: 'LTTS', code: '#0d87a1' },
       { name: 'Barclays', code: '#ed2939' },
       { name: 'Carwale', code: '#0d87a1' },
       { name: 'Nomura', code: '#0d87a1' },
-      { name: 'GEP ', code: '#ff69b4' },
+      { name: 'GEP', code: '#ff69b4' },
       { name: 'Amadeus', code: '#7dce94' },
       { name: 'HDFC', code: '#0d87a1' },
       { name: 'Amazon', code: '#0d87a1' },
@@ -132,8 +125,6 @@ export default class PredictCompany extends React.Component {
                     <Text style={styles.sectionHeader}>{section.title}</Text>
                   )}
                 />
-
-      
             )}
 
           {this.theFinalScore > 25 && this.theFinalScore < 40  &&  (
@@ -161,7 +152,7 @@ export default class PredictCompany extends React.Component {
 
                   style={styles.gridView}
                   renderItem={({ item, section, index }) => (
-                    <TouchableHighlight onPress={this._onPress_Infosys}>
+                    <TouchableHighlight onPress={() => this._onPress_Infosys(item.name)}>
 
                       <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
                         <Text style={styles.itemName}>{item.name}</Text>
@@ -203,7 +194,7 @@ export default class PredictCompany extends React.Component {
 
                   style={styles.gridView}
                   renderItem={({ item, section, index }) => (
-                    <TouchableHighlight onPress={this._onPress_Infosys}>
+                    <TouchableHighlight onPress={() => this._onPress_Infosys(item.name)}>
 
                       <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
                         <Text style={styles.itemName}>{item.name}</Text>
@@ -244,7 +235,7 @@ export default class PredictCompany extends React.Component {
 
                   style={styles.gridView}
                   renderItem={({ item, section, index }) => (
-                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
+                    <TouchableHighlight onPress={() => this._onPress_Infosys(item.name)}>
 
                       <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
                         <Text style={styles.itemName}>{item.name}</Text>
@@ -285,7 +276,7 @@ export default class PredictCompany extends React.Component {
 
                   style={styles.gridView}
                   renderItem={({ item, section, index }) => (
-                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
+                    <TouchableHighlight onPress={() => this._onPress_Infosys(item.name)}>
 
                       <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
                         <Text style={styles.itemName}>{item.name}</Text>
@@ -319,7 +310,7 @@ export default class PredictCompany extends React.Component {
 
                   style={styles.gridView}
                   renderItem={({ item, section, index }) => (
-                    <TouchableHighlight onPress={() => alert('Past Experiences')}>
+                    <TouchableHighlight onPress={() => this._onPress_Infosys(item.name)}>
 
                       <View style={[styles.itemContainer, { backgroundColor: item.code }]}>
                         <Text style={styles.itemName}>{item.name}</Text>
