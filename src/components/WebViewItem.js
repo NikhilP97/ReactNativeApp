@@ -11,7 +11,7 @@ let getCorrectURI = {
 	'Java Operators': 'https://www.geeksforgeeks.org/operators-in-java/',
 	'Exceptions': 'https://www.geeksforgeeks.org/exceptions-in-java/',
 	'Java Strings': 'https://www.geeksforgeeks.org/how-to-initialize-and-compare-strings-in-java/',
-	'Garbage Collector': 'https://www.geeksforgeeks.org/garbage-collection-java/',
+	'Java Garbage Collector': 'https://www.geeksforgeeks.org/garbage-collection-java/',
 	'Wrapper Classes': 'https://www.geeksforgeeks.org/wrapper-classes-java/',
 	'Important Keywords': 'https://www.geeksforgeeks.org/important-keywords-java/',
 	'Methods': 'https://www.geeksforgeeks.org/methods-in-java/',
@@ -51,7 +51,29 @@ let getCorrectURI = {
 	'Constructors in C++': 'https://www.geeksforgeeks.org/constructors-c/',
 	'Destructors in C++': 'https://www.geeksforgeeks.org/destructors-c/',
 	'Exception Handling': 'https://www.geeksforgeeks.org/exception-handling-c/',
-	'Virtual Functions': 'https://www.geeksforgeeks.org/virtual-functions-and-runtime-polymorphisms-in-c-set-1-introduction/'
+	'Virtual Functions': 'https://www.geeksforgeeks.org/virtual-functions-and-runtime-polymorphisms-in-c-set-1-introduction/',
+	'------------------------------Python':'Lang----------------------------------------------',
+	'Python Basics': 'https://www.geeksforgeeks.org/python-language-introduction/',
+	'Keywords in Python': 'https://www.geeksforgeeks.org/keywords-python-set-1/',
+	'I/O in Python': 'https://www.geeksforgeeks.org/taking-input-in-python/',
+	'Python Data Types': 'https://www.geeksforgeeks.org/python-set-3-strings-lists-tuples-iterations/',
+	'Variables': 'https://www.geeksforgeeks.org/python-set-2-variables-expressions-conditions-and-functions/',
+	'Operators in Python': 'https://www.geeksforgeeks.org/basic-operators-python/',
+	'Control Flow': 'https://www.geeksforgeeks.org/loops-in-python/',
+	'Pandas': 'https://www.geeksforgeeks.org/python-pandas-dataframe/',
+	'Numpy': 'https://www.geeksforgeeks.org/python-numpy/',
+	'Functions in Python': 'https://www.geeksforgeeks.org/functions-in-python/',
+	'OOPS in Python': 'https://www.geeksforgeeks.org/object-oriented-programming-in-python-set-1-class-and-its-members/',
+	'Python Exceptions': 'https://www.geeksforgeeks.org/python-set-5-exception-handling/',
+	'Python Modules': 'https://www.geeksforgeeks.org/python-modules/',
+	'Constructors in Python': 'https://www.geeksforgeeks.org/constructors-in-python/',
+	'Destructors in Python': 'https://www.geeksforgeeks.org/destructors-in-python/',
+	'Garbage Collector': 'https://www.geeksforgeeks.org/garbage-collection-python/',
+	'------------------------------Data':'Structures----------------------------------------------',
+
+
+
+
 
 
 

@@ -19,7 +19,7 @@ let getCardData = {
 		c7: 'Java Operators',
 		c8: 'Exceptions',
 		c9: 'Java Strings',
-		c10:'Garbage Collector',
+		c10:'Java Garbage Collector',
 		c11:'Wrapper Classes',
 		c12:'Important Keywords',
 		c13:'Methods',
@@ -62,6 +62,24 @@ let getCardData = {
 		c14:'Destructors in C++',
 		c15:'Exception Handling',
 		c16:'Virtual Functions'
+	},
+	python: {
+		c1: 'Python Basics',
+		c2: 'Keywords in Python',
+		c3: 'I/O in Python',
+		c4: 'Python Data Types',
+		c5: 'Variables',
+		c6: 'Operators in Python',
+		c7: 'Control Flow',
+		c8: 'Pandas',
+		c9: 'Numpy',
+		c10:'Functions in Python',
+		c11:'OOPS in Python',
+		c12:'Python Exceptions',
+		c13:'Python Modules',
+		c14:'Constructors in Python',
+		c15:'Destructors in Python',
+		c16:'Garbage Collector'
 	}
 }
 
