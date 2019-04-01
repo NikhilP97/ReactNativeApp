@@ -86,7 +86,7 @@ let getCorrectURI = {
 	'AVL Tree': 'https://www.geeksforgeeks.org/avl-tree-set-1-insertion/',
 	'Circular Linked List': 'https://www.geeksforgeeks.org/circular-linked-list/',
 	'Doubly Linked List': 'https://www.geeksforgeeks.org/doubly-linked-list/',
-'--------------------------------Algos':'Lang--------------------------------------',
+	'--------------------------------Algos':'Lang--------------------------------------',
 	'Analysis of Algorithms': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/',
 	'Time Complexity Cases': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/',
 	'Asymptotic Notations': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/',
@@ -103,13 +103,6 @@ let getCorrectURI = {
 	'Time Complexity of loop variable': 'https://www.geeksforgeeks.org/time-complexity-where-loop-variable-is-incremented-by-1-2-3-4/',
 	'Time Complexity of Loop with Powers': 'https://www.geeksforgeeks.org/time-complexity-of-loop-with-powers/',
 	'Performance of loops A caching question': 'https://www.geeksforgeeks.org/performance-of-loops-a-caching-question/',
-
-
-
-
-
-
-
 
 }
 
