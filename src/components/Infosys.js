@@ -125,7 +125,7 @@ export default class LoginScreen extends Component {
       <ImageBackground
         style={{ flex: 1 }}
         imageStyle={{ width: 'auto', height: '100%' }}
-        source={require('../images/experience.png')}
+        source={require('../images/experience_test1.png')}
       >
         
       
@@ -250,18 +250,20 @@ const styles = StyleSheet.create({
   },
   header: {
     marginTop: 10,
-    fontFamily: "Helvetica",
+    fontFamily: "Raleway-Bold",
     fontSize: 36,
-    fontWeight: "bold",
-    color: "#00caa6",
+    //fontWeight: "bold",
+    color: "#e9e9e9",
+
   },
   header2: {
     marginTop: 10,
-    fontFamily: "Helvetica",
+    fontFamily: "Raleway-Medium",
     fontSize: 20,
-    fontWeight: "bold",
-    color: "#EFD469",
-    textAlign: 'left',
+    //fontWeight: "bold",
+    color: "#f2b632",
+    textAlign: 'center',
+    //padding: 2
   },
   instructionsTest: {
     marginTop: 5,
@@ -280,11 +282,12 @@ const styles = StyleSheet.create({
     paddingBottom:20,
   },
   _text: {
-    fontFamily: "Verdana",
+    fontFamily: "Raleway-MediumItalic",
     fontSize: 18,
-    color: "#9ed2c5",
+    color: "#dedede",
     //fontStyle:'italic',
     marginTop: 10,
     textAlign: 'left',
+    padding: 5,
   } 
 });
