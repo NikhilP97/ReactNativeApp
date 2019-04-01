@@ -35,7 +35,7 @@ export default class PredictCompany extends React.Component {
     this.theFinalScore = props.data;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
-    //this.results = 15;
+    this.results = 15;
 
 	console.log("Final Score: ", this.theFinalScore);
 
@@ -51,37 +51,37 @@ export default class PredictCompany extends React.Component {
 
 
       { name: 'Infosys', code: '#128c7e' },
-      { name: 'Cognizant', code: '#ed2939' },
+      { name: 'Cognizant', code: '#9068be' },
       { name: 'Fractal', code: '#0d87a1' },
-      { name: 'Capgemini', code: '#0d87a1' },
-      { name: 'Citius Tech', code: '#0d87a1' },
-      { name: 'Quantiphi', code: '#0d87a1' },
+      { name: 'Capgemini', code: '#1d2120' },
+      { name: 'Citius Tech', code: '#9068be' },
+      { name: 'Quantiphi', code: '#e6b0aa' },
       { name: 'Deloitte', code: '#ed2939' },
       { name: 'IVP', code: '#ff6600' },
-      { name: 'KPMG', code: '#0d87a1' },
-      { name: 'Amdocs', code: '#0d87a1' }, 
+      { name: 'KPMG', code: '#935116' },
+      { name: 'Amdocs', code: '#922b21' }, 
       { name: 'ISS', code: '#d4af37' },
-      { name: 'ZS Associates', code: '#ed2939' },
-      { name: 'Carwale', code: '#0d87a1' },
-      { name: 'Interactive Brokers', code: '#0d87a1' },
-      { name: 'OM Partners', code: '#0d87a1' },
+      { name: 'ZS Associates', code: '#9b59b6' },
+      { name: 'Carwale', code: '#edbb99' },
+      { name: 'Interactive Brokers', code: '#d6eaf8' },
+      { name: 'OM Partners', code: '#9a7d0a' },
       { name: 'GEP', code: '#ff69b4' },
       { name: 'Amadeus', code: '#7dce94' },
-      { name: 'Siemens', code: '#0d87a1' },
-      { name: 'LTTS', code: '#0d87a1' },
-      { name: 'Barclays', code: '#ed2939' },
-      { name: 'Carwale', code: '#0d87a1' },
-      { name: 'Nomura', code: '#0d87a1' },
-      { name: 'GEP', code: '#ff69b4' },
-      { name: 'Amadeus', code: '#7dce94' },
-      { name: 'HDFC', code: '#0d87a1' },
-      { name: 'Amazon', code: '#0d87a1' },
-      { name: 'PhonePe', code: '#0d87a1' },
+      { name: 'Siemens', code: '#5adc1e' },
+      { name: 'LTTS', code: '#cadc1e' },
+      { name: 'Barclays', code: '#8edc1e' },
+      { name: 'Carwale', code: '#1ed9dc' },
+      { name: 'Nomura', code: '#801edc' },
+      { name: 'GEP', code: '#dc1eb0' },
+      { name: 'Amadeus', code: '#dc1e77' },
+      { name: 'HDFC', code: '#797d7f' },
+      { name: 'Amazon', code: '#6e2c00' },
+      { name: 'PhonePe', code: '#7d6608' },
       { name: 'Credit Suisse', code: '#0d87a1' },
-      { name: 'JP Morgan Chase', code: '#0d87a1' },
+      { name: 'JP Morgan Chase', code: '#5d6d7e' },
       { name: 'Accolite', code: '#7c0a02' },
       { name: 'Deutsche Bank', code: '#269ccc' },
-      { name: 'Morgan Stanley', code: '#9955bb' },
+      { name: 'Morgan Stanley', code: '#1e27dc' },
       { name: 'Microsoft', code: '#9955bb' },
       
     ];
@@ -90,7 +90,7 @@ export default class PredictCompany extends React.Component {
       
            <BackgroundView>
 
-            {this.theFinalScore  < 25  &&  (
+            {this.results  < 25  &&  (
                 <SectionGrid
 
                   itemDimension={110}
