@@ -81,6 +81,50 @@ let getCorrectURI = {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'--------------------------------Algos':'Lang--------------------------------------',
+	'Analysis of Algorithms': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/',
+	'Worst Average and Best Cases': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/',
+	'Asymptotic Notations': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/',
+	'Little o and little omega notations': 'https://www.geeksforgeeks.org/analysis-of-algorithems-little-o-and-little-omega-notations/',
+	'Analysis of Loops': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-4-analysis-of-loops/',
+	'Solving Recurrences': 'https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/',
+	'Amortized Analysis': 'https://www.geeksforgeeks.org/analysis-algorithm-set-5-amortized-analysis-introduction/',
+	'Space Complexity': 'https://www.geeksforgeeks.org/g-fact-86/',
+	'Pseudo-polynomial Algorithms': 'https://www.geeksforgeeks.org/pseudo-polynomial-in-algorithms/',
+	'NP-Completeness Introduction': 'https://www.geeksforgeeks.org/np-completeness-set-1/',
+	'Polynomial Time Approximation Scheme': 'https://www.geeksforgeeks.org/polynomial-time-approximation-scheme/',
+	'A Time Complexity Question': 'https://www.geeksforgeeks.org/a-time-complexity-question/',
+	'Time Complexity of building a heap': 'https://www.geeksforgeeks.org/time-complexity-of-building-a-heap/',
+	'Time Complexity where loop variable is incremented by 1, 2, 3, 4 ': 'https://www.geeksforgeeks.org/time-complexity-where-loop-variable-is-incremented-by-1-2-3-4/',
+	'Time Complexity of Loop with Powers': 'https://www.geeksforgeeks.org/time-complexity-of-loop-with-powers/',
+	'Performance of loops A caching question': 'https://www.geeksforgeeks.org/performance-of-loops-a-caching-question/',
+
+
+
+
+
+
+
+
 }
 
 

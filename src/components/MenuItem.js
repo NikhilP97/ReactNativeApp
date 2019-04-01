@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { 
 	StyleSheet,
 	Dimensions,
-	View
+	View,
+	ScrollView
 } from 'react-native';
 import { CardViewWithIcon, CardViewWithImage } from 'react-native-simple-card-view';
 import {Actions, ActionConst} from 'react-native-router-flux';
@@ -35,7 +36,8 @@ export default class MenuScreen extends Component {
     	const screenWidth = (Dimensions.get("window").width) - 20;
 	    return (
 	    	<BackgroundView>
-	    	<View style={ styles.container }>
+	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
+	    		<View style={ styles.container }>
 		        <View style={ {alignItems   : "center", justifyContent : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
 					
 					<CardViewWithImage
@@ -93,6 +95,7 @@ export default class MenuScreen extends Component {
 				    
 		        </View>
 	     	</View>
+	     	</ScrollView> 
 	     	</BackgroundView>
 	    );
   	}

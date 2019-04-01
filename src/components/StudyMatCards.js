@@ -80,6 +80,55 @@ let getCardData = {
 		c14:'Constructors in Python',
 		c15:'Destructors in Python',
 		c16:'Garbage Collector'
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	algos: {
+		c1: 'Analysis of Algorithms',
+		c2: 'Worst Average and Best Cases',
+		c3: 'Asymptotic Notations',
+		c4: 'Little o and little omega notations',
+		c5: 'Analysis of Loops',
+		c6: 'Solving Recurrences',
+		c7: 'Amortized Analysis',
+		c8: 'Space Complexity',
+		c9: 'Pseudo-polynomial Algorithms',
+		c10:'NP-Completeness Introduction',
+		c11:'Polynomial Time Approximation Scheme',
+		c12:'A Time Complexity Question',
+		c13:'Time Complexity of building a heap',
+		c14:'Time Complexity where loop variable is incremented by 1, 2, 3, 4 ',
+		c15:'Time Complexity of Loop with Powers',
+		c16:'Performance of loops A caching question'
 	}
 }
 
