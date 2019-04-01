@@ -26,22 +26,25 @@ export default class MenuScreen extends Component {
 			shadowRadius       : 5,
 			bgColor           : '#fff',
 			padding           : 5,
-			margin            : 15,
+			margin            : 5,
 			borderRadius      : 3,
 			elevation         : 3,
 			width             : (Dimensions.get("window").width)
     	};
+    	const imgWidthToHeight = 137;
+    	const screenWidth = (Dimensions.get("window").width) - 20;
 	    return (
 	    	<BackgroundView>
 	    	<View style={ styles.container }>
 		        <View style={ {alignItems   : "center", justifyContent : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
 					
 					<CardViewWithImage
+						width={ screenWidth}
 				        source={ require('../images/menuLogos/studyMat2.png') }
 				        title={ 'Study Material' }
 				        titleFontSize={17}
-				        imageWidth={ 62 }
-				        imageHeight={ 62 }
+				        imageWidth={ imgWidthToHeight }
+				        imageHeight={ imgWidthToHeight }
 				        onPress={() => Actions.studyMatCards(this.props.data)}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -49,11 +52,12 @@ export default class MenuScreen extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 				    <CardViewWithImage 
+				    	width={ screenWidth}
 				        source={ require('../images/menuLogos/quiz2.jpg') }
 				        title={ 'Take a Quiz' }
 				        titleFontSize={17}
-				        imageWidth={ 62 }
-				        imageHeight={ 62 }
+				        imageWidth={ imgWidthToHeight }
+				        imageHeight={ imgWidthToHeight }
 				        onPress={() => Actions.webViewItem()}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -61,23 +65,25 @@ export default class MenuScreen extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 				    <CardViewWithImage
+				    	width={ screenWidth}
 				        source={ require('../images/menuLogos/interview1.png') }
 				        title={ 'Interview Questions' }
 				        titleFontSize={17}
-				        imageWidth={ 62 }
-				        imageHeight={ 62 }
+				        imageWidth={ imgWidthToHeight }
+				        imageHeight={ imgWidthToHeight }
 				        onPress={() => Actions.webViewItem()}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
 				        imageMargin={ {top: 5} }
 				    />
-				    <CardViewWithImage    
+				    <CardViewWithImage
+				    	width={ screenWidth}    
 				        source={ require('../images/menuLogos/important2.png') }
 				        title={ 'Important Topics' }
 				        titleFontSize={17}
-				        imageWidth={ 67 }
-				        imageHeight={ 62 }
+				        imageWidth={ imgWidthToHeight+5 }
+				        imageHeight={ imgWidthToHeight }
 				        onPress={() => Actions.webViewItem()}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -97,6 +103,8 @@ const styles = StyleSheet.create({
 		flex           : 2,
 		alignItems     : 'center',
 		paddingTop     : 25,
+		paddingLeft	: 25,
+		paddingRight: 25,
 		},
 });
 	

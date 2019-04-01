@@ -18,23 +18,26 @@ export default class MenuScreen extends Component {
 			shadowRadius       : 5,
 			bgColor           : '#fff',
 			padding           : 5,
-			margin            : 15,
+			margin            : 5,
 			borderRadius      : 3,
 			elevation         : 3,
 			width             : (Dimensions.get("window").width / 2) - 30
     	};
+    	const screenWidth = (Dimensions.get("window").width / 2) - 10;
+    	const widthToHeightwithLabel =90;
+    	const widthToHeightwithoutLabel = 142;
 	    return (
 	    	<BackgroundView>
 	    	<View style={ styles.container }>
 		        <View style={ {alignItems   : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
 					
 					<CardViewWithImage
-				        width={ 175}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/java1.png') }
 				        title={ 'Java' }
 				        titleFontSize={17}
-				        imageWidth={ 40 }
-				        imageHeight={ 40 }
+				        imageWidth={ widthToHeightwithLabel }
+				        imageHeight={ widthToHeightwithLabel }
 				        onPress={() => Actions.menuItem('java')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -42,12 +45,12 @@ export default class MenuScreen extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 				    <CardViewWithImage
-				        width={ 175}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/aptitude1.jpg') }
 				        title={ 'Aptitude' }
 				        titleFontSize={17}
-				        imageWidth={ 40 }
-				        imageHeight={ 40 }
+				        imageWidth={ widthToHeightwithLabel }
+				        imageHeight={ widthToHeightwithLabel }
 				        onPress={() => Actions.menuItem('apti')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -55,10 +58,10 @@ export default class MenuScreen extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 				    <CardViewWithImage
-				        width={ 175}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/c1.png') }
-				        imageWidth={ 82 }
-				        imageHeight={ 82 }
+				        imageWidth={ widthToHeightwithoutLabel }
+				        imageHeight={ widthToHeightwithoutLabel }
 				        onPress={() => Actions.menuItem('cLang')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -66,10 +69,10 @@ export default class MenuScreen extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 				    <CardViewWithImage
-				        width={ 175}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/cpp1.png') }
-				        imageWidth={ 82 }
-				        imageHeight={ 82 }
+				        imageWidth={ widthToHeightwithoutLabel }
+				        imageHeight={ widthToHeightwithoutLabel }
 				        onPress={() => Actions.menuItem('cppLang')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -77,10 +80,10 @@ export default class MenuScreen extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 				    <CardViewWithImage
-				        width={ 175}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/python1.png') }
-				        imageWidth={ 43 }
-				        imageHeight={ 43 }
+				        imageWidth={ widthToHeightwithLabel }
+				        imageHeight={ widthToHeightwithLabel }
 				        title={ 'Python' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem('python')}
@@ -90,10 +93,10 @@ export default class MenuScreen extends Component {
 				        
 				    />
 				    <CardViewWithImage
-				        width={ 175}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/ds1.png') }
-				        imageWidth={ 43 }
-				        imageHeight={ 43 }
+				        imageWidth={ widthToHeightwithLabel }
+				        imageHeight={ widthToHeightwithLabel }
 				        title={ 'Data Structures' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem('ds')}
@@ -102,10 +105,10 @@ export default class MenuScreen extends Component {
 				        style={ miniCardStyle }
 				    />
 				    <CardViewWithImage
-				        width={ 175}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/algo1.png') }
-				        imageWidth={ 43 }
-				        imageHeight={ 43 }
+				        imageWidth={ widthToHeightwithLabel }
+				        imageHeight={ widthToHeightwithLabel }
 				        title={ 'Algorithms' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem('algos')}
@@ -114,10 +117,10 @@ export default class MenuScreen extends Component {
 				        style={ miniCardStyle }
 				    />
 				    <CardViewWithImage
-				        width={ 175}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/dbms2.png') }
-				        imageWidth={ 38 }
-				        imageHeight={ 38 }
+				        imageWidth={ widthToHeightwithLabel-4 }
+				        imageHeight={ widthToHeightwithLabel-4 }
 				        title={ 'DBMS' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem('dbms')}
@@ -127,16 +130,15 @@ export default class MenuScreen extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 				    <CardViewWithImage
-				        width={ (Dimensions.get("window").width) - 30}
+				        width={ (Dimensions.get("window").width) - 10}
 				        source={ require('../images/menuLogos/mainQuiz.png') }
-				        imageWidth={ 88 }
-				        imageHeight={ 88 }
+				        imageWidth={ widthToHeightwithoutLabel+6 }
+				        imageHeight={ widthToHeightwithoutLabel+6 }
 				        titleFontSize={17}
-				        onPress={() => Actions.quizStartScreen()}
+				        onPress={() => Actions.quizStartScreen('mainQuiz')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
-				        style={ miniCardStyle }
-				        
+				        style={ miniCardStyle }    
 				    />
 		        </View>
 	     	</View>
