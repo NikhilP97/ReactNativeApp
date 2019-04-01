@@ -70,41 +70,27 @@ let getCorrectURI = {
 	'Destructors in Python': 'https://www.geeksforgeeks.org/destructors-in-python/',
 	'Garbage Collector': 'https://www.geeksforgeeks.org/garbage-collection-python/',
 	'------------------------------Data':'Structures----------------------------------------------',
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	'Arrays': 'https://www.geeksforgeeks.org/array-data-structure/',
+	'Linked Lists': 'https://www.geeksforgeeks.org/data-structures/linked-list/',
+	'Stacks': 'https://www.geeksforgeeks.org/stack-data-structure/',
+	'Queue': 'https://www.geeksforgeeks.org/queue-data-structure/',
+	'Binary Trees': 'https://www.geeksforgeeks.org/binary-tree-data-structure/',
+	'Binary Search Tree': 'https://www.geeksforgeeks.org/binary-search-tree-data-structure/',
+	'Heaps': 'https://www.geeksforgeeks.org/heap-data-structure/',
+	'Hashing': 'https://www.geeksforgeeks.org/hashing-data-structure/',
+	'Graphs': 'https://www.geeksforgeeks.org/graph-data-structure-and-algorithms/',
+	'Matrices': 'https://www.geeksforgeeks.org/matrix/',
+	'Trie': 'https://www.geeksforgeeks.org/trie-insert-and-search/',
+	'Red-Black Tree': 'https://www.geeksforgeeks.org/red-black-tree-set-1-introduction-2/',
+	'B-Tree': 'https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/',
+	'AVL Tree': 'https://www.geeksforgeeks.org/avl-tree-set-1-insertion/',
+	'Circular Linked List': 'https://www.geeksforgeeks.org/circular-linked-list/',
+	'Doubly Linked List': 'https://www.geeksforgeeks.org/doubly-linked-list/',
 '--------------------------------Algos':'Lang--------------------------------------',
 	'Analysis of Algorithms': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/',
-	'Worst Average and Best Cases': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/',
+	'Time Complexity Cases': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/',
 	'Asymptotic Notations': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/',
-	'Little o and little omega notations': 'https://www.geeksforgeeks.org/analysis-of-algorithems-little-o-and-little-omega-notations/',
+	'omega notations': 'https://www.geeksforgeeks.org/analysis-of-algorithems-little-o-and-little-omega-notations/',
 	'Analysis of Loops': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-4-analysis-of-loops/',
 	'Solving Recurrences': 'https://www.geeksforgeeks.org/analysis-algorithm-set-4-master-method-solving-recurrences/',
 	'Amortized Analysis': 'https://www.geeksforgeeks.org/analysis-algorithm-set-5-amortized-analysis-introduction/',
@@ -114,7 +100,7 @@ let getCorrectURI = {
 	'Polynomial Time Approximation Scheme': 'https://www.geeksforgeeks.org/polynomial-time-approximation-scheme/',
 	'A Time Complexity Question': 'https://www.geeksforgeeks.org/a-time-complexity-question/',
 	'Time Complexity of building a heap': 'https://www.geeksforgeeks.org/time-complexity-of-building-a-heap/',
-	'Time Complexity where loop variable is incremented by 1, 2, 3, 4 ': 'https://www.geeksforgeeks.org/time-complexity-where-loop-variable-is-incremented-by-1-2-3-4/',
+	'Time Complexity of loop variable': 'https://www.geeksforgeeks.org/time-complexity-where-loop-variable-is-incremented-by-1-2-3-4/',
 	'Time Complexity of Loop with Powers': 'https://www.geeksforgeeks.org/time-complexity-of-loop-with-powers/',
 	'Performance of loops A caching question': 'https://www.geeksforgeeks.org/performance-of-loops-a-caching-question/',
 

@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import { 
 	StyleSheet,
 	Dimensions,
-	View
+	View,
+	ScrollView
 } from 'react-native';
 import { CardViewWithIcon, CardViewWithImage } from 'react-native-simple-card-view';
 import {Actions, ActionConst} from 'react-native-router-flux';
@@ -81,42 +82,29 @@ let getCardData = {
 		c15:'Destructors in Python',
 		c16:'Garbage Collector'
 	},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	ds: {
+		c1: 'Arrays',
+		c2: 'Linked Lists',
+		c3: 'Stacks',
+		c4: 'Queue',
+		c5: 'Binary Trees',
+		c6: 'Binary Search Tree',
+		c7: 'Heaps',
+		c8: 'Hashing',
+		c9: 'Graphs',
+		c10:'Matrices',
+		c11:'Trie',
+		c12:'Red-Black Tree' ,
+		c13:'B-Tree',
+		c14:'AVL Tree',
+		c15:'Circular Linked List',
+		c16:'Doubly Linked List'
+	},
 	algos: {
 		c1: 'Analysis of Algorithms',
-		c2: 'Worst Average and Best Cases',
+		c2: 'Time Complexity Cases',
 		c3: 'Asymptotic Notations',
-		c4: 'Little o and little omega notations',
+		c4: 'omega notations',
 		c5: 'Analysis of Loops',
 		c6: 'Solving Recurrences',
 		c7: 'Amortized Analysis',
@@ -126,7 +114,7 @@ let getCardData = {
 		c11:'Polynomial Time Approximation Scheme',
 		c12:'A Time Complexity Question',
 		c13:'Time Complexity of building a heap',
-		c14:'Time Complexity where loop variable is incremented by 1, 2, 3, 4 ',
+		c14:'Time Complexity of loop variable',
 		c15:'Time Complexity of Loop with Powers',
 		c16:'Performance of loops A caching question'
 	}
@@ -157,7 +145,7 @@ export default class StudyMatCards extends Component {
     	console.log("window height: ", Dimensions.get("window").height);
 	    return (
 	    	<BackgroundView>
-	    	<View style={ styles.container }>
+	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
 		        <View style={ {alignItems   : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
 					
 					<CardViewWithImage
@@ -353,7 +341,7 @@ export default class StudyMatCards extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 		        </View>
-	     	</View>
+	     	</ScrollView>
 	     	</BackgroundView>
 	    );
   	}
