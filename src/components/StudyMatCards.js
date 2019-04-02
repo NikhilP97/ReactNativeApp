@@ -117,6 +117,24 @@ let getCardData = {
 		c14:'Time Complexity of loop variable',
 		c15:'Time Complexity of Loop with Powers',
 		c16:'Performance of loops A caching question'
+	},
+	dbms: {
+		c1: 'Introduction',
+		c2: 'ER Model',
+		c3: 'Relational Model',
+		c4: 'CODD Rules',
+		c5: 'DBMS Relational Algebra',
+		c6: 'Functional Dependencies',
+		c7: 'Normalisation',
+		c8: 'ACID Properties',
+		c9: 'Deadlock in DBMS',
+		c10:'Indexing',
+		c11:'B-Tree',
+		c12:'B+ Tree',
+		c13:'File Organization',
+		c14:'RAID',
+		c15:'SQL Basics',
+		c16:'SQL Datatypes'
 	}
 }
 

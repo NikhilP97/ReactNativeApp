@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { WebView } from 'react-native-webview';
 
 let getCorrectURI = {
+	'--------------------------------Java':'Lang------------------------------------',
 	'Overview': 'https://www.geeksforgeeks.org/java-how-to-start-learning-java/',
 	'Packages': 'https://www.geeksforgeeks.org/packages-in-java/',
 	'Java Basics': 'https://www.geeksforgeeks.org/java-identifiers/',
@@ -18,6 +19,9 @@ let getCorrectURI = {
 	'Constructors': 'https://www.geeksforgeeks.org/constructors-in-java/',
 	'Interfaces': 'https://www.geeksforgeeks.org/interfaces-in-java/',
 	'Abstract Classes': 'https://www.geeksforgeeks.org/abstract-classes-in-java/',
+	'java Quiz': 'https://www.geeksforgeeks.org/java-gq/class-and-object-2-gq/',
+	'java Interview Questions': 'https://www.geeksforgeeks.org/commonly-asked-java-programming-interview-questions-set-1/',
+	'java Important Topics': 'https://www.geeksforgeeks.org/10-important-interview-questions/',
 	'-------------------------------------C':'Lang----------------------------------',
 	'C Basics': 'https://www.geeksforgeeks.org/c-language-set-1-introduction/',
 	'C Functions': 'https://www.geeksforgeeks.org/functions-in-c/',
@@ -35,6 +39,9 @@ let getCorrectURI = {
 	'Strings in C': 'https://www.geeksforgeeks.org/strings-in-c-2/',
 	'Multithreading in C': 'https://www.geeksforgeeks.org/multithreading-c-2/',
 	'Macros vs Functions': 'https://www.geeksforgeeks.org/macros-vs-functions/',
+	'cLang Quiz': 'https://www.geeksforgeeks.org/c-language-2-gq/misc-gq/',
+	'cLang Interview Questions': 'https://www.geeksforgeeks.org/commonly-asked-c-programming-interview-questions-set-1/',
+	'cLang Important Topics': 'https://www.geeksforgeeks.org/lmns-cc-gq/',
 	'--------------------------------C++':'Lang--------------------------------------',
 	'C++ Basics': 'https://www.geeksforgeeks.org/fine-write-void-main-cc/',
 	'Strings in C++': 'https://www.geeksforgeeks.org/c-string-class-and-its-applications/',
@@ -52,6 +59,9 @@ let getCorrectURI = {
 	'Destructors in C++': 'https://www.geeksforgeeks.org/destructors-c/',
 	'Exception Handling': 'https://www.geeksforgeeks.org/exception-handling-c/',
 	'Virtual Functions': 'https://www.geeksforgeeks.org/virtual-functions-and-runtime-polymorphisms-in-c-set-1-introduction/',
+	'cppLang Quiz': 'https://www.geeksforgeeks.org/c-plus-plus-gq/misc-c-gq/',
+	'cppLang Interview Questions': 'https://www.geeksforgeeks.org/commonly-asked-c-interview-questions-set-1/',
+	'cppLang Important Topics': 'https://www.tutorialspoint.com/cplusplus/cpp_quick_guide.htm',
 	'------------------------------Python':'Lang----------------------------------------------',
 	'Python Basics': 'https://www.geeksforgeeks.org/python-language-introduction/',
 	'Keywords in Python': 'https://www.geeksforgeeks.org/keywords-python-set-1/',
@@ -69,6 +79,9 @@ let getCorrectURI = {
 	'Constructors in Python': 'https://www.geeksforgeeks.org/constructors-in-python/',
 	'Destructors in Python': 'https://www.geeksforgeeks.org/destructors-in-python/',
 	'Garbage Collector': 'https://www.geeksforgeeks.org/garbage-collection-python/',
+	'python Quiz': 'https://www.geeksforgeeks.org/miscellaneous-gq/',
+	'python Interview Questions': 'https://www.tutorialspoint.com/python/python_interview_questions.htm',
+	'python Important Topics': 'https://www.tutorialspoint.com/python/python_quick_guide.htm',
 	'------------------------------Data':'Structures----------------------------------------------',
 	'Arrays': 'https://www.geeksforgeeks.org/array-data-structure/',
 	'Linked Lists': 'https://www.geeksforgeeks.org/data-structures/linked-list/',
@@ -86,6 +99,9 @@ let getCorrectURI = {
 	'AVL Tree': 'https://www.geeksforgeeks.org/avl-tree-set-1-insertion/',
 	'Circular Linked List': 'https://www.geeksforgeeks.org/circular-linked-list/',
 	'Doubly Linked List': 'https://www.geeksforgeeks.org/doubly-linked-list/',
+	'ds Quiz': 'https://www.geeksforgeeks.org/data-structure-gq/misc-3-gq/',
+	'ds Interview Questions': 'https://www.geeksforgeeks.org/commonly-asked-data-structure-interview-questions-set-1/',
+	'ds Important Topics': 'https://www.geeksforgeeks.org/lmns-gq/lmns-data-structure-gq/',
 	'--------------------------------Algos':'Lang--------------------------------------',
 	'Analysis of Algorithms': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-1-asymptotic-analysis/',
 	'Time Complexity Cases': 'https://www.geeksforgeeks.org/analysis-of-algorithms-set-2-asymptotic-analysis/',
@@ -103,6 +119,30 @@ let getCorrectURI = {
 	'Time Complexity of loop variable': 'https://www.geeksforgeeks.org/time-complexity-where-loop-variable-is-incremented-by-1-2-3-4/',
 	'Time Complexity of Loop with Powers': 'https://www.geeksforgeeks.org/time-complexity-of-loop-with-powers/',
 	'Performance of loops A caching question': 'https://www.geeksforgeeks.org/performance-of-loops-a-caching-question/',
+	'algos Quiz': 'https://www.geeksforgeeks.org/algorithms-gq/misc-2-gq/',
+	'algos Interview Questions': 'https://www.geeksforgeeks.org/commonly-asked-algorithm-interview-questions-set-1/',
+	'algos Important Topics': 'https://www.geeksforgeeks.org/lmns-algorithms-gq/',
+	'------------------------------------DB':'MS--------------------------------------------',
+	'Introduction': 'https://www.geeksforgeeks.org/database-management-system-introduction-set-1/',
+	'ER Model': 'https://www.geeksforgeeks.org/database-management-system-er-model/',
+	'Relational Model': 'https://www.geeksforgeeks.org/relational-model/',
+	'CODD Rules': 'https://www.geeksforgeeks.org/dbms-relational-model-introduction-and-codd-rules/',
+	'DBMS Relational Algebra': 'https://www.geeksforgeeks.org/database-management-system-relational-algebra/',
+	'Functional Dependencies': 'https://www.geeksforgeeks.org/functional-dependency-and-attribute-closure/',
+	'Normalisation': 'https://www.geeksforgeeks.org/database-normalization-introduction/',
+	'ACID Properties': 'https://www.geeksforgeeks.org/acid-properties-in-dbms/',
+	'Deadlock in DBMS': 'https://www.geeksforgeeks.org/deadlock-in-dbms/',
+	'Indexing': 'https://www.geeksforgeeks.org/indexing-in-databases-set-1/',
+	'B-Tree': 'https://www.geeksforgeeks.org/b-tree-set-1-introduction-2/',
+	'B+ Tree': 'https://www.geeksforgeeks.org/database-file-indexing-b-tree-introduction/',
+	'File Organization': 'https://www.geeksforgeeks.org/dbms-file-organization-set-1/',
+	'RAID': 'https://www.geeksforgeeks.org/raid/',
+	'SQL Basics': 'https://www.geeksforgeeks.org/structured-query-language/',
+	'SQL Datatypes': 'https://www.geeksforgeeks.org/sql-datatypes/',
+	'dbms Quiz': 'https://www.geeksforgeeks.org/dbms-gq/sql-gq/',
+	'dbms Interview Questions': 'https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/',
+	'dbms Important Topics': 'https://www.geeksforgeeks.org/last-minute-notes-dbms/',
+
 
 }
 
@@ -110,7 +150,7 @@ let getCorrectURI = {
 export default class WebViewItem extends Component {
 	constructor(props) {
 		super(props);
-		console.log("props", props);
+		console.log("props WebViewItem:", props);
 	}
 
 	render() {

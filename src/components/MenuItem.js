@@ -60,7 +60,7 @@ export default class MenuScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem()}
+				        onPress={() => Actions.webViewItem(this.props.data+' Quiz')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -73,7 +73,7 @@ export default class MenuScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem()}
+				        onPress={() => Actions.webViewItem(this.props.data+' Interview Questions')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -86,7 +86,7 @@ export default class MenuScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight+5 }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem()}
+				        onPress={() => Actions.webViewItem(this.props.data+' Important Topics')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
