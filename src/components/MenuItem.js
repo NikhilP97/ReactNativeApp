@@ -35,7 +35,7 @@ export default class MenuItem extends Component {
     	const imgWidthToHeight = 137;
     	const screenWidth = (Dimensions.get("window").width) - 20;
 	    return (
-	    	<BackgroundView>
+	    	
 	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
 	    		<View style={ styles.container }>
 		        <View style={ {alignItems   : "center", justifyContent : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
@@ -96,7 +96,7 @@ export default class MenuItem extends Component {
 		        </View>
 	     	</View>
 	     	</ScrollView> 
-	     	</BackgroundView>
+	     	
 	    );
   	}
 }

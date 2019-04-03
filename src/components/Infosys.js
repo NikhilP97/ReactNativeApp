@@ -214,7 +214,7 @@ export default class LoginScreen extends Component {
           {this.state.loading && ( 
             <View style={styles.loadingQuestions}>
               <ActivityIndicator size="large" color="#00caa6" />
-              <Text style={{color:'#00caa6', fontSize: 20}}>Fetching</Text>
+              
             </View>
           )}
            

@@ -19,13 +19,13 @@ export default class SignupSection extends Component {
         <TouchableHighlight
           style={styles.button}
           onPress={this.createAccount}
-          underlayColor="#99d9f4">
+          underlayColor="#fff">
           <Text style={styles.buttonText}>Create Account</Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
           onPress={this.createAccount}
-          underlayColor="#99d9f4">
+          underlayColor="#fff">
           <Text style={styles.buttonText}>Forgot Password?</Text>
         </TouchableHighlight>
       </View>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 18,
-    color: '#0d87a1',
+    color: '#427AA1',
     alignSelf: 'center',
   },
   button: {

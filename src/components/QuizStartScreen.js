@@ -24,7 +24,7 @@ export default class QuizStartScreen extends React.Component {
 
   render() {
     return (
-      <BackgroundView>
+      
       <View style={styles.container}>
         
         
@@ -77,7 +77,7 @@ export default class QuizStartScreen extends React.Component {
           </View>
         </TouchableOpacity>
       </View>
-      </BackgroundView>
+    
     );
   }
 }
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   
   button: {
     marginTop: 80,
-    backgroundColor: "#0d87a1",
+    backgroundColor: "#427AA1",
     padding: 10,
     borderRadius: 10
     
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   paragraph: {
     marginTop: 20,
     fontSize: 16,
-    color: "#32CD32",
+    color: "#066A7F",
     textAlign: "center",
     padding: 10,
     lineHeight: 25
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   sectionsText: {
     marginTop: 2,
     fontSize: 16,
-    color: "#32CD32",
+    color: "#066A7F",
     textAlign: "center",
     padding: 10,
     lineHeight: 25
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   instructionsTest: {
     marginTop: 5,
     fontSize: 16,
-    color: "#0d87a1",
+    color: "#427AA1",
     textAlign: "center",
     padding: 10,
     lineHeight: 25
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   negativeMarking: {
     marginTop: 5,
     fontSize: 16,
-    color: "#BC040F",
+    color: "#BF211E",
     textAlign: "center",
     padding: 10,
     lineHeight: 25

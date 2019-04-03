@@ -151,7 +151,7 @@ export default class StudyMatCards extends Component {
 			shadowOffsetHeight: 2,
 			shadowOpacity     : 0.1,
 			shadowRadius       : 5,
-			bgColor           : '#5D6367',
+			bgColor           : '#fff',
 			padding           : 5,
 			margin            : 5,
 			borderRadius      : 3,
@@ -162,7 +162,7 @@ export default class StudyMatCards extends Component {
     	const imgHeightandWidth = Math.ceil(0.04063567 * Dimensions.get("window").height)//35;
     	console.log("window height: ", Dimensions.get("window").height);
 	    return (
-	    	<BackgroundView>
+	    	
 	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
 		        <View style={ {alignItems   : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
 					
@@ -360,7 +360,7 @@ export default class StudyMatCards extends Component {
 				    />
 		        </View>
 	     	</ScrollView>
-	     	</BackgroundView>
+	     	
 	    );
   	}
 }

@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 18,
-    color: '#0d87a1',
+    color: '#066A7F',
     alignSelf: 'center',
   },
   button: {
@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
     marginTop:0,
     paddingTop:10,
     paddingBottom:10,
-    backgroundColor:'#262626',
-    borderColor: '#0d87a1',
+    
+    borderColor: '#427AA1',
     borderRadius:30,
     borderWidth: 1,
 

@@ -330,8 +330,8 @@ export default class PredictCompany extends React.Component {
             )}                
     
 
-      
-    </BackgroundView>
+      </BackgroundView>
+    
 
     );
   }
@@ -357,7 +357,7 @@ buttonContainer: {
 
 buttonText: {
     fontSize: 20,
-    color: '#0d87a1',
+    color: '#066A7F',
     alignSelf: 'center',
   },
   button: {
@@ -366,8 +366,8 @@ buttonText: {
     marginTop:60,
     paddingTop:10,
     paddingBottom:10,
-    backgroundColor:'#262626',
-    borderColor: '#0d87a1',
+    backgroundColor:'#fff',
+    borderColor: '#066A7F',
     borderRadius:30,
     borderWidth: 3,
 
@@ -375,7 +375,7 @@ buttonText: {
     
   },
   logo: {
-    backgroundColor: '#056ecf',
+    backgroundColor: '#fff',
     height: 128,
     width: 128,
   },
@@ -391,14 +391,14 @@ buttonText: {
   },
   itemName: {
     fontSize: 22,
-    color: '#fff',
+    color: '#000',
     fontWeight: '600',
     alignItems: "center",
   },
   itemCode: {
     fontWeight: '600',
     fontSize: 12,
-    color: '#fff',
+    color: '#000',
   },
   sectionHeader: {
     flex: 1,

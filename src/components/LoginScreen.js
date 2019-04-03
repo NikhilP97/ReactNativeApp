@@ -6,18 +6,17 @@ import Wallpaper from './Wallpaper';
 import ButtonSubmit from './ButtonSubmit';
 import SignupSection from './SignupSection';
 import BackgroundView from './BackgroundView'
+import {StyleSheet, View, Text, Image} from 'react-native';
 
 export default class LoginScreen extends Component {
   render() {
     return (
-      <BackgroundView>
-      <Wallpaper>
+      
+      <View>
         <Logo />
         <Form />
-        
-        
-      </Wallpaper>
-      </BackgroundView>
+      </View>  
+      
     );
   }
 }

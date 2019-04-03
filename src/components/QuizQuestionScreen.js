@@ -373,14 +373,14 @@ export default class QuizQuestionScreen extends React.Component {
   render() {
     console.log("section Score: ", this.state.sectionScore);
     return (
-      <BackgroundView>
+
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View style={styles.container}>
 
           {!!this.state.loading && ( 
             <View style={styles.loadingQuestions}>
-              <ActivityIndicator size="large" color="#00ff00" />
-              <Text style={{color:'#fff'}}>Please wait while we are loading questions for you</Text>
+              <ActivityIndicator size="large" color="#427AA1" />
+              <Text style={{color:'#066A7F'}}>Please wait while we are loading questions for you</Text>
             </View>
           )}
 
@@ -394,14 +394,13 @@ export default class QuizQuestionScreen extends React.Component {
                   seconds={this.state.countDownTime}
                   radius={30}
                   borderWidth={4}
-                  color="#0d87a1"
-                  bgColor="#262626"
-                  textStyle={{color:"#fff", fontSize: 20 }}
+                  color="#066A7F"
+                  textStyle={{color:"#427AA1", fontSize: 20 }}
                   onTimeElapsed={() => {console.log('Elapsed!');
                                         this.getNextQuestion()}}
                 />
 
-                <Text style={{ fontSize: 25, color: "#d8ab4e",textAlign: "right", marginTop: 12}}>
+                <Text style={{ fontSize: 25, color: "#066A7F",textAlign: "right", marginTop: 12}}>
                 Question {this.state.currentQuesNum + 1} /  25
                 </Text>
 
@@ -410,14 +409,14 @@ export default class QuizQuestionScreen extends React.Component {
               
               <View style={{marginTop: 10, justifyContent: 'center',alignItems: 'center'}}>
                 <Progress.Bar
-                color={'#0d87a1'}
+                color={'#066A7F'}
                 progress={this.state.questionProgess}
                 width={Dimensions.get('window').width - 20}
                 height={5}
                 />
               </View>
               
-              <Text style={{marginTop: 20, marginLeft: 5, marginRight: 5, fontSize: 22, fontWeight: "bold", color: "#f2f2f2", marginBottom: 20 }}>
+              <Text style={{marginTop: 20, marginLeft: 5, marginRight: 5, fontSize: 22, color: "#000", marginBottom: 20 }}>
                 Q. {this.state.questionsArray[this.state.currentQuesNum].question}
               </Text>
 
@@ -427,11 +426,11 @@ export default class QuizQuestionScreen extends React.Component {
                 initial={-1}
                 formHorizontal={false}
                 labelHorizontal={true}
-                buttonColor={'#0d87a1'} //default color on loading
-                labelColor={'#f2f2f2'} // default label color on loading
-                selectedButtonColor={'#0d87a1'} // onClick color on loading
-                selectedLabelColor={'#f2f2f2'} // onClick label color on loading
-                labelStyle={{fontSize: 18, color: '#f2f2f2'}}
+                buttonColor={'#066A7F'} //default color on loading
+                labelColor={'#000'} // default label color on loading
+                selectedButtonColor={'#427AA1'} // onClick color on loading
+                selectedLabelColor={'#000'} // onClick label color on loading
+                labelStyle={{fontSize: 18, color: '#000'}}
                 labelWrapStyle={{marginBottom: 100}}
                 buttonStyle={{marginBottom: 100}}
                 buttonWrapStyle={{marginBottom: 100}}
@@ -442,7 +441,7 @@ export default class QuizQuestionScreen extends React.Component {
               <TouchableHighlight
                 style={styles.button}
                 onPress={this.getNextQuestion}
-                underlayColor="#f0f4f7">
+                >
                   {this.state.currentQuesNum == totalQuestions ? <Text style={styles.buttonText}>Finish</Text> : 
                     <Text style={styles.buttonText}>Next</Text>
                   }
@@ -456,7 +455,7 @@ export default class QuizQuestionScreen extends React.Component {
               <TouchableHighlight
                 style={styles.finishButton}
                 onPress={this.getResultsScreen}
-                underlayColor="#f0f4f7">
+                >
                   <Text style={styles.buttonText}>Finish Test</Text>  
               </TouchableHighlight>
             </View>
@@ -464,7 +463,7 @@ export default class QuizQuestionScreen extends React.Component {
           
         </View>
         </ScrollView>
-      </BackgroundView>
+      
     );
   }
 }
@@ -491,7 +490,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 20,
-    color: '#fff',
+    color: '#066A7F',
     alignSelf: 'center',
   },
   button: {
@@ -500,8 +499,8 @@ const styles = StyleSheet.create({
     marginTop:60,
     paddingTop:10,
     paddingBottom:10,
-    backgroundColor:'#262626',
-    borderColor: '#0d87a1',
+    
+    borderColor: '#427AA1',
     borderRadius:30,
     borderWidth: 1,
   },
@@ -511,8 +510,8 @@ const styles = StyleSheet.create({
     marginTop:375,
     paddingTop:10,
     paddingBottom:10,
-    backgroundColor:'#262626',
-    borderColor: '#0d87a1',
+    
+    borderColor: '#427AA1',
     borderRadius:30,
     borderWidth: 3,
   },

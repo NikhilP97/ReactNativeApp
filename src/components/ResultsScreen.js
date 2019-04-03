@@ -78,44 +78,46 @@ export default class ResultsScreen extends React.Component {
 
 	return (
 
-		<BackgroundView>
+		
 	  
-	  		<View style={{ alignItems: "center", marginTop: 25, borderRadius: 40 }}>
+	  		<View style={{ alignItems: "center", marginTop: 75, borderRadius: 40 }}>
 	  		  	<PureChart data={sampleData} type='pie' />
 
-		      	<TouchableHighlight
-		        style={styles.button}
-		        onPress={this.getPredictCompany}
-		        underlayColor="#f0f4f7">
-		        <Text style={styles.buttonText}>Predict my Comapny</Text>
-		        </TouchableHighlight>
+		      	
 
 		        <TouchableHighlight
 		        style={styles.button4}
-		        underlayColor="#f0f4f7">
+		        >
 		        <Text style = {styles.buttonText3}>Correct Answers: {this.theCorrectAnswers}</Text>
 		        </TouchableHighlight>
 
 
 		        <TouchableHighlight
 		        style={styles.button3}
-		        underlayColor="#f7f0f0">
+		        >
 		        <Text style = {styles.buttonText3}>Incorrect Answers: {25 - this.theCorrectAnswers}</Text>
 		        </TouchableHighlight>
 
 		        <TouchableHighlight
 		        style={styles.button1}
-		        underlayColor="#f0f4f7">
-		        <Text style = {styles.buttonText3}>Total Score: {100} </Text>
-		        </TouchableHighlight>
-
-		        <TouchableHighlight
-		        style={styles.button1}
-		        underlayColor="#f0f4f7">
+		        >
 		        <Text style = {styles.buttonText3}>Obtained Score: {this.theFinalScore}</Text>
 		        </TouchableHighlight>
+
+            <TouchableHighlight
+            style={styles.button1}
+            >
+            <Text style = {styles.buttonText3}>Total Score: {100} </Text>
+            </TouchableHighlight>
+
+            <TouchableHighlight
+            style={styles.button}
+            onPress={this.getPredictCompany}
+            >
+            <Text style={styles.buttonText}>Predict my Comapny</Text>
+            </TouchableHighlight>
 	        </View>
-		</BackgroundView>
+		
 
 	);
 
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
     },
   buttonText: {
     fontSize: 15,
-    color: '#0d87a1',
+    color: '#fff',
     alignSelf: 'center',
     margin: 8
   },
@@ -169,10 +171,10 @@ const styles = StyleSheet.create({
     marginTop:75,
     paddingTop:10,
     paddingBottom:10,
-    backgroundColor:'#262626',
-    borderColor: '#0d87a1',
+    backgroundColor: '#066A7F',
+    borderColor: '#066A7F',
     borderRadius:40,
-    borderWidth: 3,
+    borderWidth: 1,
   },
    button2: {
     marginRight:120,
@@ -190,7 +192,7 @@ const styles = StyleSheet.create({
   },
 
   button3: {
-    
+    marginTop: 20,
     backgroundColor:'#ff0000',
     height: 35,
     width: 250,
@@ -198,11 +200,11 @@ const styles = StyleSheet.create({
 
     
     
-    borderWidth: 3,
+    borderWidth: 2,
   },
 
   button1: {
-    
+    marginTop: 20,
     backgroundColor: '#0d87a1',
     height: 35,
     width: 250,
@@ -210,10 +212,10 @@ const styles = StyleSheet.create({
 
     
     
-    borderWidth: 3,
+    borderWidth: 2,
   },
   button4: {
-    
+    marginTop: 20,
     backgroundColor:'#32CD32',
     height: 35,
     width: 250,
@@ -221,7 +223,7 @@ const styles = StyleSheet.create({
 
     
     
-    borderWidth: 3,
+    borderWidth: 2,
   },
 
   logo: {

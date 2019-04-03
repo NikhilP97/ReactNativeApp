@@ -27,14 +27,16 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    backgroundColor: 'rgba(52, 52, 52, 0.8)'
-  },
+    
+  }, 
   text: {
     //color: 'blue',
-    color: "#0d87a1",
+    color: "#066A7F",
     fontWeight: 'bold',
     marginTop: 20,
     fontFamily: 'sans-serif',
     fontSize: 30
   },
 });
+
+//#066A7F

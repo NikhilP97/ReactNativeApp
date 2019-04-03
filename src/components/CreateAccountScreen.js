@@ -23,7 +23,6 @@ const User = t.struct({
   ucid: t.Number,
   password: t.String,
   email: t.String,
-  confirm: t.Boolean,
 });
 
 const formStyles = {
@@ -31,19 +30,19 @@ const formStyles = {
   formGroup: {
     normal: {
       marginBottom: 10,
-      color: '#0d87a1'
+      color: '#066A7F'
     },
   },
   controlLabel: {
     normal: {
-      color: '#0d87a1',
+      color: '#066A7F',
       fontSize: 15,
       marginBottom: 7,
       fontWeight: '600',
     },
     // the style applied when a validation error occours
     error: {
-      color: '#0d87a1',
+      color: '#066A7F',
       fontSize: 18,
       marginBottom: 7,
       fontWeight: '600',
@@ -73,10 +72,6 @@ const options = {
     email: {
       error: 'enter a valid email address',
     },
-    confirm: {
-      label: 'Confirm registration',
-      error: 'tap this button =>',
-    },
   },
   stylesheet: formStyles,
 };
@@ -102,7 +97,6 @@ export default class CreateAccountScreen extends Component {
       ucid : '1111',
       password : 'AAA',
       email : 'AAA',
-      confirm : true
     }
   }
 
@@ -118,7 +112,6 @@ export default class CreateAccountScreen extends Component {
       ucid : userInfo.ucid,
       password : userInfo.password,
       email : userInfo.email,
-      confirm : true
     };
     axios.post('https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/', obj)
         .then(res => console.log(res.data)).catch(function (error) {
@@ -144,7 +137,7 @@ export default class CreateAccountScreen extends Component {
     }
 
     // Check if confirm button is pressed
-    if (value.confirm) {
+    if (true) {
       console.log('confirm: ', value.confirm);
       if (value) {
         console.log(value);
@@ -185,7 +178,7 @@ export default class CreateAccountScreen extends Component {
 
   render() {
     return (
-      <BackgroundView>
+      
       <View style={styles.container}>
         <Form ref={c => (this._form = c)} type={User} options={options} />
         <TouchableHighlight
@@ -195,7 +188,7 @@ export default class CreateAccountScreen extends Component {
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableHighlight>
       </View>
-      </BackgroundView>
+      
     );
   }
 }
@@ -205,21 +198,22 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop: 50,
     padding: 20,
-    color: '#0d87a1'
+    color: '#066A7F'
     
   },
   buttonText: {
     fontSize: 18,
-    color: 'white',
+    color: '#fff',
     alignSelf: 'center',
   },
   button: {
     height: 36,
-    backgroundColor: '#262626',
-    borderColor: '#48BBEC',
+    borderColor: '#427AA1',
+    backgroundColor: '#427AA1',
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
+    marginTop: 20,
     alignSelf: 'stretch',
     justifyContent: 'center',
   },
