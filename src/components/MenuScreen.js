@@ -28,7 +28,7 @@ export default class MenuScreen extends Component {
     	const widthToHeightwithLabel =90;
     	const widthToHeightwithoutLabel = 142;
 	    return (
-	    	<BackgroundView>
+	    	
 	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
 	    	<View style={ styles.container }>
 		        <View style={ {alignItems   : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
@@ -53,7 +53,7 @@ export default class MenuScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel }
 				        imageHeight={ widthToHeightwithLabel }
-				        onPress={() => Actions.menuItem('apti')}
+				        onPress={() => Actions.aptitudeTopics('apti')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -145,7 +145,7 @@ export default class MenuScreen extends Component {
 		        </View>
 	     	</View>
 	     	</ScrollView> 
-	     	</BackgroundView>
+	     	
 	    );
   	}
 }

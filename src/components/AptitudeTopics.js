@@ -9,14 +9,11 @@ import { CardViewWithIcon, CardViewWithImage } from 'react-native-simple-card-vi
 import {Actions, ActionConst} from 'react-native-router-flux';
 import BackgroundView from './BackgroundView'
 
-export default class MenuItem extends Component {
+export default class AptitudeTopics extends Component {
 	constructor(props) {
 		super(props);
 		console.log("props", props);
 	}
-
-
-
 
 	render(){
 		const miniCardStyle = {
@@ -35,19 +32,19 @@ export default class MenuItem extends Component {
     	const imgWidthToHeight = 137;
     	const screenWidth = (Dimensions.get("window").width) - 20;
 	    return (
-	    	<BackgroundView>
+	    	
 	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
 	    		<View style={ styles.container }>
 		        <View style={ {alignItems   : "center", justifyContent : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
 					
 					<CardViewWithImage
 						width={ screenWidth}
-				        source={ require('../images/menuLogos/studyMat2.png') }
-				        title={ 'Study Material' }
+				        source={ require('../images/menuLogos/quants1.jpg') }
+				        title={ 'Quantitative Aptitude' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.studyMatCards(this.props.data)}
+				        onPress={() => Actions.webViewItem('quants')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -55,12 +52,12 @@ export default class MenuItem extends Component {
 				    />
 				    <CardViewWithImage 
 				    	width={ screenWidth}
-				        source={ require('../images/menuLogos/quiz2.jpg') }
-				        title={ 'Take a Quiz' }
+				        source={ require('../images/menuLogos/logical1.jpg') }
+				        title={ 'Logical Reasoning' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem(this.props.data+' Quiz')}
+				        onPress={() => Actions.webViewItem('lr')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -68,12 +65,12 @@ export default class MenuItem extends Component {
 				    />
 				    <CardViewWithImage
 				    	width={ screenWidth}
-				        source={ require('../images/menuLogos/interview1.png') }
-				        title={ 'Interview Questions' }
+				        source={ require('../images/menuLogos/di1.jpg') }
+				        title={ 'Data Interpretation' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem(this.props.data+' Interview Questions')}
+				        onPress={() => Actions.webViewItem('di')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -81,12 +78,12 @@ export default class MenuItem extends Component {
 				    />
 				    <CardViewWithImage
 				    	width={ screenWidth}    
-				        source={ require('../images/menuLogos/important2.png') }
-				        title={ 'Important Topics' }
+				        source={ require('../images/menuLogos/verbal3.png') }
+				        title={ 'Verbal Ability' }
 				        titleFontSize={17}
-				        imageWidth={ imgWidthToHeight+5 }
+				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem(this.props.data+' Important Topics')}
+				        onPress={() => Actions.webViewItem('verbal')}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -96,7 +93,7 @@ export default class MenuItem extends Component {
 		        </View>
 	     	</View>
 	     	</ScrollView> 
-	     	</BackgroundView>
+	     	
 	    );
   	}
 }

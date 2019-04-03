@@ -13,6 +13,7 @@ import MenuScreen from './MenuScreen'
 import MenuItem from './MenuItem'
 import WebViewItem from './WebViewItem'
 import StudyMatCards from './StudyMatCards'
+import AptitudeTopics from './AptitudeTopics'
 
 export default class Main extends Component {
   render() {
@@ -42,6 +43,11 @@ export default class Main extends Component {
 	        />
 	        <Scene key="menuItem"
 	          component={MenuItem}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="aptitudeTopics"
+	          component={AptitudeTopics}
 	          animation='fade'
 	          hideNavBar={true}
 	        />

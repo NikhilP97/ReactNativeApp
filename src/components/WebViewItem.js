@@ -142,6 +142,11 @@ let getCorrectURI = {
 	'dbms Quiz': 'https://www.geeksforgeeks.org/dbms-gq/sql-gq/',
 	'dbms Interview Questions': 'https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/',
 	'dbms Important Topics': 'https://www.geeksforgeeks.org/last-minute-notes-dbms/',
+	'----------------------------aptitude':'links------------------------------------------------------',
+	'quants': 'https://www.indiabix.com/aptitude/questions-and-answers/',
+	'lr': 'https://www.indiabix.com/logical-reasoning/questions-and-answers/',
+	'di': 'https://www.indiabix.com/data-interpretation/questions-and-answers/',
+	'verbal': 'https://www.indiabix.com/verbal-ability/questions-and-answers/',
 
 
 }
