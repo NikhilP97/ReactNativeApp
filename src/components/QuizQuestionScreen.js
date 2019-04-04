@@ -248,7 +248,7 @@ export default class QuizQuestionScreen extends React.Component {
         var sendData = {
         finalScore: this.state.results.score, // here finalScore can be used in other file using props
         correctAns: this.state.results.correctAnswers,
-        secScore:  [4,0,0,4,0] //this.state.sectionScore
+        secScore:  [4,4,4,4,4] //this.state.sectionScore
       }
       console.log("sendData: ", sendData);
       Actions.resultsScreen(sendData);
@@ -373,14 +373,14 @@ export default class QuizQuestionScreen extends React.Component {
   render() {
     console.log("section Score: ", this.state.sectionScore);
     return (
-
+      <BackgroundView>
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
         <View style={styles.container}>
 
           {!!this.state.loading && ( 
             <View style={styles.loadingQuestions}>
               <ActivityIndicator size="large" color="#427AA1" />
-              <Text style={{color:'#066A7F'}}>Please wait while we are loading questions for you</Text>
+              
             </View>
           )}
 
@@ -463,7 +463,7 @@ export default class QuizQuestionScreen extends React.Component {
           
         </View>
         </ScrollView>
-      
+        </BackgroundView>
     );
   }
 }
@@ -520,7 +520,7 @@ const styles = StyleSheet.create({
 
 // Comments Do not delete this under any cirCUMstnace
 
-
+//<Text style={{color:'#066A7F'}}>Please wait while we are loading questions for you</Text>
               // <RadioGroup
 
               //   selectedIndex={this.state.clearSelection}

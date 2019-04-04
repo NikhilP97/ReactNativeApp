@@ -14,7 +14,7 @@ export default class BackgroundView extends Component {
       <ImageBackground
         style={{ flex: 1 }}
         imageStyle={{ width: 'auto', height: '100%' }}
-        source={require('../images/bg.jpg')}
+        source={require('../images/bg_white.png')}
       >
         {children}
       </ImageBackground>

@@ -24,7 +24,7 @@ export default class QuizStartScreen extends React.Component {
 
   render() {
     return (
-      
+      <BackgroundView>
       <View style={styles.container}>
         
         
@@ -77,7 +77,7 @@ export default class QuizStartScreen extends React.Component {
           </View>
         </TouchableOpacity>
       </View>
-    
+      </BackgroundView>
     );
   }
 }

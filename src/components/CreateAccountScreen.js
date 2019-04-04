@@ -178,7 +178,7 @@ export default class CreateAccountScreen extends Component {
 
   render() {
     return (
-      
+      <BackgroundView>
       <View style={styles.container}>
         <Form ref={c => (this._form = c)} type={User} options={options} />
         <TouchableHighlight
@@ -188,7 +188,7 @@ export default class CreateAccountScreen extends Component {
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableHighlight>
       </View>
-      
+      </BackgroundView>
     );
   }
 }

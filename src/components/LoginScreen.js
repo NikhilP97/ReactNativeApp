@@ -12,12 +12,23 @@ export default class LoginScreen extends Component {
   render() {
     return (
       
-      <View>
+      <BackgroundView>
         <Logo />
         <Form />
-      </View>  
+      </BackgroundView>  
       
     );
   }
 }
 
+
+
+/*
+//#052F5F - davys grey
+//#DBCDC6 - peach
+//#8A716A - matte brown
+//#104547 - MSU green (dark)
+//#E7E247 - Pale Yellow
+//#EFC7C2 - Tea Rose
+
+*/

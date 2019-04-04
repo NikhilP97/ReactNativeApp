@@ -54,33 +54,33 @@ export default class ResultsScreen extends React.Component {
 		{
 		  value: this.secScoreArray[0],
 		  label: 'Quants',
-		  color: 'red',
+		  color: '#052F5F',
 		}, {
 		  value: this.secScoreArray[1],
 		  label: 'LR and DI',
-		  color: 'blue'
+		  color: '#EFC7C2'
 		}, {
 		  value: this.secScoreArray[2],
 		  label: 'Verbal',
-		  color: 'green'
+		  color: '#427AA1'
 		},
 		{
 		  value: this.secScoreArray[3],
 		  label: 'Technical',
-		  color: '#0d87a1'
+		  color: '#8EA604'
 		},
 		 {
 		  value: this.secScoreArray[4],
 		  label: 'Core',
-		  color: '#ffff00'
+		  color: '#BF211E'
 		}
 	]
 
 	return (
 
 		
-	  
-	  		<View style={{ alignItems: "center", marginTop: 75, borderRadius: 40 }}>
+	      <BackgroundView>
+	  		<View style={{ alignItems: "center", marginTop: 75, borderRadius: 60 }}>
 	  		  	<PureChart data={sampleData} type='pie' />
 
 		      	
@@ -105,7 +105,7 @@ export default class ResultsScreen extends React.Component {
 		        </TouchableHighlight>
 
             <TouchableHighlight
-            style={styles.button1}
+            style={styles.button2}
             >
             <Text style = {styles.buttonText3}>Total Score: {100} </Text>
             </TouchableHighlight>
@@ -117,6 +117,7 @@ export default class ResultsScreen extends React.Component {
             <Text style={styles.buttonText}>Predict my Comapny</Text>
             </TouchableHighlight>
 	        </View>
+          </BackgroundView>
 		
 
 	);
@@ -166,34 +167,33 @@ const styles = StyleSheet.create({
     marginLeft:12,
   },
   button: {
-    marginRight:120,
-    marginLeft:120,
+    marginRight:10,
+    marginLeft:10,
     marginTop:75,
-    paddingTop:10,
-    paddingBottom:10,
+    paddingLeft:10,
+    paddingRight:10,
+    paddingTop: 5,
+    paddingBottom: 5,
     backgroundColor: '#066A7F',
     borderColor: '#066A7F',
     borderRadius:40,
     borderWidth: 1,
   },
    button2: {
-    marginRight:120,
-    marginLeft:120,
-    marginTop:85,
-    paddingTop:10,
-    paddingBottom:10,
-    backgroundColor:'#0d87a1',
-    height: 50,
+    marginTop: 20,
+    backgroundColor: '#427AA1',
+    height: 35,
     width: 250,
+
 
     
     
-    borderWidth: 3,
+    borderWidth: 2,
   },
 
   button3: {
     marginTop: 20,
-    backgroundColor:'#ff0000',
+    backgroundColor:'#BF211E',
     height: 35,
     width: 250,
 
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
 
   button1: {
     marginTop: 20,
-    backgroundColor: '#0d87a1',
+    backgroundColor: '#427AA1',
     height: 35,
     width: 250,
 

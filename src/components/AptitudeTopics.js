@@ -32,7 +32,7 @@ export default class AptitudeTopics extends Component {
     	const imgWidthToHeight = 137;
     	const screenWidth = (Dimensions.get("window").width) - 20;
 	    return (
-	    	
+	    	<BackgroundView>
 	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
 	    		<View style={ styles.container }>
 		        <View style={ {alignItems   : "center", justifyContent : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
@@ -93,7 +93,7 @@ export default class AptitudeTopics extends Component {
 		        </View>
 	     	</View>
 	     	</ScrollView> 
-	     	
+	     	</BackgroundView>
 	    );
   	}
 }

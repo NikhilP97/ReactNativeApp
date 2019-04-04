@@ -28,7 +28,7 @@ export default class MenuScreen extends Component {
     	const widthToHeightwithLabel =90;
     	const widthToHeightwithoutLabel = 142;
 	    return (
-	    	
+	    	<BackgroundView>
 	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
 	    	<View style={ styles.container }>
 		        <View style={ {alignItems   : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
@@ -145,7 +145,7 @@ export default class MenuScreen extends Component {
 		        </View>
 	     	</View>
 	     	</ScrollView> 
-	     	
+	     	</BackgroundView>
 	    );
   	}
 }

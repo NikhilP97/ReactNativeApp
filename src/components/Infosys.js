@@ -121,12 +121,8 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
-      //<BackgroundView>
-      <ImageBackground
-        style={{ flex: 1 }}
-        imageStyle={{ width: 'auto', height: '100%' }}
-        source={require('../images/experience_test1.png')}
-      >
+      <BackgroundView>
+      
         
       
       <ScrollView contentContainerStyle={{flexGrow: 1}}>
@@ -213,14 +209,14 @@ export default class LoginScreen extends Component {
 
           {this.state.loading && ( 
             <View style={styles.loadingQuestions}>
-              <ActivityIndicator size="large" color="#00caa6" />
+              <ActivityIndicator size="large" color="#066A7F" />
               
             </View>
           )}
            
         </View> 
       </ScrollView>  
-    </ImageBackground>  
+    </BackgroundView>  
       
     );
   }
@@ -253,7 +249,7 @@ const styles = StyleSheet.create({
     fontFamily: "Raleway-Bold",
     fontSize: 36,
     //fontWeight: "bold",
-    color: "#e9e9e9",
+    color: "#000",
 
   },
   header2: {
@@ -261,7 +257,7 @@ const styles = StyleSheet.create({
     fontFamily: "Raleway-Medium",
     fontSize: 20,
     //fontWeight: "bold",
-    color: "#f2b632",
+    color: "#052F5F",
     textAlign: 'center',
     //padding: 2
   },
@@ -284,10 +280,17 @@ const styles = StyleSheet.create({
   _text: {
     fontFamily: "Raleway-MediumItalic",
     fontSize: 18,
-    color: "#dedede",
+    color: "#595457",
     //fontStyle:'italic',
     marginTop: 10,
     textAlign: 'left',
-    padding: 5,
+    padding: 15,
   } 
 });
+
+/* <ImageBackground
+        style={{ flex: 1 }}
+        imageStyle={{ width: 'auto', height: '100%' }}
+        source={require('../images/experience_test1.png')}
+      >
+*/
