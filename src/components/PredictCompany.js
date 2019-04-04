@@ -356,6 +356,7 @@ buttonContainer: {
   
 
 buttonText: {
+    fontFamily: 'ALeo-Regular',
     fontSize: 20,
     color: '#000',
     alignSelf: 'center',

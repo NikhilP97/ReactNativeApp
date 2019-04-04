@@ -30,11 +30,12 @@ const styles = StyleSheet.create({
     
   }, 
   text: {
+    fontFamily: 'Hind-Light',
     //color: 'blue',
     color: "#066A7F",
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     marginTop: 20,
-    fontFamily: 'sans-serif',
+    
     fontSize: 30
   },
 });

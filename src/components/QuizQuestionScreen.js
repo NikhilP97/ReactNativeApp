@@ -416,7 +416,7 @@ export default class QuizQuestionScreen extends React.Component {
                 />
               </View>
               
-              <Text style={{marginTop: 20, marginLeft: 5, marginRight: 5, fontSize: 22, color: "#000", marginBottom: 20 }}>
+              <Text style={{marginTop: 20, marginLeft: 5, marginRight: 5, fontFamily: 'Raleway-MediumItalic', fontSize: 22, color: "#000", marginBottom: 20 }}>
                 Q. {this.state.questionsArray[this.state.currentQuesNum].question}
               </Text>
 
@@ -499,7 +499,7 @@ const styles = StyleSheet.create({
     marginTop:60,
     paddingTop:10,
     paddingBottom:10,
-    
+    backgroundColor: '#f6f5f3',
     borderColor: '#427AA1',
     borderRadius:30,
     borderWidth: 1,
@@ -510,7 +510,7 @@ const styles = StyleSheet.create({
     marginTop:375,
     paddingTop:10,
     paddingBottom:10,
-    
+    backgroundColor: '#f6f5f3',
     borderColor: '#427AA1',
     borderRadius:30,
     borderWidth: 3,

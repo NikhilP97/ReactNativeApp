@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
 
   paragraph: {
     marginTop: 20,
+    fontFamily: 'OpenSans-Regular',
     fontSize: 16,
     color: "#066A7F",
     textAlign: "center",
@@ -109,6 +110,7 @@ const styles = StyleSheet.create({
   },
   sectionsText: {
     marginTop: 2,
+    fontFamily: 'OpenSans-Regular',
     fontSize: 16,
     color: "#066A7F",
     textAlign: "center",
