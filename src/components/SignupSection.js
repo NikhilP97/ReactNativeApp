@@ -12,6 +12,10 @@ export default class SignupSection extends Component {
     Actions.createAccountScreen();
   }
 
+  forgotPassword = () => {
+    Actions.forgotPasswordScreen();
+  }
+
 
   render() {
     return (
@@ -24,7 +28,7 @@ export default class SignupSection extends Component {
         </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
-          onPress={this.createAccount}
+          onPress={this.forgotPassword}
           underlayColor="#fff">
           <Text style={styles.buttonText}>Forgot Password?</Text>
         </TouchableHighlight>

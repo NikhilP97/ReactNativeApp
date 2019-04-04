@@ -14,6 +14,7 @@ import MenuItem from './MenuItem'
 import WebViewItem from './WebViewItem'
 import StudyMatCards from './StudyMatCards'
 import AptitudeTopics from './AptitudeTopics'
+import ForgotPasswordScreen from './ForgotPasswordScreen'
 
 export default class Main extends Component {
   render() {
@@ -33,6 +34,11 @@ export default class Main extends Component {
 	        />
 	        <Scene key="createAccountScreen"
 	          component={CreateAccountScreen}
+	          animation='fade'
+	          hideNavBar={true}
+	        />
+	        <Scene key="forgotPasswordScreen"
+	          component={ForgotPasswordScreen}
 	          animation='fade'
 	          hideNavBar={true}
 	        />

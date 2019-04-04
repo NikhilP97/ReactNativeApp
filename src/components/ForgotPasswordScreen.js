@@ -19,12 +19,8 @@ const Form = t.form.Form;
 
 const User = t.struct({
   nameVal: t.String,
-  surname: t.String,
-  year: t.String,
-  branch: t.String,
+  yearBranch: t.String,
   ucid: t.Number,
-  password: t.String,
-  reEnterPassword: t.String,
   email: t.String,
 });
 
@@ -56,35 +52,21 @@ const formStyles = {
 const options = {
   fields: {
     nameVal: {
-      label: 'Name',
-      error: 'name required',
+      label: 'Enter Full Name',
+      error: 'Full name required',
     },
-    surname: {
-      error: 'surname required',
-    },
-    year: {
-      help: 'Example: BE ',
-      error: 'branch required',
-    },
-    branch: {
-      help: 'Example: ETRX ',
-      error: 'branch required',
+    
+    yearBranch: {
+      label: 'Enter Year & Branch',
+      help: 'Example: BE-ETRX ',
+      error: 'Year & Branch required',
     },
     ucid: {
+      label: 'Enter UCID',
       error: 'enter valid ucid',
     },
-    password: {
-      error: 'password required',
-      password: true,
-      secureTextEntry: true,
-    },
-    reEnterPassword: {
-      label: 'Re-enter Passowrd',
-      error: 'Re-enter password',
-      password: true,
-      secureTextEntry: true,
-    },
     email: {
+      label: 'Enter Registered Email Address',
       error: 'enter a valid email address',
     },
   },
@@ -92,13 +74,7 @@ const options = {
 };
 
 
-
-  
-
-
-
-
-export default class CreateAccountScreen extends Component {
+export default class ForgotPasswordScreen extends Component {
 
   // GET and POST to DB
 // initialize our state 
@@ -106,14 +82,10 @@ export default class CreateAccountScreen extends Component {
     super(props);
 
     this.state = {
-      nameVal : 'AAA',
-      surname : 'AAA',
-      year : 'AAA',
-      branch : 'AAA',
+      nameVal : 'default',
+      yearBranch : 'default',
       ucid : '1111',
-      password : 'AAA',
-      reEnterPassword : 'AAAA',
-      email : 'AAA',
+      email : 'default',
     }
   }
 
@@ -123,13 +95,10 @@ export default class CreateAccountScreen extends Component {
     console.log("userInfo : ", userInfo)
     
     const obj = {
+      forgotPassword: 'FORGOT PASSWORD',
       nameVal : userInfo.nameVal,
-      surname : userInfo.surname,
-      year: userInfo.year,
-      branch : userInfo.branch,
+      yearBranch: userInfo.yearBranch,
       ucid : userInfo.ucid,
-      password : userInfo.password,
-      reEnterPassword : userInfo.reEnterPassword,
       email : userInfo.email,
     };
     axios.post('https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/', obj)
@@ -155,16 +124,6 @@ export default class CreateAccountScreen extends Component {
       return;
     }
 
-    if(value.password !== value.reEnterPassword){
-      Alert.alert(
-        'Password Does Not Match',
-        'Your password and Re-entered password do not match.',
-        [{ text: 'OK', onPress: () => console.log('OK Pressed Re-enter') }],
-        { cancelable: false }
-      );
-      return;
-    }
-
     // Check if confirm button is pressed
     
     if (value) {
@@ -175,9 +134,9 @@ export default class CreateAccountScreen extends Component {
       this.clearForm();
       //Registered Successfully
       Alert.alert(
-      'Signed Up!',
-      'You have Registered Successfully',
-      [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+      'Request Sent!',
+      'We will validate your request and get back to you shortly.',
+      [{ text: 'OK', onPress: () => console.log('Sent pressed forgotPassword') }],
       { cancelable: false }
     );
     }
@@ -206,7 +165,7 @@ export default class CreateAccountScreen extends Component {
           style={styles.button}
           onPress={this.handleSubmit}
           underlayColor="#99d9f4">
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <Text style={styles.buttonText}>Send Request</Text>
         </TouchableHighlight>
       </ScrollView>
       </BackgroundView>
