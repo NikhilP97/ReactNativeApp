@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
         marginTop: -80
     },
   buttonText: {
-    fontFamily: 'Aleo-Regular',
+    fontFamily: 'Merriweather-Bold',
     fontSize: 15,
     color: '#066A7F',
     alignSelf: 'center',
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f6f5f3",
     borderColor: '#066A7F',
     borderRadius:40,
-    borderWidth: 1,
+    borderWidth: 2,
   },
    button2: {
     marginTop: 20,

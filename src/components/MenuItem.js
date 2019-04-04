@@ -25,7 +25,7 @@ export default class MenuItem extends Component {
 			shadowOffsetHeight: 2,
 			shadowOpacity     : 0.1,
 			shadowRadius       : 5,
-			bgColor           : '#fff',
+			bgColor           : '#f6f5f3',
 			padding           : 5,
 			margin            : 5,
 			borderRadius      : 3,
@@ -42,7 +42,7 @@ export default class MenuItem extends Component {
 					
 					<CardViewWithImage
 						width={ screenWidth}
-				        source={ require('../images/menuLogos/studyMat2.png') }
+				        source={ require('../images/menuLogos/studyMat2_final.png') }
 				        title={ 'Study Material' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
@@ -55,7 +55,7 @@ export default class MenuItem extends Component {
 				    />
 				    <CardViewWithImage 
 				    	width={ screenWidth}
-				        source={ require('../images/menuLogos/quiz2.jpg') }
+				        source={ require('../images/menuLogos/quiz2_final.png') }
 				        title={ 'Take a Quiz' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
@@ -68,7 +68,7 @@ export default class MenuItem extends Component {
 				    />
 				    <CardViewWithImage
 				    	width={ screenWidth}
-				        source={ require('../images/menuLogos/interview1.png') }
+				        source={ require('../images/menuLogos/interview1_final.png') }
 				        title={ 'Interview Questions' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
@@ -81,7 +81,7 @@ export default class MenuItem extends Component {
 				    />
 				    <CardViewWithImage
 				    	width={ screenWidth}    
-				        source={ require('../images/menuLogos/important2.png') }
+				        source={ require('../images/menuLogos/important_final.png') }
 				        title={ 'Important Topics' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight+5 }

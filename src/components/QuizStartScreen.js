@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
   },
   instructionsTest: {
     marginTop: 5,
+    fontFamily: 'OpenSans-Regular',
     fontSize: 16,
     color: "#427AA1",
     textAlign: "center",
