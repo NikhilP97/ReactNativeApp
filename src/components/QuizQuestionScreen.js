@@ -492,8 +492,9 @@ export default class QuizQuestionScreen extends React.Component {
 
               <TouchableHighlight
                 style={styles.button}
-
-                >
+                onPress={this.state.currentQuesNum == totalQuestions ? this.getResultsScreen : () => this.getNextQuestion(true)}
+                underlayColor="#f0f4ff"
+              >
                   {this.state.currentQuesNum == totalQuestions ? <Text style={styles.buttonText}>Finish</Text> : 
                     <Text style={styles.buttonText}>Next</Text>
                   }
