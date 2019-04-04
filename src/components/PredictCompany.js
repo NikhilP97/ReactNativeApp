@@ -50,7 +50,7 @@ export default class PredictCompany extends React.Component {
       
 
 
-      { name: 'Infosys', code: '#0d87a1' },
+      { name: 'Infosys', code: '#427ABf' },
       { name: 'Cognizant', code: '#9068be' },
       { name: 'Fractal', code: '#0d87a1' },
       { name: 'Capgemini', code: '#427AA1' },
@@ -356,6 +356,7 @@ buttonContainer: {
   
 
 buttonText: {
+    fontFamily: 'Merriweather-Regular',
     fontSize: 20,
     color: '#000',
     alignSelf: 'center',
@@ -401,11 +402,12 @@ buttonText: {
     color: '#fff',
   },
   sectionHeader: {
+    fontFamily: 'Raleway-Bold',
     flex: 1,
     fontSize: 15,
     fontWeight: '600',
     alignItems: 'center',
-    backgroundColor: '#DBCDC6',
+    backgroundColor: '#06A77D',
     color: 'white',
     padding: 10,
   },

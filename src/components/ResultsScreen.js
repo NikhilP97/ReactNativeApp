@@ -140,8 +140,9 @@ const styles = StyleSheet.create({
         marginTop: -80
     },
   buttonText: {
+    fontFamily: 'Merriweather-Bold',
     fontSize: 15,
-    color: '#fff',
+    color: '#066A7F',
     alignSelf: 'center',
     margin: 8
   },
@@ -174,10 +175,10 @@ const styles = StyleSheet.create({
     paddingRight:10,
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: '#066A7F',
+    backgroundColor: "#f6f5f3",
     borderColor: '#066A7F',
     borderRadius:40,
-    borderWidth: 1,
+    borderWidth: 2,
   },
    button2: {
     marginTop: 20,

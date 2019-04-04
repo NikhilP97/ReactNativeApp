@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
   text: {
     //color: 'blue',
     color: "#066A7F",
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     marginTop: 20,
-    fontFamily: 'sans-serif',
+    fontFamily: 'Merriweather-Bold',
     fontSize: 30
   },
 });

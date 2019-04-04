@@ -151,7 +151,7 @@ export default class StudyMatCards extends Component {
 			shadowOffsetHeight: 2,
 			shadowOpacity     : 0.1,
 			shadowRadius       : 5,
-			bgColor           : '#fff',
+			bgColor           : '#f6f5f3',
 			padding           : 5,
 			margin            : 5,
 			borderRadius      : 3,

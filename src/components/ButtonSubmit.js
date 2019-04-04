@@ -103,10 +103,10 @@ const styles = StyleSheet.create({
     marginTop:0,
     paddingTop:10,
     paddingBottom:10,
-    
+    backgroundColor: "#f6f5f3",
     borderColor: '#427AA1',
     borderRadius:30,
-    borderWidth: 1,
+    borderWidth: 2,
 
     
     
