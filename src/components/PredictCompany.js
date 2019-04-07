@@ -74,7 +74,7 @@ export default class PredictCompany extends React.Component {
       { name: 'Nomura', code: '#801edc' },
       { name: 'GEP', code: '#066A7F' },
       { name: 'Amadeus', code: '#dc1e77' },
-      { name: 'HDFC', code: '#797d7f' },
+      { name: 'Axxela', code: '#797d7f' },
       { name: 'Amazon', code: '#6e2c00' },
       { name: 'PhonePe', code: '#7d6608' },
       { name: 'Credit Suisse', code: '#0d87a1' },
