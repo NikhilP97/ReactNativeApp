@@ -113,7 +113,7 @@ export default class ResultsScreen extends React.Component {
             <TouchableHighlight
             style={styles.button}
             onPress={this.getPredictCompany}
-            >
+            underlayColor="#f0f4f7">
             <Text style={styles.buttonText}>Predict my Comapny</Text>
             </TouchableHighlight>
 	        </View>
@@ -175,7 +175,6 @@ const styles = StyleSheet.create({
     paddingRight:10,
     paddingTop: 5,
     paddingBottom: 5,
-    backgroundColor: "#f6f5f3",
     borderColor: '#066A7F',
     borderRadius:40,
     borderWidth: 2,

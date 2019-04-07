@@ -164,7 +164,7 @@ export default class ForgotPasswordScreen extends Component {
         <TouchableHighlight
           style={styles.button}
           onPress={this.handleSubmit}
-          underlayColor="#99d9f4">
+          underlayColor="#052F5F">
           <Text style={styles.buttonText}>Send Request</Text>
         </TouchableHighlight>
       </ScrollView>

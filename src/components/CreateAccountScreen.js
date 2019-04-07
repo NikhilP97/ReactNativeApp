@@ -56,10 +56,11 @@ const formStyles = {
 const options = {
   fields: {
     nameVal: {
-      label: 'Name',
+      label: 'First Name',
       error: 'name required',
     },
     surname: {
+      label: 'Last Name',
       error: 'surname required',
     },
     year: {
@@ -71,6 +72,7 @@ const options = {
       error: 'branch required',
     },
     ucid: {
+      label: 'UCID',
       error: 'enter valid ucid',
     },
     password: {
@@ -79,12 +81,13 @@ const options = {
       secureTextEntry: true,
     },
     reEnterPassword: {
-      label: 'Re-enter Passowrd',
+      label: 'Re-enter Password',
       error: 'Re-enter password',
       password: true,
       secureTextEntry: true,
     },
     email: {
+      label: 'E-mail',
       error: 'enter a valid email address',
     },
   },
@@ -205,7 +208,7 @@ export default class CreateAccountScreen extends Component {
         <TouchableHighlight
           style={styles.button}
           onPress={this.handleSubmit}
-          underlayColor="#99d9f4">
+          underlayColor="#052F5F">
           <Text style={styles.buttonText}>Sign Up</Text>
         </TouchableHighlight>
       </ScrollView>

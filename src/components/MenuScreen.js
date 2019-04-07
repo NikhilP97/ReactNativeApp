@@ -10,6 +10,13 @@ import {Actions, ActionConst} from 'react-native-router-flux';
 import BackgroundView from './BackgroundView'
 
 export default class MenuScreen extends Component {
+
+	static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+ 	};
+
 	render(){
 		const miniCardStyle = {
 			shadowColor       : '#000000',
@@ -47,7 +54,7 @@ export default class MenuScreen extends Component {
 					
 					<CardViewWithImage
 				        width={ screenWidth}
-				        source={ require('../images/menuLogos/java_trans.png') }
+				        source={ require('../images/menuLogos/java_test.png') }
 				        title={ 'Java' }
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel }
@@ -156,7 +163,9 @@ const styles = StyleSheet.create({
 	container: {
 		flex           : 2,
 		alignItems     : 'center',
-		paddingTop     : 25,
+		paddingTop     : 5,
 		},
 });
+
+
 	
