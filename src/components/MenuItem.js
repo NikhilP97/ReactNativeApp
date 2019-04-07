@@ -130,7 +130,7 @@ export default class MenuItem extends Component {
 				    />
 				    <CardViewWithImage
 				    	width={ screenWidth}    
-				        source={ require('../images/menuLogos/important3.jpg') }
+				        source={ require('../images/menuLogos/important3_final.png') }
 				        title={ 'Important Topics' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight+5 }
