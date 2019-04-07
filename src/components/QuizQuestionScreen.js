@@ -9,7 +9,8 @@ import {
   TouchableHighlight,
   ProgressBarAndroid,
   Dimensions,
-  ScrollView
+  ScrollView,
+  ToastAndroid,
 } from "react-native";
 
 import BackgroundView from './BackgroundView'
@@ -21,6 +22,7 @@ import Pie from 'react-native-pie';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
 var totalQuestions = 1; //1
+var questionsCompleted = false;
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -46,6 +48,12 @@ export default class QuizQuestionScreen extends React.Component {
       completed: false
     };
   }
+
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
 
   // https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
   fetchQuestions = async () => {
@@ -208,11 +216,13 @@ export default class QuizQuestionScreen extends React.Component {
         this.fetchQuestions();
       }
     );
+    questionsCompleted = false;
   };
 
 
 
   componentDidMount() {
+    questionsCompleted = false;
     this.fetchQuestions();
   }
 
@@ -240,34 +250,84 @@ export default class QuizQuestionScreen extends React.Component {
 
   
   getResultsScreen = () =>{
-    var array = [...this.state.sectionScore];
-    console.log("array: ", array)
-    array.splice(0, 1);
-    console.log("array splice: ", array)
-    this.setState({sectionScore: array}, function() {
-        var sendData = {
-        finalScore: this.state.results.score, // here finalScore can be used in other file using props
-        correctAns: this.state.results.correctAnswers,
-        secScore:  [4,4,4,4,4] //this.state.sectionScore
-      }
-      console.log("sendData: ", sendData);
-      Actions.resultsScreen(sendData);
+    // Update score before fetching next value
+    console.log("question no in results Screen: ", this.state.currentQuesNum);
+    console.log("current score in results Screen : ", this.state.results.score);
+    questionsCompleted = true;
+    const question = this.state.questionsArray[this.state.currentQuesNum];
+    //const section = this.state.currentQuesNum;
+    const isCorrect = question.correct_answer === this.state.getSelectedValue;
+    // console.log("isCorrect", isCorrect);
+    
+    const results = { ...this.state.results };
+    results.score = isCorrect ? results.score + 4 : results.score;
+    results.correctAnswers = isCorrect
+      ? results.correctAnswers + 1
+      : results.correctAnswers;
+
+
+    var multipleOfFive = 5//this.state.currentQuesNum+1;
+    this.setState({results}, function () {
+      
+      console.log("multipleOfFive : ", multipleOfFive);
+      if(multipleOfFive % 5 == 0){
+        var index = multipleOfFive/5;
+        // console.log("current section: ", index)
+        var getSectionScore = this.state.results.score - this.state.lastSectionScore;
+        this.setState({
+          sectionScore: [...this.state.sectionScore, getSectionScore]
+        }, function () {
+          var array = [...this.state.sectionScore];
+          console.log("array: ", array)
+          array.splice(0, 1);
+          console.log("array splice: ", array)
+          this.setState({sectionScore: array}, function() {
+            var sendData = {
+            finalScore: this.state.results.score, // here finalScore can be used in other file using props
+            correctAns: this.state.results.correctAnswers,
+            secScore:   [4,4,4,4,4] //this.state.sectionScore //
+          }
+          console.log("sendData: ", sendData);
+          Actions.resultsScreen(sendData);
     })
+        });
+        this.setState({
+          lastSectionScore: this.state.results.score
+        });
+
+      }
+      
+    });
+    // console.log("updated results:", results);
+    
+    
     
   }
 
 
-  getNextQuestion = () => {
+  getNextQuestion = (timeNotElapsed) => {
+    console.log("in get Next Questions");
+    console.log("question no : ", this.state.currentQuesNum);
+    console.log("current score: ", this.state.results.score);
+    console.log("selected value: ", this.state.getSelectedValue)
 
+    if(this.state.currentQuesNum === totalQuestions){
+      questionsCompleted = true;
+      console.log("questionsCompleted!!!!!!!");
+      this.getResultsScreen();
+    } 
+    
     // Check if radio button is clicked else send alert
-    if (typeof this.state.getSelectedValue == 'undefined'){
-      Alert.alert(
+    if (!this.state.getSelectedValue){
+      if(timeNotElapsed){
+        Alert.alert(
         'Button Not Selected',
         'Kindly choose an option to continue',
         [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
         { cancelable: false }
       );
       return;
+      }  
     }
     
     // Update score before fetching next value
@@ -282,8 +342,7 @@ export default class QuizQuestionScreen extends React.Component {
       ? results.correctAnswers + 1
       : results.correctAnswers;
 
-    // console.log("question no : ", this.state.currentQuesNum);
-    // console.log("current score: ", this.state.results.score);
+
     var multipleOfFive = this.state.currentQuesNum+1;
     this.setState({results}, function () {
       
@@ -294,6 +353,8 @@ export default class QuizQuestionScreen extends React.Component {
         var getSectionScore = this.state.results.score - this.state.lastSectionScore;
         this.setState({
           sectionScore: [...this.state.sectionScore, getSectionScore]
+        }, function () {
+          
         });
         this.setState({
           lastSectionScore: this.state.results.score
@@ -303,6 +364,8 @@ export default class QuizQuestionScreen extends React.Component {
       
     });
     // console.log("updated results:", results);
+    
+    
     
     var index = this.state.currentQuesNum + 1;
     var section_index = this.state.currentQuesNum + 5;
@@ -346,26 +409,21 @@ export default class QuizQuestionScreen extends React.Component {
 
     //send alert for next section
     this.Nested_If_Else()
-    //check if quiz complted
-    this.setState({
-      completed: this.state.currentQuesNum === totalQuestions ? true : false
-    });
-    // console.log("updated radio_props ", this.state.radio_props)
     
   }
 
   Nested_If_Else=()=>{
     if( this.state.currentQuesNum == 4  ){
-      Alert.alert("Section 2.");
+      ToastAndroid.show('Section 2: LR & DI', ToastAndroid.LONG);           
     }
     else if(this.state.currentQuesNum == 9  ){
-      Alert.alert("Section 3.")
+      ToastAndroid.show('Section 3: Verbal', ToastAndroid.LONG);
     }
     else if(this.state.currentQuesNum == 14  ){
-      Alert.alert("Section 4.")
+      ToastAndroid.show('Section 4: Tech', ToastAndroid.LONG);
     }
     else if(this.state.currentQuesNum == 19  ){
-      Alert.alert("Section 5.")
+      ToastAndroid.show('Section 5: Core', ToastAndroid.LONG);
     }  
   }
  
@@ -385,7 +443,7 @@ export default class QuizQuestionScreen extends React.Component {
           )}
 
           {!!this.state.questionsArray.length > 0 &&
-            this.state.completed === false && (
+            questionsCompleted === false && (
             <View style={styles.innerContainer}>
 
               <View style={{margin: 5, flexDirection:'row', justifyContent: 'space-between'}}>
@@ -397,7 +455,7 @@ export default class QuizQuestionScreen extends React.Component {
                   color="#066A7F"
                   textStyle={{color:"#427AA1", fontSize: 20 }}
                   onTimeElapsed={() => {console.log('Elapsed!');
-                                        this.getNextQuestion()}}
+                                        this.getNextQuestion(false)}}
                 />
 
                 <Text style={{ fontSize: 25, color: "#066A7F",textAlign: "right", marginTop: 12}}>
@@ -440,9 +498,9 @@ export default class QuizQuestionScreen extends React.Component {
 
               <TouchableHighlight
                 style={styles.button}
-                onPress={this.getNextQuestion}
+                onPress={this.state.currentQuesNum == totalQuestions ? this.getResultsScreen : () => this.getNextQuestion(true)}
                 underlayColor="#f0f4ff"
-                >
+              >
                   {this.state.currentQuesNum == totalQuestions ? <Text style={styles.buttonText}>Finish</Text> : 
                     <Text style={styles.buttonText}>Next</Text>
                   }
@@ -451,18 +509,11 @@ export default class QuizQuestionScreen extends React.Component {
             </View>
           )}
 
-          {this.state.completed==true && (
-            <View style={styles.innerContainer}>
-              <TouchableHighlight
-                style={styles.finishButton}
-                onPress={this.getResultsScreen}
-                underlayColor="#f0f4ff"
-                >
-                  <Text style={styles.buttonText}>Finish Test</Text>  
-              </TouchableHighlight>
-            </View>
-          )}
           
+
+          
+
+
         </View>
         </ScrollView>
         </BackgroundView>
@@ -496,8 +547,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   button: {
-    marginRight:150,
-    marginLeft:150,
+    marginRight:130,
+    marginLeft:130,
     marginTop:60,
     paddingTop:10,
     paddingBottom:10,

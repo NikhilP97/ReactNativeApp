@@ -15,6 +15,12 @@ export default class AptitudeTopics extends Component {
 		console.log("props", props);
 	}
 
+	static navigationOptions = {
+	    // title: `${getNavBarName[this.props.data]}`,
+	    headerTintColor: 'white',
+	    headerTitleStyle: { color: 'white' }
+  	};
+
 	render(){
 		const miniCardStyle = {
 			shadowColor       : '#000000',
@@ -44,7 +50,7 @@ export default class AptitudeTopics extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem('quants')}
+				        onPress={() => Actions.webViewItem({ data: 'quants', title: 'Quantitative Aptitude' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -57,7 +63,7 @@ export default class AptitudeTopics extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem('lr')}
+				        onPress={() => Actions.webViewItem({ data: 'lr', title: 'Logical Reasoning' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -70,7 +76,7 @@ export default class AptitudeTopics extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem('di')}
+				        onPress={() => Actions.webViewItem({ data: 'di', title: 'Data Interpretation' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -83,7 +89,7 @@ export default class AptitudeTopics extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem('verbal')}
+				        onPress={() => Actions.webViewItem({ data: 'verbal', title: 'Verbal Ability' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }

@@ -144,6 +144,12 @@ export default class StudyMatCards extends Component {
 		console.log("props", props);
 	}
 
+	static navigationOptions = {
+	    // title: `${getNavBarName[this.props.data]}`,
+	    headerTintColor: 'white',
+	    headerTitleStyle: { color: 'white' }
+  	};
+
 	render(){
 		const miniCardStyle = {
 			shadowColor       : '#000000',
@@ -172,7 +178,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c1)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c1, title: getCardData[this.props.data].c1 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -184,7 +190,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c2)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c2, title: getCardData[this.props.data].c2 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -196,7 +202,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c3)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c3, title: getCardData[this.props.data].c3 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -208,7 +214,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c4)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c4, title: getCardData[this.props.data].c4 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -220,7 +226,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c5)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c5, title: getCardData[this.props.data].c5 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -232,7 +238,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c6)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c6, title: getCardData[this.props.data].c6 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -244,7 +250,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c7)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c7, title: getCardData[this.props.data].c7 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -256,7 +262,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c8)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c8, title: getCardData[this.props.data].c8 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -268,7 +274,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c9)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c9, title: getCardData[this.props.data].c9 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -280,7 +286,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c10)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c10, title: getCardData[this.props.data].c10 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -292,7 +298,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c11)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c11, title: getCardData[this.props.data].c11 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -304,7 +310,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c12)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c12, title: getCardData[this.props.data].c12 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -316,7 +322,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c13)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c13, title: getCardData[this.props.data].c13 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -328,7 +334,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c14)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c14, title: getCardData[this.props.data].c14})}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -340,7 +346,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c15)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c15, title: getCardData[this.props.data].c15 })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -352,7 +358,7 @@ export default class StudyMatCards extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgHeightandWidth }
 				        imageHeight={ imgHeightandWidth }
-				        onPress={() => Actions.webViewItem(getCardData[this.props.data].c16)}
+				        onPress={() => Actions.webViewItem({ data: getCardData[this.props.data].c16, title: getCardData[this.props.data].c16})}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }

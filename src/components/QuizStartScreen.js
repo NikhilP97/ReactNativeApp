@@ -15,12 +15,16 @@ import BackgroundView from './BackgroundView'
 
 export default class QuizStartScreen extends React.Component {
 
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
+
   _onPress() {
     // console.log("in on press");
     Actions.quizQuestionScreen();
   }
-
-
 
   render() {
     return (

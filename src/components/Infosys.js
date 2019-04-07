@@ -76,6 +76,12 @@ export default class LoginScreen extends Component {
     console.log("company Name received : ", this.companyName);
   }
 
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
+
   fetchData = async () => {
     await this.setState({ loading: true });
     var selectedCompany = this.companyName;

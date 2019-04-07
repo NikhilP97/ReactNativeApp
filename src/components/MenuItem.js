@@ -9,13 +9,62 @@ import { CardViewWithIcon, CardViewWithImage } from 'react-native-simple-card-vi
 import {Actions, ActionConst} from 'react-native-router-flux';
 import BackgroundView from './BackgroundView'
 
+let getNavBarName = {
+	java: {
+		default: 'Java',
+		interview: 'Java',
+	} ,
+	apti: {
+		default: 'Aptitude',
+		interview: 'Aptitude',
+	},
+	cLang: {
+		default: 'C Language',
+		interview: 'C Language',
+	},
+	cppLang: {
+		default: 'C++ Language',
+		interview: 'C++ Language',
+	},
+	python: {
+		default: 'Python',
+		interview: 'Python',
+	},
+	ds: {
+		default: 'Data Structures',
+		interview: 'DS',
+	},
+	algos: {
+		default: 'Algorithms',
+		interview: 'Algorithms',
+	},
+	dbms: {
+		default: 'DBMS',
+		interview: 'DBMS',
+	}
+}
+
+
 export default class MenuItem extends Component {
 	constructor(props) {
 		super(props);
 		console.log("props", props);
+		this.state = {
+			title: getNavBarName[this.props.data],
+
+		}
+		let navBarTitle = this.props.data;
 	}
 
+	static navigationOptions = {
+	    // title: `${getNavBarName[this.props.data]}`,
+	    headerTintColor: 'white',
+	    headerTitleStyle: { color: 'white' }
+  	};
 
+  	// componentDidMount() {
+	  //   Actions.refresh({title: 'Java'});
+  	// }
 
 
 	render(){
@@ -47,7 +96,7 @@ export default class MenuItem extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.studyMatCards(this.props.data)}
+				        onPress={() => Actions.studyMatCards({ data: this.props.data, title: getNavBarName[this.props.data].default })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -60,7 +109,7 @@ export default class MenuItem extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem(this.props.data+' Quiz')}
+				        onPress={() => Actions.webViewItem({ data: this.props.data+' Quiz', title: getNavBarName[this.props.data].default+' Quiz' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -73,7 +122,7 @@ export default class MenuItem extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem(this.props.data+' Interview Questions')}
+				        onPress={() => Actions.webViewItem({ data: this.props.data+' Interview Questions', title: getNavBarName[this.props.data].interview+' Interview Questions' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -81,12 +130,12 @@ export default class MenuItem extends Component {
 				    />
 				    <CardViewWithImage
 				    	width={ screenWidth}    
-				        source={ require('../images/menuLogos/important_final.png') }
+				        source={ require('../images/menuLogos/important3.jpg') }
 				        title={ 'Important Topics' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight+5 }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem(this.props.data+' Important Topics')}
+				        onPress={() => Actions.webViewItem({ data: this.props.data+' Important Topics', title: getNavBarName[this.props.data].default+' Important Topics' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }

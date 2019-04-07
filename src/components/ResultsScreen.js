@@ -38,14 +38,21 @@ export default class ResultsScreen extends React.Component {
     this.theFinalScore = props.finalScore;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
-
-    
-
   }
+
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
 
   getPredictCompany = () =>{
     Actions.predictCompany(this.theFinalScore);
 
+  }
+
+  componentWillUnmount() {
+    Actions.popTo('quizStartScreen');
   }
 
   render() {
@@ -113,7 +120,7 @@ export default class ResultsScreen extends React.Component {
             <TouchableHighlight
             style={styles.button}
             onPress={this.getPredictCompany}
-            >
+            underlayColor="#f0f4f7">
             <Text style={styles.buttonText}>Predict my Comapny</Text>
             </TouchableHighlight>
 	        </View>

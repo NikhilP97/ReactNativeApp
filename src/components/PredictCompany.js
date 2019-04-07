@@ -23,34 +23,50 @@ import {Actions, ActionConst} from 'react-native-router-flux';
 
 export default class PredictCompany extends React.Component {
 
-    _onPress_Infosys(companyName) {
-      console.log("companyName to be passed: ", companyName);
-      Actions.infosys(companyName);
-    }
-
-
-    constructor(props) {
+  constructor(props) {
     super(props);
+    this.state = {
+      loading: true,
+    };
     console.log("props: ", props);
     this.theFinalScore = props.data;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
     this.results = 15;
+    console.log("Final Score: ", this.theFinalScore);
+  }
 
-	console.log("Final Score: ", this.theFinalScore);
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
 
+  _onPress_Infosys(companyName) {
+    console.log("companyName to be passed: ", companyName);
+    Actions.infosys(companyName);
+  }
 
+  ShowAlertWithDelay (){
+ 
+    // setTimeout(function(){
+    //   //Put All Your Code Here, Which You Want To Execute After Some Delay Time.
+    //   this.setState({ loading: false });
+    // }, 5000);
+
+    setTimeout(()=>{this.setState({ loading: false })}, 5000);
+  }
+
+  componentDidMount() {
+    this.ShowAlertWithDelay();
   }
 
 
 
   render() {
-      const items = [
+    const items = [
 
-      
-
-
-      { name: 'Infosys', code: '#427ABf' },
+    { name: 'Infosys', code: '#427ABf' },
       { name: 'Cognizant', code: '#9068be' },
       { name: 'Fractal', code: '#0d87a1' },
       { name: 'Capgemini', code: '#427AA1' },
@@ -83,13 +99,16 @@ export default class PredictCompany extends React.Component {
       { name: 'Deutsche Bank', code: '#269ccc' },
       { name: 'Morgan Stanley', code: '#1e27dc' },
       { name: 'Microsoft', code: '#9955bb' },
-      
-    ];
+    
+  ];
+
 
     return (
       
            <BackgroundView>
 
+           {!this.state.loading && (
+            <BackgroundView>
             {this.results  < 25  &&  (
                 <SectionGrid
 
@@ -327,10 +346,21 @@ export default class PredictCompany extends React.Component {
                 />
 
       
-            )}                
+            )}
+            </BackgroundView>
+        )}
+
+        {this.state.loading && ( 
+        <View style={styles.loadingQuestions}>
+          <ActivityIndicator size="large" color="#066A7F" />
+          
+        </View>
+      )}                
     
 
       </BackgroundView>
+
+      
     
 
     );
@@ -346,22 +376,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
-buttonContainer: {
-        flex: 1,
-        margin: 35,
-        marginTop: -80
-    },
-
-  
-
-buttonText: {
+  buttonContainer: {
+    flex: 1,
+    margin: 35,
+    marginTop: -80
+  },
+  loadingQuestions: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    color:'#000'
+  },
+  buttonText: {
     fontFamily: 'Merriweather-Regular',
     fontSize: 20,
     color: '#000',
     alignSelf: 'center',
-  },
-  button: {
+    },
+    button: {
     marginRight:120,
     marginLeft:120,
     marginTop:60,
@@ -371,9 +407,6 @@ buttonText: {
     borderColor: '#000',
     borderRadius:30,
     borderWidth: 3,
-
-    
-    
   },
   logo: {
     backgroundColor: '#000',
@@ -411,7 +444,4 @@ buttonText: {
     color: 'white',
     padding: 10,
   },
-
-  
-  
 });
