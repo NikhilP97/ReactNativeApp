@@ -120,6 +120,12 @@ export default class CreateAccountScreen extends Component {
     }
   }
 
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
+
 
   //Send data to DB using Axios
   putDataToDB = (userInfo) => {

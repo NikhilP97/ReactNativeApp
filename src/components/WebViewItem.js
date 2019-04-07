@@ -139,7 +139,7 @@ let getCorrectURI = {
 	'RAID': 'https://www.geeksforgeeks.org/raid/',
 	'SQL Basics': 'https://www.geeksforgeeks.org/structured-query-language/',
 	'SQL Datatypes': 'https://www.geeksforgeeks.org/sql-datatypes/',
-	'dbms Quiz': 'https://www.geeksforgeeks.org/dbms-gq/sql-gq/',
+	'dbms Quiz': 'https://www.geeksforgeeks.org/dbms-gq/er-and-relational-models-gq/',
 	'dbms Interview Questions': 'https://www.geeksforgeeks.org/commonly-asked-dbms-interview-questions/',
 	'dbms Important Topics': 'https://www.geeksforgeeks.org/last-minute-notes-dbms/',
 	'----------------------------aptitude':'links------------------------------------------------------',
@@ -157,6 +157,12 @@ export default class WebViewItem extends Component {
 		super(props);
 		console.log("props WebViewItem:", props);
 	}
+
+	static navigationOptions = {
+	    // title: `${getNavBarName[this.props.data]}`,
+	    headerTintColor: 'white',
+	    headerTitleStyle: { color: 'white' }
+  	};
 
 	render() {
 		return (

@@ -38,14 +38,21 @@ export default class ResultsScreen extends React.Component {
     this.theFinalScore = props.finalScore;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
-
-    
-
   }
+
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
 
   getPredictCompany = () =>{
     Actions.predictCompany(this.theFinalScore);
 
+  }
+
+  componentWillUnmount() {
+    Actions.popTo('quizStartScreen');
   }
 
   render() {
@@ -175,6 +182,7 @@ const styles = StyleSheet.create({
     paddingRight:10,
     paddingTop: 5,
     paddingBottom: 5,
+    backgroundColor: "#f6f5f3",
     borderColor: '#066A7F',
     borderRadius:40,
     borderWidth: 2,

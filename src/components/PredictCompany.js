@@ -23,73 +23,90 @@ import {Actions, ActionConst} from 'react-native-router-flux';
 
 export default class PredictCompany extends React.Component {
 
-    _onPress_Infosys(companyName) {
-      console.log("companyName to be passed: ", companyName);
-      Actions.infosys(companyName);
-    }
-
-
-    constructor(props) {
+  constructor(props) {
     super(props);
+    this.state = {
+      loading: true,
+    };
     console.log("props: ", props);
     this.theFinalScore = props.data;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
     this.results = 15;
+    console.log("Final Score: ", this.theFinalScore);
+  }
 
-	console.log("Final Score: ", this.theFinalScore);
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
 
+  _onPress_Infosys(companyName) {
+    console.log("companyName to be passed: ", companyName);
+    Actions.infosys(companyName);
+  }
 
+  ShowAlertWithDelay (){
+ 
+    // setTimeout(function(){
+    //   //Put All Your Code Here, Which You Want To Execute After Some Delay Time.
+    //   this.setState({ loading: false });
+    // }, 5000);
+
+    setTimeout(()=>{this.setState({ loading: false })}, 5000);
+  }
+
+  componentDidMount() {
+    this.ShowAlertWithDelay();
   }
 
 
-
   render() {
-      const items = [
+    const items = [
 
-      
-
-
-      { name: 'Infosys', code: '#427ABf' },
-      { name: 'Cognizant', code: '#9068be' },
-      { name: 'Fractal', code: '#0d87a1' },
-      { name: 'Capgemini', code: '#427AA1' },
-      { name: 'Citius Tech', code: '#427AA1' },
-      { name: 'Quantiphi', code: '#427AA1' },
-      { name: 'Deloitte', code: '#427AA1' },
-      { name: 'IVP', code: '#427AA1' },
-      { name: 'KPMG', code: '#427AA1' },
-      { name: 'Amdocs', code: '#922b21' }, 
-      { name: 'ISS', code: '#d4af37' },
-      { name: 'ZS Associates', code: '#9b59b6' },
-      { name: 'Carwale', code: '#edbb99' },
-      { name: 'Interactive Brokers', code: '#d6eaf8' },
-      { name: 'OM Partners', code: '#9a7d0a' },
-      { name: 'GEP', code: '#066A7F' },
-      { name: 'Amadeus', code: '#066A7F' },
-      { name: 'Siemens', code: '#066A7F' },
-      { name: 'LTTS', code: '#cadc1e' },
-      { name: 'Barclays', code: '#8edc1e' },
-      { name: 'Carwale', code: '#1ed9dc' },
-      { name: 'Nomura', code: '#801edc' },
-      { name: 'GEP', code: '#066A7F' },
-      { name: 'Amadeus', code: '#dc1e77' },
-      { name: 'HDFC', code: '#797d7f' },
-      { name: 'Amazon', code: '#6e2c00' },
-      { name: 'PhonePe', code: '#7d6608' },
-      { name: 'Credit Suisse', code: '#0d87a1' },
-      { name: 'JP Morgan Chase', code: '#5d6d7e' },
-      { name: 'Accolite', code: '#7c0a02' },
-      { name: 'Deutsche Bank', code: '#269ccc' },
-      { name: 'Morgan Stanley', code: '#1e27dc' },
-      { name: 'Microsoft', code: '#9955bb' },
-      
-    ];
+    { name: 'Infosys', code: '#427ABf' },
+    { name: 'Cognizant', code: '#9068be' },
+    { name: 'Fractal', code: '#0d87a1' },
+    { name: 'Capgemini', code: '#427AA1' },
+    { name: 'Citius Tech', code: '#427AA1' },
+    { name: 'Quantiphi', code: '#427AA1' },
+    { name: 'Deloitte', code: '#427AA1' },
+    { name: 'IVP', code: '#427AA1' },
+    { name: 'KPMG', code: '#427AA1' },
+    { name: 'Amdocs', code: '#922b21' }, 
+    { name: 'ISS', code: '#d4af37' },
+    { name: 'ZS Associates', code: '#9b59b6' },
+    { name: 'Carwale', code: '#edbb99' },
+    { name: 'Interactive Brokers', code: '#d6eaf8' },
+    { name: 'OM Partners', code: '#9a7d0a' },
+    { name: 'GEP', code: '#066A7F' },
+    { name: 'Amadeus', code: '#066A7F' },
+    { name: 'Siemens', code: '#066A7F' },
+    { name: 'LTTS', code: '#cadc1e' },
+    { name: 'Barclays', code: '#8edc1e' },
+    { name: 'Carwale', code: '#1ed9dc' },
+    { name: 'Nomura', code: '#801edc' },
+    { name: 'GEP', code: '#066A7F' },
+    { name: 'Amadeus', code: '#dc1e77' },
+    { name: 'HDFC', code: '#797d7f' },
+    { name: 'Amazon', code: '#6e2c00' },
+    { name: 'PhonePe', code: '#7d6608' },
+    { name: 'Credit Suisse', code: '#0d87a1' },
+    { name: 'JP Morgan Chase', code: '#5d6d7e' },
+    { name: 'Accolite', code: '#7c0a02' },
+    { name: 'Deutsche Bank', code: '#269ccc' },
+    { name: 'Morgan Stanley', code: '#1e27dc' },
+    { name: 'Microsoft', code: '#9955bb' },
+    
+  ];
 
     return (
       
            <BackgroundView>
 
+           {!this.state.loading && (
+            <BackgroundView>
             {this.results  < 25  &&  (
                 <SectionGrid
 
@@ -327,10 +344,21 @@ export default class PredictCompany extends React.Component {
                 />
 
       
-            )}                
+            )}
+            </BackgroundView>
+        )}
+
+        {this.state.loading && ( 
+        <View style={styles.loadingQuestions}>
+          <ActivityIndicator size="large" color="#066A7F" />
+          
+        </View>
+      )}                
     
 
       </BackgroundView>
+
+      
     
 
     );
@@ -346,22 +374,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
-buttonContainer: {
-        flex: 1,
-        margin: 35,
-        marginTop: -80
-    },
-
-  
-
-buttonText: {
+  buttonContainer: {
+    flex: 1,
+    margin: 35,
+    marginTop: -80
+  },
+  loadingQuestions: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+    color:'#000'
+  },
+  buttonText: {
     fontFamily: 'Merriweather-Regular',
     fontSize: 20,
     color: '#000',
     alignSelf: 'center',
-  },
-  button: {
+    },
+    button: {
     marginRight:120,
     marginLeft:120,
     marginTop:60,
@@ -371,9 +405,6 @@ buttonText: {
     borderColor: '#000',
     borderRadius:30,
     borderWidth: 3,
-
-    
-    
   },
   logo: {
     backgroundColor: '#000',
@@ -411,7 +442,4 @@ buttonText: {
     color: 'white',
     padding: 10,
   },
-
-  
-  
 });

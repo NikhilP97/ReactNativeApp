@@ -59,7 +59,7 @@ export default class MenuScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel }
 				        imageHeight={ widthToHeightwithLabel }
-				        onPress={() => Actions.menuItem('java')}
+				        onPress={() => Actions.menuItem({ data: 'java', title: 'Java' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -72,7 +72,7 @@ export default class MenuScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel }
 				        imageHeight={ widthToHeightwithLabel }
-				        onPress={() => Actions.aptitudeTopics('apti')}
+				        onPress={() => Actions.aptitudeTopics({ data: 'apti', title: 'Aptitude' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -83,7 +83,7 @@ export default class MenuScreen extends Component {
 				        source={ require('../images/menuLogos/c_final.png') }
 				        imageWidth={ widthToHeightwithoutLabel }
 				        imageHeight={ widthToHeightwithoutLabel }
-				        onPress={() => Actions.menuItem('cLang')}
+				        onPress={() => Actions.menuItem({ data: 'cLang', title: 'C Language' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -94,7 +94,7 @@ export default class MenuScreen extends Component {
 				        source={ require('../images/menuLogos/cpp_final.png') }
 				        imageWidth={ widthToHeightwithoutLabel }
 				        imageHeight={ widthToHeightwithoutLabel }
-				        onPress={() => Actions.menuItem('cppLang')}
+				        onPress={() => Actions.menuItem({ data: 'cppLang', title: 'C++ Language' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -107,7 +107,7 @@ export default class MenuScreen extends Component {
 				        imageHeight={ widthToHeightwithLabel }
 				        title={ 'Python' }
 				        titleFontSize={17}
-				        onPress={() => Actions.menuItem('python')}
+				        onPress={() => Actions.menuItem({ data: 'python', title: 'Python' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -120,7 +120,7 @@ export default class MenuScreen extends Component {
 				        imageHeight={ widthToHeightwithLabel }
 				        title={ 'Data Structures' }
 				        titleFontSize={17}
-				        onPress={() => Actions.menuItem('ds')}
+				        onPress={() => Actions.menuItem({ data: 'ds', title: 'Data Structures' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -132,7 +132,7 @@ export default class MenuScreen extends Component {
 				        imageHeight={ widthToHeightwithLabel }
 				        title={ 'Algorithms' }
 				        titleFontSize={17}
-				        onPress={() => Actions.menuItem('algos')}
+				        onPress={() => Actions.menuItem({ data: 'algos', title: 'Algorithms' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -144,7 +144,7 @@ export default class MenuScreen extends Component {
 				        imageHeight={ widthToHeightwithLabel-4 }
 				        title={ 'DBMS' }
 				        titleFontSize={17}
-				        onPress={() => Actions.menuItem('dbms')}
+				        onPress={() => Actions.menuItem({ data: 'dbms', title: 'DBMS' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }

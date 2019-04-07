@@ -49,6 +49,12 @@ export default class QuizQuestionScreen extends React.Component {
     };
   }
 
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
+
   // https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
   fetchQuestions = async () => {
     var concatenateArray = [[]];
@@ -503,6 +509,10 @@ export default class QuizQuestionScreen extends React.Component {
             </View>
           )}
 
+          
+
+          
+
 
         </View>
         </ScrollView>
@@ -537,8 +547,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   button: {
-    marginRight:150,
-    marginLeft:150,
+    marginRight:130,
+    marginLeft:130,
     marginTop:60,
     paddingTop:10,
     paddingBottom:10,
