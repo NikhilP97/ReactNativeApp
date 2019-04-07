@@ -70,6 +70,49 @@
 		<string>Octicons.ttf</string>
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
+		<string>Aleo-Bold.ttf</string>
+		<string>Aleo-BoldItalic.ttf</string>
+		<string>Aleo-Italic.ttf</string>
+		<string>Aleo-Light.ttf</string>
+		<string>Aleo-LightItalic.ttf</string>
+		<string>Aleo-Regular.ttf</string>
+		<string>BebasNeue-Bold.ttf</string>
+		<string>BebasNeue-Book.ttf</string>
+		<string>BebasNeue-Light.ttf</string>
+		<string>BebasNeue-Regular.ttf</string>
+		<string>BebasNeue-Thin.ttf</string>
+		<string>Hind-Bold.ttf</string>
+		<string>Hind-Light.ttf</string>
+		<string>Hind-Medium.ttf</string>
+		<string>Hind-Regular.ttf</string>
+		<string>Hind-SemiBold.ttf</string>
+		<string>Lobster-Regular.ttf</string>
+		<string>Merriweather-Black.ttf</string>
+		<string>Merriweather-BlackItalic.ttf</string>
+		<string>Merriweather-Bold.ttf</string>
+		<string>Merriweather-BoldItalic.ttf</string>
+		<string>Merriweather-Italic.ttf</string>
+		<string>Merriweather-Light.ttf</string>
+		<string>Merriweather-LightItalic.ttf</string>
+		<string>Merriweather-Regular.ttf</string>
+		<string>Raleway-Black.ttf</string>
+		<string>Raleway-BlackItalic.ttf</string>
+		<string>Raleway-Bold.ttf</string>
+		<string>Raleway-BoldItalic.ttf</string>
+		<string>Raleway-ExtraBold.ttf</string>
+		<string>Raleway-ExtraBoldItalic.ttf</string>
+		<string>Raleway-ExtraLight.ttf</string>
+		<string>Raleway-ExtraLightItalic.ttf</string>
+		<string>Raleway-Italic.ttf</string>
+		<string>Raleway-Light.ttf</string>
+		<string>Raleway-LightItalic.ttf</string>
+		<string>Raleway-Medium.ttf</string>
+		<string>Raleway-MediumItalic.ttf</string>
+		<string>Raleway-Regular.ttf</string>
+		<string>Raleway-SemiBold.ttf</string>
+		<string>Raleway-SemiBoldItalic.ttf</string>
+		<string>Raleway-Thin.ttf</string>
+		<string>Raleway-ThinItalic.ttf</string>
 	</array>
 </dict>
 </plist>

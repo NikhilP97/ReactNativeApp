@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
-
+import {StyleSheet, View, Text, Image, BackHandler, ToastAndroid } from 'react-native';
 import LoginScreen from './LoginScreen';
 import SecondScreen from './SecondScreen';
 import CreateAccountScreen from './CreateAccountScreen'
@@ -16,10 +16,39 @@ import StudyMatCards from './StudyMatCards'
 import AptitudeTopics from './AptitudeTopics'
 import ForgotPasswordScreen from './ForgotPasswordScreen'
 
+//variable 
+var backButtonPressedOnceToExit = false;
+
 export default class Main extends Component {
+
+	componentWillMount(){
+    	BackHandler.addEventListener('hardwareBackPress', this.onBackPress.bind(this));
+  	}
+
+  	componentWillUnmount(){
+    	BackHandler.removeEventListener('hardwareBackPress', this.onBackPress.bind(this));
+    }
+
+    onBackPress() {
+        if (backButtonPressedOnceToExit) {
+            BackHandler.exitApp();
+        } else {
+            if (Actions.currentScene !== 'loginScreen') {
+                Actions.pop();
+                return true;
+            } else {
+                backButtonPressedOnceToExit = true;
+                ToastAndroid.show("Press Back Button again to exit",ToastAndroid.SHORT);
+                //setting timeout is optional
+                setTimeout( () => { backButtonPressedOnceToExit = false }, 2000);
+                return true;
+            }
+        }
+    }
+
   render() {
 	  return (
-	    <Router navigationBarStyle={{ backgroundColor: '#427AA1' }} titleStyle={{color: 'white'}}>
+	    <Router backAndroidHandler={this.onBackPress} navigationBarStyle={{ backgroundColor: '#427AA1' }} titleStyle={{color: 'white'}}>
 	      <Scene key="root">
 	        <Scene key="loginScreen"
 	          component={LoginScreen}
@@ -30,7 +59,7 @@ export default class Main extends Component {
 	        <Scene key="secondScreen"
 	          component={SecondScreen}
 	          animation='fade'
-	          hideNavBar={true}
+	          hideNavBar={false}
 	        />
 	        <Scene key="createAccountScreen"
 	          component={CreateAccountScreen}
