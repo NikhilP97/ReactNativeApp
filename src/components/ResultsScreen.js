@@ -9,6 +9,7 @@ import {
   TouchableHighlight,
   ProgressBarAndroid,
   Platform,
+  ScrollView,
   
   
 } from "react-native";
@@ -87,6 +88,7 @@ export default class ResultsScreen extends React.Component {
 
 		
 	      <BackgroundView>
+        <ScrollView contentContainerStyle={{flexGrow: 1}}>
 	  		<View style={{ alignItems: "center", marginTop: 75, borderRadius: 60 }}>
 	  		  	<PureChart data={sampleData} type='pie' />
 
@@ -124,6 +126,7 @@ export default class ResultsScreen extends React.Component {
             <Text style={styles.buttonText}>Predict my Comapny</Text>
             </TouchableHighlight>
 	        </View>
+          </ScrollView>
           </BackgroundView>
 		
 
@@ -177,7 +180,7 @@ const styles = StyleSheet.create({
   button: {
     marginRight:10,
     marginLeft:10,
-    marginTop:75,
+    marginTop:25,
     paddingLeft:10,
     paddingRight:10,
     paddingTop: 5,
@@ -223,11 +226,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   button4: {
-    marginTop: 20,
+    marginTop: 30,
     backgroundColor:'#32CD32',
     height: 35,
     width: 250,
-    marginTop: 45,
+    //marginTop: 45,
 
     
     
