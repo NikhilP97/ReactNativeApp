@@ -141,7 +141,7 @@ export default class CreateAccountScreen extends Component {
       reEnterPassword : userInfo.reEnterPassword,
       email : userInfo.email,
     };
-    axios.post('https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/', obj)
+    axios.post('https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/userInfo', obj)
         .then(res => console.log(res.data)).catch(function (error) {
           console.log(error);
         });

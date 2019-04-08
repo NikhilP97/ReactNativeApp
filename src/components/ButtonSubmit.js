@@ -11,7 +11,8 @@ import {
   Alert,
   View,
   TouchableHighlight,
-  Button
+  Button,
+  ToastAndroid
 } from 'react-native';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
@@ -38,14 +39,62 @@ export default class ButtonSubmit extends Component {
     this.sendData = {
 
     };
-    console.log(this.props);
+    console.log("check ucid, password",this.props);
+  }
+
+  validateLogin = async (ucid, password) => {
+    //await this.setState({ loading: true });
+    let ucidString = ucid.toString();
+    let url = 'https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-db-usingID/'+ucidString;
+    console.log("final url:", url);
+    const response = await fetch(
+      url
+    ).then((response) => {
+    if(response.ok) {
+        return response.json();
+    } else {
+        throw new Error('Server response wasnt OK');
+        return false;
+    }
+    })
+    .then((responseJson) => {
+      // Do something with the response
+      console.log("JSOn: ", responseJson);
+      const getUserInfo = responseJson;//await response.json();
+      console.log("getUserInfo: ", getUserInfo);
+      const getUCID = getUserInfo.ucid;
+      const getPassword = getUserInfo.password;
+      console.log("getUCID, getPassword", getUCID, getPassword);
+      if(getPassword == password){
+        Actions.menuScreen();
+      } else {
+        ToastAndroid.show("Invalid Password",ToastAndroid.SHORT);
+      }
+    })
+    .catch((error) => {
+      ToastAndroid.show("Invalid UCID",ToastAndroid.SHORT);
+      console.log("error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1:",error);
+    });
+
+
+
+
+
+    
+
   }
 
   
 
   _onPress() {
     console.log("in on press");
-    Actions.menuScreen();
+    let validUCID = this.validateLogin(this.props.usernameVal, this.props.passwordVal);
+    console.log("validUCID", validUCID);
+    // if(!validUCID) {
+    //   ToastAndroid.show("Invalid UCID",ToastAndroid.SHORT);
+    // }
+    
+    
   }
 
   _onGrow() {

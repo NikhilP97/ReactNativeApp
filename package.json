@@ -23,9 +23,11 @@
     "react-native-pie": "^0.5.0",
     "react-native-progress": "^3.5.0",
     "react-native-pure-chart": "0.0.24",
+    "react-native-rename": "^2.4.1",
     "react-native-router-flux": "^4.0.6",
     "react-native-simple-card-view": "^0.3.0",
     "react-native-simple-radio-button": "^2.7.3",
+    "react-native-splash-screen": "^3.2.0",
     "react-native-super-grid": "^3.0.1",
     "react-native-svg": "^9.2.4",
     "react-native-svg-charts": "^5.2.0",
@@ -35,14 +37,11 @@
     "react-router-native": "^4.3.0",
     "tcomb-form-native": "^0.6.20"
   },
-
   "rnpm": {
-
-    "assets": [  
+    "assets": [
       "./src/assets/fonts/"
     ]
-},
-
+  },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "24.0.0",

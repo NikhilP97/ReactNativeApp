@@ -6,19 +6,24 @@ import Wallpaper from './Wallpaper';
 import ButtonSubmit from './ButtonSubmit';
 import SignupSection from './SignupSection';
 import BackgroundView from './BackgroundView'
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, BackHandler} from 'react-native';
+
+//variable 
+var backButtonPressedOnceToExit = false;
 
 export default class LoginScreen extends Component {
-  render() {
-    return (
-      
-      <BackgroundView>
-        <Logo />
-        <Form />
-      </BackgroundView>  
-      
-    );
-  }
+
+	
+
+
+	render() {
+		return (
+			<BackgroundView>
+			<Logo />
+			<Form />
+			</BackgroundView>  
+		);
+	}
 }
 
 
