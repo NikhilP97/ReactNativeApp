@@ -8,6 +8,7 @@ import SignupSection from './SignupSection';
 import BackgroundView from './BackgroundView'
 import {StyleSheet, View, Text, Image, BackHandler} from 'react-native';
 
+
 //variable 
 var backButtonPressedOnceToExit = false;
 

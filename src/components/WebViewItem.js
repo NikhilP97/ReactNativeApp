@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+import {
+  ToastAndroid,
+} from 'react-native';
 import { WebView } from 'react-native-webview';
+import {Actions, ActionConst} from 'react-native-router-flux';
 
 let getCorrectURI = {
 	'--------------------------------Java':'Lang------------------------------------',
@@ -174,6 +178,7 @@ export default class WebViewItem extends Component {
 	constructor(props) {
 		super(props);
 		console.log("props WebViewItem:", props);
+		this.handleError = this.handleError.bind(this);
 	}
 
 	static navigationOptions = {
@@ -182,10 +187,17 @@ export default class WebViewItem extends Component {
 	    headerTitleStyle: { color: 'white' }
   	};
 
+  	handleError(){
+  		console.disableYellowBox = true;
+  		ToastAndroid.show("No Internet Connection",ToastAndroid.SHORT);
+  		Actions.pop();
+  	}
+
 	render() {
 		return (
 			<WebView
 				source={{uri: getCorrectURI[this.props.data]}}
+				onError={()=> this.handleError()}
 			/>
 		);
 	}

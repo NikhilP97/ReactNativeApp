@@ -58,12 +58,26 @@ export default class QuizQuestionScreen extends React.Component {
   // https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
   fetchQuestions = async () => {
     var concatenateArray = [[]];
+    console.disableYellowBox = true;
     await this.setState({ loading: true });
     // using mLab
     // all questions 
     const response = await fetch(
       `https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-mongo-db/5c5c77a6e7179a2ed61138aa`
-    );
+    )
+    .catch((error) => {
+      Alert.alert(
+        'Network Error',
+        'Please try again',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed Quiz')},
+        ],
+        {cancelable: false},
+      );
+      console.log("Caught error",error);
+      Actions.pop();
+      return;
+    });
     // console.log("response", response);
     const getQuestions = await response.json();
     // console.log("getQuestions 0 ", getQuestions.results);

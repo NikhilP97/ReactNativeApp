@@ -13,7 +13,7 @@ import SplashScreen from 'react-native-splash-screen';
 export default class loginAnimation extends Component {
 
   componentWillMount() {
-    setTimeout(()=>{SplashScreen.hide()}, 100);
+    setTimeout(()=>{SplashScreen.hide()}, 2000);
   }
 
   render() {

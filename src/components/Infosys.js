@@ -16,7 +16,8 @@ import {
   Button,
   ActivityIndicator,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  Alert
 } from "react-native";
 
 var getCorrectURL = {
@@ -84,11 +85,25 @@ export default class LoginScreen extends Component {
 
   fetchData = async () => {
     await this.setState({ loading: true });
+    console.disableYellowBox = true;
     var selectedCompany = this.companyName;
     console.log("selectedCompany: ", selectedCompany)
     const response = await fetch(
       getCorrectURL[selectedCompany]
-    );
+    )
+    .catch((error) => {
+      Alert.alert(
+        'Network Error',
+        'Please try again',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed Quiz')},
+        ],
+        {cancelable: false},
+      );
+      console.log("Caught error",error);
+      Actions.pop();
+      return;
+    });
     // console.log("response", response);
     const getData = await response.json();
     // console.log("getQuestions 0 ", getQuestions.results);

@@ -12,12 +12,15 @@ import {
   View,
   TouchableHighlight,
   Button,
-  ToastAndroid
+  ToastAndroid,
+  ActivityIndicator,
+  NetInfo
 } from 'react-native';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
 import spinner from '../images/loading.gif';
 import Form from './Form'
+import Modal from "react-native-modal";
 //import BackgroundView from './BackgroundView'
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
@@ -29,8 +32,18 @@ export default class ButtonSubmit extends Component {
     super(props);
 
     this.state = {
-      isLoading: false,
+      loading: false,
+      modalVisible: false,
+      isConnected: true
     };
+
+    NetInfo.isConnected.fetch().then(isConnected => {
+        this.setState({isConnected});
+    });
+
+    console.log("isConnected constructor:", this.state.isConnected);
+
+    
 
     this.buttonAnimated = new Animated.Value(0);
     this.growAnimated = new Animated.Value(0);
@@ -42,17 +55,42 @@ export default class ButtonSubmit extends Component {
     console.log("check ucid, password",this.props);
   }
 
+  componentDidMount() {
+    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+  }
+
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
+  }
+
+  handleConnectivityChange = isConnected => {
+    this.setState({isConnected});
+  };
+
   validateLogin = async (ucid, password) => {
-    //await this.setState({ loading: true });
+    await this.setState({ modalVisible: true });
+    await this.setState({ loading: true });
+
     let ucidString = ucid.toString();
     let url = 'https://wt-0cd1e9e1874510cd90a9ec9f1e085110-0.sandbox.auth0-extend.com/express-with-db-usingID/'+ucidString;
     console.log("final url:", url);
     const response = await fetch(
       url
     ).then((response) => {
+      console.log("response: ", response);
     if(response.ok) {
         return response.json();
     } else {
+        this.setState({ modalVisible: false });
+        this.setState({ loading: false });
+        Alert.alert(
+          'Invalid UCID',
+          'Kindly check the UCID and try again',
+          [
+            {text: 'OK', onPress: () => console.log('OK Pressed Login')},
+          ],
+          {cancelable: false},
+        );
         throw new Error('Server response wasnt OK');
         return false;
     }
@@ -65,15 +103,38 @@ export default class ButtonSubmit extends Component {
       const getUCID = getUserInfo.ucid;
       const getPassword = getUserInfo.password;
       console.log("getUCID, getPassword", getUCID, getPassword);
+      this.setState({ modalVisible: false });
+      this.setState({ loading: false });
+
       if(getPassword == password){
         Actions.menuScreen();
       } else {
-        ToastAndroid.show("Invalid Password",ToastAndroid.SHORT);
+          Alert.alert(
+            'Invalid Password',
+            'Kindly check your Password and try again',
+            [
+            {text: 'OK', onPress: () => console.log('OK Pressed Login')},
+            ],
+            {cancelable: false},
+          );
+        // ToastAndroid.show("Invalid Password",ToastAndroid.SHORT);
       }
     })
     .catch((error) => {
-      ToastAndroid.show("Invalid UCID",ToastAndroid.SHORT);
-      console.log("error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1:",error);
+      this.setState({ modalVisible: false });
+      this.setState({ loading: false });
+      if(error === 'TypeError: Network request failed'){
+        console.log("made my life easy");
+      }
+      Alert.alert(
+        'Invalid UCID',
+        'Kindly check the UCID and try again',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed Login')},
+        ],
+        {cancelable: false},
+      );
+      console.log("Caught error",error);
     });
 
 
@@ -88,8 +149,22 @@ export default class ButtonSubmit extends Component {
 
   _onPress() {
     console.log("in on press");
+    console.log("isConnected: ", this.state.isConnected);
+    if(!this.state.isConnected){
+      console.log("No internet connection!");
+      Alert.alert(
+        'No Internet Connection',
+        'Kindly check your Internet Connection',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed Login')},
+        ],
+        {cancelable: false},
+      );
+      return;
+    }
     let validUCID = this.validateLogin(this.props.usernameVal, this.props.passwordVal);
     console.log("validUCID", validUCID);
+    console.log("validateLogin", this.validateLogin);
     // if(!validUCID) {
     //   ToastAndroid.show("Invalid UCID",ToastAndroid.SHORT);
     // }
@@ -123,11 +198,27 @@ export default class ButtonSubmit extends Component {
     return (
       
       <View style={styles.container}>
-        
+        <Modal
+        transparent={true}
+        animationType={'none'}
+        visible={this.state.modalVisible}
+        onRequestClose={() => {console.log('close modal')}}>
+          <View style={styles.modalBackground}>
+            <View style={styles.activityIndicatorWrapper}>
+            {this.state.loading && ( 
+              <View>
+                <ActivityIndicator size="large" color="#066A7F" />
+                <Text>Logging In</Text>
+              </View>
+            )}    
+            </View>
+          </View>
+        </Modal>
         <TouchableHighlight
           style={styles.button}
           onPress={this._onPress}
-          underlayColor="#f0f4f7">
+          underlayColor="#f0f4f7"
+        >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableHighlight>
       </View>
@@ -138,8 +229,10 @@ export default class ButtonSubmit extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 30,
+    
     borderRadius:20,
+    padding: 30,
+
   },
   buttonText: {
     fontSize: 18,
@@ -171,4 +264,23 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
   },
+  modalBackground: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    
+    
+  },
+  activityIndicatorWrapper: {
+    backgroundColor: '#fff',
+    height: 100,
+    width: 100,
+    borderRadius: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  }
 });
+
+//backgroundColor: '#00000040'
