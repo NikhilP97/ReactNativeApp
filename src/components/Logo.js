@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   image: {
     width: 100,

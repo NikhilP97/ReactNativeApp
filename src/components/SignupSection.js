@@ -43,7 +43,8 @@ const styles = StyleSheet.create({
     marginTop: 40,
     flexDirection: 'row',
     justifyContent: 'center',
-    borderRadius:20
+    borderRadius:20,
+    
   },
   buttonText: {
     fontSize: 18,

@@ -6,7 +6,9 @@ import {
   Image,
   Button,
   ActivityIndicator,
-  TouchableOpacity
+  TouchableOpacity,
+  NetInfo,
+  Alert
 } from "react-native";
 import QuizQuestionScreen from "./QuizQuestionScreen";
 import Icon from 'react-native-ionicons';
@@ -15,15 +17,64 @@ import BackgroundView from './BackgroundView'
 
 export default class QuizStartScreen extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+      modalVisible: false,
+      isConnected: true
+    };
+
+    NetInfo.isConnected.fetch().then(isConnected => {
+        this.setState({isConnected});
+    });
+
+    console.log("isConnected constructor:", this.state.isConnected);
+
+    this._onPress = this._onPress.bind(this);
+
+  }
+
+    
+
   static navigationOptions = {
     // title: 'Home screen',
     headerTintColor: 'white',
     headerTitleStyle: { color: 'white' }
   };
 
+  componentDidMount() {
+    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+  }
+
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
+  }
+
+  handleConnectivityChange = isConnected => {
+    this.setState({isConnected});
+  };
+
   _onPress() {
     // console.log("in on press");
-    Actions.quizQuestionScreen();
+    console.log("in on press Quiz Start screen");
+    console.log("isConnected: ", this.state.isConnected);
+    if(!this.state.isConnected){
+      console.log("No internet connection!");
+      Alert.alert(
+        'No Internet Connection',
+        'Kindly check your Internet Connection',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed Login')},
+        ],
+        {cancelable: false},
+      );
+      return;
+    } else {
+      Actions.quizQuestionScreen();
+    }
+    
   }
 
   render() {

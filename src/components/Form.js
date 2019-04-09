@@ -84,11 +84,14 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   container: {
   	
-    margin: 20,
+    padding: 20
+    
+    
   },
   textInput: {
     color: '#000',
     height: 40,
+
   },
   loginButton: {
   	position: 'absolute',
