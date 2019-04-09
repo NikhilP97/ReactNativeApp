@@ -14,10 +14,15 @@ let getNavBarName = {
 		default: 'Java',
 		interview: 'Java',
 	} ,
+		core: {
+		default: 'core',
+		interview: 'core',
+	} ,
 	apti: {
 		default: 'Aptitude',
 		interview: 'Aptitude',
 	},
+
 	cLang: {
 		default: 'C Language',
 		interview: 'C Language',

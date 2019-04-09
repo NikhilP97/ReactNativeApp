@@ -51,7 +51,19 @@ export default class MenuScreen extends Component {
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }    
 				    />
-					
+					<CardViewWithImage
+				        width={ screenWidth}
+				        source={ require('../images/menuLogos/core.png') }
+				        title={ 'Core' }
+				        titleFontSize={17}
+				        imageWidth={ widthToHeightwithLabel }
+				        imageHeight={ widthToHeightwithLabel }
+				        onPress={() => Actions.menuItem({ data: 'core', title: 'Core' })}
+				        roundedImage={ false }
+				        roundedImageValue={ 50 }
+				        style={ miniCardStyle }
+				        imageMargin={ {top: 5} }
+				    />
 					<CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/java_test.png') }
@@ -81,8 +93,8 @@ export default class MenuScreen extends Component {
 				    <CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/c_final.png') }
-				        imageWidth={ widthToHeightwithoutLabel }
-				        imageHeight={ widthToHeightwithoutLabel }
+				        imageWidth={ widthToHeightwithoutLabel -6 }
+				        imageHeight={ widthToHeightwithoutLabel -6}
 				        onPress={() => Actions.menuItem({ data: 'cLang', title: 'C Language' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -92,8 +104,8 @@ export default class MenuScreen extends Component {
 				    <CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/cpp_final.png') }
-				        imageWidth={ widthToHeightwithoutLabel }
-				        imageHeight={ widthToHeightwithoutLabel }
+				        imageWidth={ widthToHeightwithoutLabel -6}
+				        imageHeight={ widthToHeightwithoutLabel -6}
 				        onPress={() => Actions.menuItem({ data: 'cppLang', title: 'C++ Language' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -103,8 +115,8 @@ export default class MenuScreen extends Component {
 				    <CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/python_final.png') }
-				        imageWidth={ widthToHeightwithLabel }
-				        imageHeight={ widthToHeightwithLabel }
+				        imageWidth={ widthToHeightwithLabel +4 }
+				        imageHeight={ widthToHeightwithLabel +4}
 				        title={ 'Python' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem({ data: 'python', title: 'Python' })}
@@ -140,8 +152,8 @@ export default class MenuScreen extends Component {
 				    <CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/dbms_final.png') }
-				        imageWidth={ widthToHeightwithLabel-4 }
-				        imageHeight={ widthToHeightwithLabel-4 }
+				        imageWidth={ widthToHeightwithLabel+6 }
+				        imageHeight={ widthToHeightwithLabel+6 }
 				        title={ 'DBMS' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem({ data: 'dbms', title: 'DBMS' })}
@@ -163,7 +175,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex           : 2,
 		alignItems     : 'center',
-		paddingTop     : 5,
+		paddingTop     : 3,
 		},
 });
 

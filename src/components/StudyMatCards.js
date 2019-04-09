@@ -28,6 +28,24 @@ let getCardData = {
 		c15:'Interfaces',
 		c16:'Abstract Classes'
 	},
+	core:{
+		c1:'Digital Electronics',
+		c2:'Electronic device and circuit theory',
+		c3:'Basic Electronics',
+		c4: 'Microprocessors',
+		c5: 'Network Analysis and Synthesis',
+		c6: 'Power Electronics',
+		c7: 'Signals and Systems',
+		c8: 'Satellite Communication',
+		c9: 'Electromagnetic waves Theory',
+		c10:'Communication System',
+		c11:'Radio Receivers',
+		c12:'Measurement and Instrumentation',
+		c13:'Analog Electronics',
+		c14:'Automated Control System',
+		c15:'VLSI',
+		c16:'Embedded Systems'
+	},
 	cLang: {
 		c1: 'C Basics',
 		c2: 'C Functions',

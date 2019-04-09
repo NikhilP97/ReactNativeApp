@@ -147,8 +147,26 @@ let getCorrectURI = {
 	'lr': 'https://www.indiabix.com/logical-reasoning/questions-and-answers/',
 	'di': 'https://www.indiabix.com/data-interpretation/questions-and-answers/',
 	'verbal': 'https://www.indiabix.com/verbal-ability/questions-and-answers/',
-
-
+	'----------------------------core':'links------------------------------------------------------',
+	'Digital Electronics': 'https://www.indiabix.com/digital-electronics/questions-and-answers/',
+	'Electronic devices and circuit theory': 'https://www.indiabix.com/electronic-devices/questions-and-answers/',
+	'Basic Electronics': 'https://www.indiabix.com/electronics/questions-and-answers/',
+'Microprocessors': 'https://www.indiabix.com/electronics-and-communication-engineering/microprocessors/',
+'Network Analysis and Synthesis':'https://www.indiabix.com/electronics-and-communication-engineering/networks-analysis-and-synthesis/',
+'Power Electronics':'https://www.indiabix.com/electronics-and-communication-engineering/power-electronics/',
+'Signals and Systems':'https://www.indiabix.com/electronics-and-communication-engineering/signals-and-systems/',
+'Satellite Communication':'https://www.indiabix.com/electronics-and-communication-engineering/satellite-communication/',
+'Electromagnetic waves Theory':'https://www.indiabix.com/electronics-and-communication-engineering/electromagnetic-field-theory/',
+'Communication System':'https://www.indiabix.com/electronics-and-communication-engineering/communication-systems/',
+'Radio Receivers':'https://www.indiabix.com/electronics-and-communication-engineering/radio-receivers/',
+'Measurement and Instrumentation':'https://www.indiabix.com/electronics-and-communication-engineering/measurements-and-instrumentation/',
+'Analog Electronics':'https://www.indiabix.com/electronics-and-communication-engineering/analog-electronics/',
+'Automated Control System':'https://www.indiabix.com/electronics-and-communication-engineering/automatic-control-systems/',
+'VLSI':'https://www.sanfoundry.com/1000-vlsi-questions-answers/',
+'Embedded Systems':'https://www.sanfoundry.com/1000-embedded-system-questions-answers/',
+'core quiz':'https://www.sanfoundry.com/electronics-communication-engineering-questions-answers/',
+'core interview':'https://www.indiabix.com/placement-papers/bel/',
+'core important':'https://www.elprocus.com/top-5-things-to-read-while-preparing-for-electronics-job-interviews/'
 }
 
 
