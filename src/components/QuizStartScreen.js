@@ -21,8 +21,6 @@ export default class QuizStartScreen extends React.Component {
     super(props);
 
     this.state = {
-      loading: false,
-      modalVisible: false,
       isConnected: true
     };
 

@@ -9,7 +9,8 @@ import {
   TouchableHighlight,
   ProgressBarAndroid,
   Platform,
-  Image
+  Image,
+  NetInfo
   
 } from "react-native";
 
@@ -27,7 +28,14 @@ export default class PredictCompany extends React.Component {
     super(props);
     this.state = {
       loading: true,
+      isConnected: true
     };
+
+    NetInfo.isConnected.fetch().then(isConnected => {
+        this.setState({isConnected});
+    });
+    this._onPress_Infosys = this._onPress_Infosys.bind(this);
+
     console.log("props: ", props);
     this.theFinalScore = props.data;
     this.theCorrectAnswers = props.correctAns;
@@ -39,6 +47,18 @@ export default class PredictCompany extends React.Component {
     console.log("Final Score: ", this.theFinalScore);
   }
 
+  componentDidMount() {
+    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
+  }
+
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
+  }
+
+  handleConnectivityChange = isConnected => {
+    this.setState({isConnected});
+  };
+
   static navigationOptions = {
     // title: 'Home screen',
     headerTintColor: 'white',
@@ -47,7 +67,23 @@ export default class PredictCompany extends React.Component {
 
   _onPress_Infosys(companyName) {
     console.log("companyName to be passed: ", companyName);
-    Actions.infosys(companyName);
+    console.log("in on press Quiz Start screen");
+    console.log("isConnected: ", this.state.isConnected);
+    if(!this.state.isConnected){
+      console.log("No internet connection!");
+      Alert.alert(
+        'No Internet Connection',
+        'Kindly check your Internet Connection',
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed Login')},
+        ],
+        {cancelable: false},
+      );
+      return;
+    } else {
+      Actions.infosys(companyName);
+    }
+    
   }
 
   ShowAlertWithDelay (){
