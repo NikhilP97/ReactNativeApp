@@ -26,21 +26,24 @@ export default class PredictCompany extends React.Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
-      loading: true,
+      loading: false,
+      modalVisible: false,
       isConnected: true
     };
 
     NetInfo.isConnected.fetch().then(isConnected => {
         this.setState({isConnected});
     });
-    this._onPress_Infosys = this._onPress_Infosys.bind(this);
+
+    
 
     console.log("props: ", props);
     this.theFinalScore = props.data;
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
-    this.results = 70;
+    this.results = 7;
     this.verbalCutoff = 45;
     this.techCutoff =55;
     this.coreCutoff =0;

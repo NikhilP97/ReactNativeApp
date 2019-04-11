@@ -41,17 +41,16 @@ export default class ButtonSubmit extends Component {
         this.setState({isConnected});
     });
 
+    this._onPress = this._onPress.bind(this);
+
     console.log("isConnected constructor:", this.state.isConnected);
 
     
 
     this.buttonAnimated = new Animated.Value(0);
     this.growAnimated = new Animated.Value(0);
-    this._onPress = this._onPress.bind(this);
+    
 
-    this.sendData = {
-
-    };
     console.log("check ucid, password",this.props);
   }
 
@@ -84,8 +83,8 @@ export default class ButtonSubmit extends Component {
         this.setState({ modalVisible: false });
         this.setState({ loading: false });
         Alert.alert(
-          'Invalid UCID',
-          'Kindly check the UCID and try again',
+          'UCID not Registered',
+          'Kindly make an account and register your UCID',
           [
             {text: 'OK', onPress: () => console.log('OK Pressed Login')},
           ],
@@ -110,7 +109,7 @@ export default class ButtonSubmit extends Component {
         Actions.menuScreen();
       } else {
           Alert.alert(
-            'Invalid Password',
+            'Wrong Password',
             'Kindly check your Password and try again',
             [
             {text: 'OK', onPress: () => console.log('OK Pressed Login')},
@@ -127,8 +126,8 @@ export default class ButtonSubmit extends Component {
         console.log("made my life easy");
       }
       Alert.alert(
-        'Invalid UCID',
-        'Kindly check the UCID and try again',
+        'UCID not Registered',
+        'Kindly make an account and register your UCID',
         [
           {text: 'OK', onPress: () => console.log('OK Pressed Login')},
         ],
