@@ -37,6 +37,10 @@ export default class PredictCompany extends React.Component {
         this.setState({isConnected});
     });
 
+    this._onPress_Infosys = this._onPress_Infosys.bind(this);
+
+
+
     
 
     console.log("props: ", props);
@@ -53,17 +57,7 @@ export default class PredictCompany extends React.Component {
     console.log("Final Score: ", this.theFinalScore);
   }
 
-  componentDidMount() {
-    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
-  }
-
-  componentWillUnmount() {
-    NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
-  }
-
-  handleConnectivityChange = isConnected => {
-    this.setState({isConnected});
-  };
+  
 
   static navigationOptions = {
     // title: 'Home screen',
@@ -104,7 +98,18 @@ export default class PredictCompany extends React.Component {
 
   componentDidMount() {
     this.ShowAlertWithDelay();
+    NetInfo.isConnected.addEventListener('connectionChange', this.handleConnectivityChange);
   }
+
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener('connectionChange', this.handleConnectivityChange);
+  }
+
+  handleConnectivityChange = isConnected => {
+    this.setState({isConnected});
+  };
+
+  
 
 
 
