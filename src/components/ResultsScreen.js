@@ -47,10 +47,21 @@ export default class ResultsScreen extends React.Component {
     headerTitleStyle: { color: 'white' }
   };
 
-  getPredictCompany = () =>{
-    Actions.predictCompany(this.theFinalScore);
+  // getPredictCompany = () =>{
+  //   Actions.predictCompany(this.theFinalScore);
 
-  }
+  // }
+
+  getPredictCompany = () =>{
+            var predict_company_data = {
+            finalScore: this.theFinalScore, // here finalScore can be used in other file using props
+            correctAns: this.theCorrectAnswers,
+            secScore:   this.secScoreArray //[4,4,4,4,4] //
+            
+          }
+          console.log("predict_company_data: ", predict_company_data);
+          Actions.predictCompany(predict_company_data);
+    };
 
   componentWillUnmount() {
     Actions.popTo('quizStartScreen');

@@ -53,7 +53,7 @@ export default class MenuScreen extends Component {
 				    />
 					<CardViewWithImage
 				        width={ screenWidth}
-				        source={ require('../images/menuLogos/core.png') }
+				        source={ require('../images/menuLogos/core_final.png') }
 				        title={ 'Core' }
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel }
@@ -150,7 +150,7 @@ export default class MenuScreen extends Component {
 				        style={ miniCardStyle }
 				    />
 				    <CardViewWithImage
-				        width={ screenWidth}
+				        width={ (Dimensions.get("window").width) - 10}
 				        source={ require('../images/menuLogos/dbms_final.png') }
 				        imageWidth={ widthToHeightwithLabel+6 }
 				        imageHeight={ widthToHeightwithLabel+6 }
