@@ -3,7 +3,8 @@ import {
 	StyleSheet,
 	Dimensions,
 	View,
-	ScrollView
+	ScrollView,
+	StatusBar
 } from 'react-native';
 import { CardViewWithIcon, CardViewWithImage } from 'react-native-simple-card-view';
 import {Actions, ActionConst} from 'react-native-router-flux';
@@ -38,6 +39,7 @@ export default class MenuScreen extends Component {
 	    	<BackgroundView>
 	    	<ScrollView contentContainerStyle={{flexGrow: 1}}>
 	    	<View style={ styles.container }>
+	    		<StatusBar backgroundColor="#5487AA" barStyle="light-content" />
 		        <View style={ {alignItems   : "center",flexDirection: "row",flexWrap     : 'wrap',}}>
 		        	<CardViewWithImage
 				        width={ (Dimensions.get("window").width) - 10}
