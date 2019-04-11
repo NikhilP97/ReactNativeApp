@@ -40,10 +40,13 @@ export default class PredictCompany extends React.Component {
     
 
     console.log("props: ", props);
-    this.theFinalScore = props.data;
+    this.theFinalScore = props.finalScore;
+
     this.theCorrectAnswers = props.correctAns;
     this.secScoreArray = props.secScore;
+
     this.results = 7;
+
     this.verbalCutoff = 45;
     this.techCutoff =55;
     this.coreCutoff =0;
@@ -96,7 +99,7 @@ export default class PredictCompany extends React.Component {
     //   this.setState({ loading: false });
     // }, 5000);
 
-    setTimeout(()=>{this.setState({ loading: false })}, 1000);
+    setTimeout(()=>{this.setState({ loading: false })}, 3000);
   }
 
   componentDidMount() {
@@ -231,7 +234,7 @@ export default class PredictCompany extends React.Component {
 
            {!this.state.loading && (
             <BackgroundView>
-            {this.results  < 25  &&  (
+            {this.theFinalScore  < 25  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -271,7 +274,7 @@ export default class PredictCompany extends React.Component {
                 />
             )}
 
-          {this.results > 25 && this.results < 40  && this.techCutoff > this.verbalCutoff    &&  (
+          {this.theFinalScore > 25 && this.theFinalScore < 40  && this.secScoreArray[2] < this.secScoreArray[3]    &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -313,7 +316,7 @@ export default class PredictCompany extends React.Component {
             )}                
 
 
-            {this.results > 25 && this.results < 40  && this.verbalCutoff > this.techCutoff  &&  (
+            {this.theFinalScore > 25 && this.theFinalScore < 40  && this.secScoreArray[2] > this.secScoreArray[3]  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -355,7 +358,7 @@ export default class PredictCompany extends React.Component {
             )}                      
 
       
-          {this.results > 39 && this.results < 50    && this.techCutoff > this.verbalCutoff  &&  (
+          {this.theFinalScore > 39 && this.theFinalScore < 50    && this.secScoreArray[2] < this.secScoreArray[3]  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -397,7 +400,7 @@ export default class PredictCompany extends React.Component {
             )}             
 
 
-            {this.results > 39 && this.results < 50    && this.techCutoff < this.verbalCutoff  &&  (
+            {this.theFinalScore > 39 && this.theFinalScore < 50    && this.secScoreArray[2] > this.secScoreArray[3]  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -438,7 +441,7 @@ export default class PredictCompany extends React.Component {
       
             )}                   
 
-                  {this.results > 49 && this.results < 75 && this.techCutoff > this.verbalCutoff  &&  (
+                  {this.theFinalScore > 49 && this.theFinalScore < 75 && this.secScoreArray[2] < this.secScoreArray[3]  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -480,7 +483,7 @@ export default class PredictCompany extends React.Component {
             )}        
 
 
-                  {this.results > 49 && this.results < 75 && this.techCutoff < this.verbalCutoff  &&  (
+                  {this.theFinalScore > 49 && this.theFinalScore < 75 && this.secScoreArray[2] > this.secScoreArray[3]  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -521,7 +524,7 @@ export default class PredictCompany extends React.Component {
       
             )}        
 
-                  {this.results > 74 && this.results < 90  &&  (
+                  {this.theFinalScore > 74 && this.theFinalScore < 90  &&  (
                 <SectionGrid
 
                   itemDimension={110}
@@ -562,7 +565,7 @@ export default class PredictCompany extends React.Component {
       
             )}              
 
-                  {this.results > 89  &&  (
+                  {this.theFinalScore > 89  &&  (
                 <SectionGrid
 
                   itemDimension={110}

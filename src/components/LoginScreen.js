@@ -6,7 +6,7 @@ import Wallpaper from './Wallpaper';
 import ButtonSubmit from './ButtonSubmit';
 import SignupSection from './SignupSection';
 import BackgroundView from './BackgroundView'
-import {StyleSheet, View, Text, Image, BackHandler, StatusBar} from 'react-native';
+import {StyleSheet, View, Text, Image, BackHandler, StatusBar, ScrollView} from 'react-native';
 
 
 //variable 
@@ -20,9 +20,11 @@ export default class LoginScreen extends Component {
 	render() {
 		return (
 			<BackgroundView>
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
 			<StatusBar backgroundColor="#DDDCDA" barStyle="dark-content" />
 			<Logo />
 			<Form />
+      </ScrollView>
 			</BackgroundView>  
 		);
 	}

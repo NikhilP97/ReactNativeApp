@@ -21,7 +21,7 @@ import * as Progress from 'react-native-progress';
 import Pie from 'react-native-pie';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
-var totalQuestions = 1; //24
+var totalQuestions = 24; //24
 var questionsCompleted = false;
 export default class QuizQuestionScreen extends React.Component {
   constructor(props) {
@@ -287,6 +287,7 @@ export default class QuizQuestionScreen extends React.Component {
       if(multipleOfFive % 5 == 0){
         var index = multipleOfFive/5;
         // console.log("current section: ", index)
+        //
         var getSectionScore = this.state.results.score - this.state.lastSectionScore;
         this.setState({
           sectionScore: [...this.state.sectionScore, getSectionScore]
@@ -299,7 +300,8 @@ export default class QuizQuestionScreen extends React.Component {
             var sendData = {
             finalScore: this.state.results.score, // here finalScore can be used in other file using props
             correctAns: this.state.results.correctAnswers,
-            secScore:   [4,4,4,4,4] //this.state.sectionScore //
+            secScore:   this.state.sectionScore //[4,4,4,4,4] //
+            
           }
           console.log("sendData: ", sendData);
           Actions.resultsScreen(sendData);
