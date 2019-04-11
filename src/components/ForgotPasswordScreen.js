@@ -7,6 +7,7 @@ import {
   Text,
   Alert,
   ScrollView,
+  StatusBar
 } from 'react-native';
 
 import t from 'tcomb-form-native';
@@ -165,6 +166,7 @@ export default class ForgotPasswordScreen extends Component {
   render() {
     return (
       <BackgroundView>
+      <StatusBar backgroundColor="#5487AA" barStyle="light-content" />
       <ScrollView contentContainerStyle={{flexGrow: 1, padding: 20, paddingBottom: 40}}>
         <Form ref={c => (this._form = c)} type={User} options={options} />
         <TouchableHighlight
