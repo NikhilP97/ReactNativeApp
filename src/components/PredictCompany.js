@@ -269,7 +269,7 @@ export default class PredictCompany extends React.Component {
                 />
             )}
 
-          {this.theFinalScore > 25 && this.theFinalScore < 40  && this.secScoreArray[2] > this.secScoreArray[3]    &&  (
+          {this.theFinalScore > 25 && this.theFinalScore < 40  && this.secScoreArray[2] < this.secScoreArray[3]    &&  (
                 <SectionGrid
 
                   itemDimension={110}
