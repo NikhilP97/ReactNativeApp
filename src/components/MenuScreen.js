@@ -56,6 +56,19 @@ export default class MenuScreen extends Component {
 					<CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/core_final.png') }
+				        title={ 'Company wise Preparation' }
+				        titleFontSize={17}
+				        imageWidth={ widthToHeightwithLabel - 17 }
+				        imageHeight={ widthToHeightwithLabel - 17}
+				        onPress={() => Actions.companyprep()}
+				        roundedImage={ false }
+				        roundedImageValue={ 50 }
+				        style={ miniCardStyle }
+				        imageMargin={ {top: 5} }
+				    />
+				    <CardViewWithImage
+				        width={ screenWidth}
+				        source={ require('../images/menuLogos/core_final.png') }
 				        title={ 'Core' }
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel }
@@ -165,7 +178,8 @@ export default class MenuScreen extends Component {
 				        imageMargin={ {top: 5} }
 				    />
 				    <CardViewWithImage
-				        width={ screenWidth}
+				        //width={ screenWidth}
+				        width={ (Dimensions.get("window").width) - 10}
 				        source={ require('../images/menuLogos/policy_final.png') }
 				        imageWidth={ widthToHeightwithLabel+6 }
 				        imageHeight={ widthToHeightwithLabel+6 }
