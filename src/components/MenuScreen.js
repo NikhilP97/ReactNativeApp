@@ -152,13 +152,26 @@ export default class MenuScreen extends Component {
 				        style={ miniCardStyle }
 				    />
 				    <CardViewWithImage
-				        width={ (Dimensions.get("window").width) - 10}
+				        width={ screenWidth}
 				        source={ require('../images/menuLogos/dbms_final.png') }
 				        imageWidth={ widthToHeightwithLabel+6 }
 				        imageHeight={ widthToHeightwithLabel+6 }
 				        title={ 'DBMS' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem({ data: 'dbms', title: 'DBMS' })}
+				        roundedImage={ false }
+				        roundedImageValue={ 50 }
+				        style={ miniCardStyle }
+				        imageMargin={ {top: 5} }
+				    />
+				    <CardViewWithImage
+				        width={ screenWidth}
+				        source={ require('../images/menuLogos/policy_final.png') }
+				        imageWidth={ widthToHeightwithLabel+6 }
+				        imageHeight={ widthToHeightwithLabel+6 }
+				        title={ 'Placement Policy' }
+				        titleFontSize={17}
+				        onPress={() => Actions.placement_policy()}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
