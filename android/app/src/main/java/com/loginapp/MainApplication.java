@@ -3,6 +3,7 @@ package com.loginapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.wonday.pdf.RCTPdfView;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.horcrux.svg.SvgPackage;
@@ -17,6 +18,8 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
+import com.RNFetchBlob.RNFetchBlobPackage;  
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -29,10 +32,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RCTPdfView(),
             new SplashScreenReactPackage(),
             new RNCWebViewPackage(),
             new SvgPackage(),
             new RNCardViewPackage(),
+            new RNFetchBlobPackage(),
             
             new VectorIconsPackage()
       );

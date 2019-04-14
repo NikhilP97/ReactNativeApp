@@ -15,6 +15,7 @@ import WebViewItem from './WebViewItem'
 import StudyMatCards from './StudyMatCards'
 import AptitudeTopics from './AptitudeTopics'
 import ForgotPasswordScreen from './ForgotPasswordScreen'
+import PlacementPolicy from './PlacementPolicy'
 
 //variable 
 var backButtonPressedOnceToExit = false;
@@ -131,6 +132,12 @@ export default class Main extends Component {
 	          component={Infosys}
 	          animation='fade'
 	          title='Company Experience'
+	          hideNavBar={false}
+	        />
+	        <Scene key="placement_policy"
+	          component={PlacementPolicy}
+	          animation='fade'
+	          title='Placement Policy'
 	          hideNavBar={false}
 	        />
 
