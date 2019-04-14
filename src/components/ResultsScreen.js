@@ -23,7 +23,6 @@ import { SectionGrid } from 'react-native-super-grid';
 import {Actions, ActionConst} from 'react-native-router-flux';
 import { PieChart } from 'react-native-svg-charts';
 import { Circle, G, Image } from 'react-native-svg';
-import Images from '../images/abcd';
 import PureChart from 'react-native-pure-chart';
 
 

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import {StyleSheet, View, Text, Image, BackHandler, ToastAndroid } from 'react-native';
 import LoginScreen from './LoginScreen';
-import SecondScreen from './SecondScreen';
 import CreateAccountScreen from './CreateAccountScreen'
 import QuizStartScreen from './QuizStartScreen'
 import QuizQuestionScreen from './QuizQuestionScreen'
@@ -56,11 +55,6 @@ export default class Main extends Component {
 	        	animation='fade'
 	          hideNavBar={true}
 	          initial={true}
-	        />
-	        <Scene key="secondScreen"
-	          component={SecondScreen}
-	          animation='fade'
-	          hideNavBar={false}
 	        />
 	        <Scene key="createAccountScreen"
 	          component={CreateAccountScreen}

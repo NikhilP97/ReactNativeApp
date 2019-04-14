@@ -18,7 +18,6 @@ import {
 } from 'react-native';
 import {Actions, ActionConst} from 'react-native-router-flux';
 
-import spinner from '../images/loading.gif';
 import Form from './Form'
 import Modal from "react-native-modal";
 //import BackgroundView from './BackgroundView'

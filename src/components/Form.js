@@ -15,13 +15,10 @@ import { Icon } from 'react-native-elements'
 import PasswordInputText from 'react-native-hide-show-password-input';
 import { TextField } from 'react-native-material-textfield';
 
-import UserInput from './UserInput';
 import ButtonSubmit from './ButtonSubmit';
 import SignupSection from './SignupSection';
 
-import usernameImg from '../images/username.png';
-import passwordImg from '../images/password.png';
-import eyeImg from '../images/eye_black.png';
+
 //import BackgroundView from './BackgroundView'
 
 export default class Form extends Component {

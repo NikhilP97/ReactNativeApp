@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, Text, Image, StatusBar} from 'react-native';
 
-import logoImg from '../images/myImages/i7_cropped_3.png';
+import logoImg from '../images/homeScreenLogo/i7_cropped_3.png';
 //import BackgroundView from './BackgroundView'
 
 export default class Logo extends Component {
