@@ -29,6 +29,12 @@ export default class PlacementPolicy extends Component {
     super(props);
     this.pdf = null;
   }
+
+  static navigationOptions = {
+    // title: 'Home screen',
+    headerTintColor: 'white',
+    headerTitleStyle: { color: 'white' }
+  };
   
   render() {
     //const source = {uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf',cache:true};
