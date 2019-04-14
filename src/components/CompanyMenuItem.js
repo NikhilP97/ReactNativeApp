@@ -10,42 +10,46 @@ import {Actions, ActionConst} from 'react-native-router-flux';
 import BackgroundView from './BackgroundView'
 
 let getNavBarName = {
-	morgan_stanley: {
-		default: 'Morgan_stanley',
-		interview: 'Morgan_stanley',
+	'Morgan Stanley': {
+		default: 'Morgan Stanley',
+		interview: 'Morgan Stanley',
 	} ,
-	microsoft: {
+	'Microsoft': {
 		default: 'Microsoft',
 		interview: 'Microsoft',
 	} ,
-	deutsche_bank: {
-		default: 'Deutsche_bank',
-		interview: 'Deutsche_bank',
+	'Deutsche Bank': {
+		default: 'Deutsche Bank',
+		interview: 'Deutsche Bank',
 	},
 
-	jpmc: {
-		default: 'Jpmc',
-		interview: 'Jpmc',
+	'JP Morgan Chase': {
+		default: 'JP Morgan Chase',
+		interview: 'JP Morgan Chase',
 	},
-	accolite: {
+	'Accolite': {
 		default: 'Accolite',
 		interview: 'Accolite',
 	},
-	credit_suisse: {
-		default: 'Credit_suisse',
-		interview: 'Credit_suisse',
+	'Credit Suisse': {
+		default: 'Credit Suisse',
+		interview: 'Credit Suisse',
 	},
-	phonepe: {
-		default: 'Phonepe',
-		interview: 'Phonepe',
+	'PhonePe': {
+		default: 'PhonePe',
+		interview: 'PhonePe',
 	},
-	amazon: {
+	'Amazon': {
 		default: 'Amazon',
 		interview: 'Amazon',
 	},
-	barclays: {
+	'Barclays': {
 		default: 'Barclays',
 		interview: 'Barclays',
+	},
+	'Axxela': {
+		default: 'Axxela',
+		interview: 'Axxela',
 	}
 }
 
@@ -101,7 +105,7 @@ export default class CompanyMenuItem extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.studyMatCards({ data: this.props.data, title: getNavBarName[this.props.data].default })}
+				        onPress={() => Actions.webViewItem({ data: this.props.data, title: getNavBarName[this.props.data].default })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -114,7 +118,7 @@ export default class CompanyMenuItem extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem({ data: this.props.data+' Quiz', title: getNavBarName[this.props.data].default+' Quiz' })}
+				        onPress={() => Actions.companyInterviewExp({ data: this.props.data, title: getNavBarName[this.props.data].default })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -127,7 +131,7 @@ export default class CompanyMenuItem extends Component {
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
 				        imageHeight={ imgWidthToHeight }
-				        onPress={() => Actions.webViewItem({ data: this.props.data+' Interview Questions', title: getNavBarName[this.props.data].interview+' Interview Questions' })}
+				        onPress={() => Actions.companyTips({ data: this.props.data, title: getNavBarName[this.props.data].interview })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }

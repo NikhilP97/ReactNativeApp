@@ -17,6 +17,8 @@ import ForgotPasswordScreen from './ForgotPasswordScreen'
 import PlacementPolicy from './PlacementPolicy'
 import CompanyPrepScreen from './CompanyPrepScreen'
 import CompanyMenuItem from './CompanyMenuItem'
+import CompanyInterviewExp from './CompanyInterviewExp'
+import CompanyTips from './CompanyTips'
 
 //variable 
 var backButtonPressedOnceToExit = false;
@@ -90,6 +92,18 @@ export default class Main extends Component {
 	        />
 	        <Scene key="companymenuitem"
 	          component={CompanyMenuItem}
+	          animation='fade'
+	          title='Menu'
+	          hideNavBar={false}
+	        />
+	        <Scene key="companyInterviewExp"
+	          component={CompanyInterviewExp}
+	          animation='fade'
+	          title='Menu'
+	          hideNavBar={false}
+	        />
+	        <Scene key="companyTips"
+	          component={CompanyTips}
 	          animation='fade'
 	          title='Menu'
 	          hideNavBar={false}

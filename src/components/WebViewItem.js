@@ -170,7 +170,9 @@ let getCorrectURI = {
 	'Embedded Systems':'https://www.sanfoundry.com/1000-embedded-system-questions-answers/',
 	'core Quiz':'https://www.sanfoundry.com/electronics-communication-engineering-questions-answers/',
 	'core Interview Questions':'https://www.indiabix.com/placement-papers/bel/',
-	'core Important Topics':'https://www.elprocus.com/top-5-things-to-read-while-preparing-for-electronics-job-interviews/'
+	'core Important Topics':'https://www.elprocus.com/top-5-things-to-read-while-preparing-for-electronics-job-interviews/',
+	'-------------------------------------------------Company Wise':'Prep------------------------------------------------------------',
+	'Morgan Stanley': 'https://www.geeksforgeeks.org/morgan-stanley-interview-preparation/'
 }
 
 

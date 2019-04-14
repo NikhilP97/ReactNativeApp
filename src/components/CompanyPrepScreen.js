@@ -51,7 +51,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 60 }
 				        imageHeight={ widthToHeightwithLabel + 60}
-				        onPress={() => Actions.companymenuitem({ data: 'morgan_stanley', title: 'Morgan_Stanley' })}
+				        onPress={() => Actions.companymenuitem({ data: 'Morgan Stanley', title: 'Morgan Stanley' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -64,7 +64,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel +60 }
 				        imageHeight={ widthToHeightwithLabel + 60}
-				        onPress={() => Actions.companymenuitem({ data: 'microsoft', title: 'Microsoft' })}
+				        onPress={() => Actions.companymenuitem({ data: 'Microsoft', title: 'Microsoft' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -77,7 +77,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 65}
 				        imageHeight={ widthToHeightwithLabel + 55}
-				        onPress={() => Actions.companymenuitem({ data: 'deutsche_bank', title: 'Deutsche_bank' })}
+				        onPress={() => Actions.companymenuitem({ data: 'Deutsche Bank', title: 'Deutsche Bank' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -90,7 +90,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 60}
 				        imageHeight={ widthToHeightwithLabel + 60 }
-				        onPress={() => Actions.companymenuitem({ data: 'jpmc', title: 'Jpmc' })}
+				        onPress={() => Actions.companymenuitem({ data: 'JP Morgan Chase', title: 'JP Morgan Chase' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -103,7 +103,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 60 }
 				        imageHeight={ widthToHeightwithLabel + 60}
-				        onPress={() => Actions.companymenuitem({ data: 'accolite', title: 'Accolite' })}
+				        onPress={() => Actions.companymenuitem({ data: 'Accolite', title: 'Accolite' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -116,7 +116,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 60 }
 				        imageHeight={ widthToHeightwithLabel + 60}
-				        onPress={() => Actions.companymenuitem({ data: 'credit_suisse', title: 'Credit_suisse' })}
+				        onPress={() => Actions.companymenuitem({ data: 'Credit Suisse', title: 'Credit Suisse' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -129,7 +129,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 60 }
 				        imageHeight={ widthToHeightwithLabel + 60}
-				        onPress={() => Actions.companymenuitem({ data: 'phonepe', title: 'Phonepe' })}
+				        onPress={() => Actions.companymenuitem({ data: 'PhonePe', title: 'PhonePe' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -142,7 +142,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 60 }
 				        imageHeight={ widthToHeightwithLabel + 60}
-				        onPress={() => Actions.companymenuitem({ data: 'amazon', title: 'Amazon' })}
+				        onPress={() => Actions.companymenuitem({ data: 'Amazon', title: 'Amazon' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -155,7 +155,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 60 }
 				        imageHeight={ widthToHeightwithLabel + 60}
-				        onPress={() => Actions.companymenuitem({ data: 'barclays', title: 'Barclays' })}
+				        onPress={() => Actions.companymenuitem({ data: 'Barclays', title: 'Barclays' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
@@ -168,7 +168,7 @@ export default class CompanyPrepScreen extends Component {
 				        titleFontSize={17}
 				        imageWidth={ widthToHeightwithLabel + 60 }
 				        imageHeight={ widthToHeightwithLabel + 60}
-				        onPress={() => Actions.companymenuitem({ data: 'axxela', title: 'Axxela' })}
+				        onPress={() => Actions.companymenuitem({ data: 'Axxela', title: 'Axxela' })}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
 				        style={ miniCardStyle }
