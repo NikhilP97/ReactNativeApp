@@ -100,7 +100,7 @@ export default class ResultsScreen extends React.Component {
 		
 	      <BackgroundView>
         <ScrollView contentContainerStyle={{flexGrow: 1}}>
-	  		<View style={{ alignItems: "center", marginTop: 75, borderRadius: 60 }}>
+	  		<View style={{ alignItems: "center", marginTop: 75, borderRadius: 60, padding: 10 }}>
 	  		  	<PureChart data={sampleData} type='pie' />
 
 		      	
@@ -154,6 +154,7 @@ const styles = StyleSheet.create({
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'center',
+  padding: 10
   },
   buttonContainer: {
         flex: 1,

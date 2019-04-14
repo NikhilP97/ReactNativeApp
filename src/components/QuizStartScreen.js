@@ -8,7 +8,8 @@ import {
   ActivityIndicator,
   TouchableOpacity,
   NetInfo,
-  Alert
+  Alert,
+  ScrollView
 } from "react-native";
 import QuizQuestionScreen from "./QuizQuestionScreen";
 import Icon from 'react-native-ionicons';
@@ -78,6 +79,7 @@ export default class QuizStartScreen extends React.Component {
   render() {
     return (
       <BackgroundView>
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <View style={styles.container}>
         
         
@@ -130,6 +132,7 @@ export default class QuizStartScreen extends React.Component {
           </View>
         </TouchableOpacity>
       </View>
+      </ScrollView>
       </BackgroundView>
     );
   }
@@ -138,7 +141,7 @@ export default class QuizStartScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
+    padding: 10,
     alignItems: "center",
     
   },
