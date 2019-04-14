@@ -28,7 +28,7 @@ export default class PredictCompany extends React.Component {
     super(props);
 
     this.state = {
-      loading: false,
+      loading: true,
       modalVisible: false,
       isConnected: true
     };
