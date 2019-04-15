@@ -30,7 +30,8 @@ export default class MenuScreen extends Component {
 			margin            : 5,
 			borderRadius      : 3,
 			elevation         : 3,
-			width             : (Dimensions.get("window").width / 2) - 30
+			width             : (Dimensions.get("window").width / 2) - 30,
+			alignItems		  : "center"
     	};
     	const screenWidth = (Dimensions.get("window").width / 2) - 10;
     	const widthToHeightwithLabel =90;
@@ -55,11 +56,11 @@ export default class MenuScreen extends Component {
 				    />
 					<CardViewWithImage
 				        width={ screenWidth}
-				        source={ require('../images/menuLogos/core_final.png') }
-				        title={ 'Company wise Preparation' }
+				        source={ require('../images/menuLogos/cwp.png') }
+				        title={ 'Company Preparation' }
 				        titleFontSize={17}
-				        imageWidth={ widthToHeightwithLabel - 17 }
-				        imageHeight={ widthToHeightwithLabel - 17}
+				        imageWidth={ widthToHeightwithLabel - 3}
+				        imageHeight={ widthToHeightwithLabel - 3}
 				        onPress={() => Actions.companyprep()}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
@@ -143,8 +144,8 @@ export default class MenuScreen extends Component {
 				    <CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/ds_final.png') }
-				        imageWidth={ widthToHeightwithLabel }
-				        imageHeight={ widthToHeightwithLabel }
+				        imageWidth={ widthToHeightwithLabel + 4}
+				        imageHeight={ widthToHeightwithLabel + 4}
 				        title={ 'Data Structures' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem({ data: 'ds', title: 'Data Structures' })}
@@ -155,8 +156,8 @@ export default class MenuScreen extends Component {
 				    <CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/algos_final.png') }
-				        imageWidth={ widthToHeightwithLabel }
-				        imageHeight={ widthToHeightwithLabel }
+				        imageWidth={ widthToHeightwithLabel + 9}
+				        imageHeight={ widthToHeightwithLabel + 9 }
 				        title={ 'Algorithms' }
 				        titleFontSize={17}
 				        onPress={() => Actions.menuItem({ data: 'algos', title: 'Algorithms' })}

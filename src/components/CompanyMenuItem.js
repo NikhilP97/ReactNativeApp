@@ -113,7 +113,7 @@ export default class CompanyMenuItem extends Component {
 				    />
 				    <CardViewWithImage 
 				    	width={ screenWidth}
-				        source={ require('../images/menuLogos/quiz2_final.png') }
+				        source={ require('../images/menuLogos/interview1_final.png') }
 				        title={ 'Interview Experience' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }
@@ -126,7 +126,7 @@ export default class CompanyMenuItem extends Component {
 				    />
 				    <CardViewWithImage
 				    	width={ screenWidth}
-				        source={ require('../images/menuLogos/interview1_final.png') }
+				        source={ require('../images/menuLogos/tips.png') }
 				        title={ 'Tips' }
 				        titleFontSize={17}
 				        imageWidth={ imgWidthToHeight }

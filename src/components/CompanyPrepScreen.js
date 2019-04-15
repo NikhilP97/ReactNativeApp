@@ -75,7 +75,7 @@ export default class CompanyPrepScreen extends Component {
 				        source={ require('../images/menuLogos/deutsche_bank.png') }
 				        //title={ 'Deutsche Bank' }
 				        titleFontSize={17}
-				        imageWidth={ widthToHeightwithLabel + 65}
+				        imageWidth={ widthToHeightwithLabel + 68}
 				        imageHeight={ widthToHeightwithLabel + 55}
 				        onPress={() => Actions.companymenuitem({ data: 'Deutsche Bank', title: 'Deutsche Bank' })}
 				        roundedImage={ false }
