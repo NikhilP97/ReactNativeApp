@@ -57,10 +57,10 @@ export default class MenuScreen extends Component {
 					<CardViewWithImage
 				        width={ screenWidth}
 				        source={ require('../images/menuLogos/cwp.png') }
-				        title={ 'Company wise Preparation' }
+				        title={ 'Company Preparation' }
 				        titleFontSize={17}
-				        imageWidth={ widthToHeightwithLabel - 17 }
-				        imageHeight={ widthToHeightwithLabel - 17}
+				        imageWidth={ widthToHeightwithLabel - 3}
+				        imageHeight={ widthToHeightwithLabel - 3}
 				        onPress={() => Actions.companyprep()}
 				        roundedImage={ false }
 				        roundedImageValue={ 50 }
