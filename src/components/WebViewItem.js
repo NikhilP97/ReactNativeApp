@@ -172,7 +172,18 @@ let getCorrectURI = {
 	'core Interview Questions':'https://www.indiabix.com/placement-papers/bel/',
 	'core Important Topics':'https://www.elprocus.com/top-5-things-to-read-while-preparing-for-electronics-job-interviews/',
 	'-------------------------------------------------Company Wise':'Prep------------------------------------------------------------',
-	'Morgan Stanley': 'https://www.geeksforgeeks.org/morgan-stanley-interview-preparation/'
+	'Morgan Stanley': 'https://www.geeksforgeeks.org/morgan-stanley-interview-preparation/',
+	'Microsoft': 'https://www.geeksforgeeks.org/microsoft-interview-preparation/',
+	'Deutsche Bank': 'https://www.geeksforgeeks.org/deutsche-bank-interview-experience-set-1-on-campus/',
+	'JP Morgan Chase': 'https://www.geeksforgeeks.org/jp-morgan-chase-co-jpmc-interview-experience-full-time-software-engineer/',
+	'Accolite': 'https://www.geeksforgeeks.org/accolite-recruitment-process/',
+	'Credit Suisse': 'https://www.geeksforgeeks.org/credit-suisse-interview-for-technology-analyst/',
+	'PhonePe': 'https://www.geeksforgeeks.org/morgan-stanley-interview-preparation/',
+	'Amazon': 'https://www.geeksforgeeks.org/amazon-interview-preparation/',
+	'Barclays': 'https://www.geeksforgeeks.org/barclays-investment-bank-pune-interview-experience-on-campus-interview/',
+	'Axxela': 'https://www.geeksforgeeks.org/axxela-advisory-services-interview-experience/',
+
+
 }
 
 
