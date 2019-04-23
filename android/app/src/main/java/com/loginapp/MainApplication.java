@@ -7,7 +7,7 @@ import org.wonday.pdf.RCTPdfView;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 import com.horcrux.svg.SvgPackage;
-import com.kishanjvaghela.cardview.RNCardViewPackage;
+
 
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -36,7 +36,7 @@ public class MainApplication extends Application implements ReactApplication {
             new SplashScreenReactPackage(),
             new RNCWebViewPackage(),
             new SvgPackage(),
-            new RNCardViewPackage(),
+            
             new RNFetchBlobPackage(),
             
             new VectorIconsPackage()
