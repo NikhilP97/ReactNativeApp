@@ -36,7 +36,7 @@ export default class QuizQuestionScreen extends React.Component {
       getSelectedValue:'',
       getIndex: -1,
       radio_props : [],
-      countDownTime: 20,
+      countDownTime: 60,
       questionProgess: 0,
       sectionScore: [0],
       lastSectionScore: 0,
@@ -223,7 +223,7 @@ export default class QuizQuestionScreen extends React.Component {
           correctAnswers: 0
         },
         completed: false,
-        countDownTime: 20,
+        countDownTime: 60,
         questionProgess: 0,
       },
       () => {
