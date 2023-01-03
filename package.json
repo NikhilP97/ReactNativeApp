@@ -12,7 +12,7 @@
     "nodemon": "^1.18.9",
     "prop-types": "^15.6.2",
     "react": "16.6.3",
-    "react-native": "0.58.3",
+    "react-native": "0.58.6",
     "react-native-countdown-circle": "^3.0.0",
     "react-native-elements": "^1.0.0",
     "react-native-flexi-radio-button": "^0.2.2",
